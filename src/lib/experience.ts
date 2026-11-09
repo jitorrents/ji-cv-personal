@@ -35,8 +35,3 @@ export function yearsOfExperience(experience: Experience[]): number {
   const first = experience.map((e) => e.start).sort()[0];
   return first ? Math.floor(monthsBetween(first) / 12) : 0;
 }
-
-/** Number of different employers. */
-export function companyCount(experience: Experience[]): number {
-  return new Set(experience.map((e) => e.company)).size;
-}

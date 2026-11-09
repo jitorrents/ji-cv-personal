@@ -35,20 +35,19 @@ Before calling work done, `lint`, `typecheck` and `build` must pass. Also serve 
 
 ## Site structure
 
-A single home page of full-width colored bands (layout inspired by stockagile.com: logo strip under the hero, step strip, stats band, colored CTA band; never copy its content) with anchor navigation and scroll spy, plus a separate `/cv/` print page. The section order is in `src/lib/routes.ts` (`sections`), and sections without content are skipped.
+A single home page of full-width colored bands (layout inspired by stockagile.com: logo strip under the hero, step strip, colored CTA band; never copy its content) with anchor navigation and scroll spy, plus a separate `/cv/` print page. The section order is in `src/lib/routes.ts` (`sections`), and sections without content are skipped.
 
-| Section (`src/components/sections/`) | Tone   | Notes                                                                                                   |
-| ------------------------------------ | ------ | ------------------------------------------------------------------------------------------------------- |
-| `HeroSection`                        | stone  | Photo (`basics.photo`) or initials, name, headline, View CV / Contact / LinkedIn, drifting color shapes |
-| `LogoStripSection`                   | cloud  | "Certified by" marquee of issuer logos (decorative, `aria-hidden`)                                      |
-| `StatsSection`                       | spruce | Count-up numbers (`CountUp`) computed from the data                                                     |
-| `AboutSection`                       | plain  | Summary plus `CareerPath` (roles oldest to newest as connected steps)                                   |
-| `ExperienceSection`                  | cloud  | Timeline grouped by company (`groupByCompany`)                                                          |
-| `TeachingSection`                    | skye   | `collaborations`                                                                                        |
-| `SkillsSection`                      | plain  | By category, **no progress bars or percentages**                                                        |
-| `EducationSection`                   | cloud  | Degrees and languages                                                                                   |
-| `CertificationsSection`              | earth  | Issuer logos (`components/logos/`), moving logo strip, cards grouped by issuer                          |
-| `ContactSection`                     | red    | Encoded email, profiles (no contact form)                                                               |
+| Section (`src/components/sections/`) | Tone  | Notes                                                                                                   |
+| ------------------------------------ | ----- | ------------------------------------------------------------------------------------------------------- |
+| `HeroSection`                        | stone | Photo (`basics.photo`) or initials, name, headline, View CV / Contact / LinkedIn, drifting color shapes |
+| `LogoStripSection`                   | cloud | "Certified by" marquee of issuer logos (decorative, `aria-hidden`)                                      |
+| `AboutSection`                       | plain | Summary plus `CareerPath` (roles oldest to newest as connected steps)                                   |
+| `ExperienceSection`                  | cloud | Timeline grouped by company (`groupByCompany`)                                                          |
+| `TeachingSection`                    | skye  | `collaborations`                                                                                        |
+| `SkillsSection`                      | plain | By category, **no progress bars or percentages**                                                        |
+| `EducationSection`                   | cloud | Degrees and languages                                                                                   |
+| `CertificationsSection`              | earth | Issuer logos (`components/logos/`), moving logo strip, cards grouped by issuer                          |
+| `ContactSection`                     | red   | Encoded email, profiles (no contact form)                                                               |
 
 `/cv/` (`src/app/cv/page.tsx`) shows the whole CV as an A4 document (`CvDocument`) with a Download PDF button (`window.print()`). The header (sticky, scroll-spy nav, CV button, theme toggle, mobile menu) and the footer (stone) live in `src/components/layout/`. Section eyebrows and titles are UI text in `labels.ts`. `Band` wraps each section, and `Reveal` fades content in on scroll.
 
@@ -65,7 +64,7 @@ A single home page of full-width colored bands (layout inspired by stockagile.co
 - **Print**: `@page` is A4. Ctrl+P on `/cv/` must give a clean one- or two-page resume in light colors (it is 2 pages at the moment). Hide the nav, toggle and decorative elements (class `no-print`) and avoid page breaks inside roles. "Download CV" opens the print dialog or links to a PDF generated from the site at build time. It must **never** link to `resume.pdf`.
 - **Accessibility**: semantic landmarks, skip link, visible focus states, WCAG AA contrast in both themes, alt text, keyboard-usable controls with `aria-label`.
 - **SEO**: root `metadata` (title, description, canonical, Open Graph, Twitter card), a static OG image, `robots.txt`, `sitemap.xml`, and JSON-LD `Person` built from `resume.ts`.
-- **Performance**: Lighthouse ≥ 95 on mobile in all four categories. Server Components by default. Use `"use client"` only for interactive pieces (`ThemeToggle`, `NavLinks`, `MobileMenu`, `ObfuscatedEmail`, `PrintButton`, `Reveal`, `CountUp`).
+- **Performance**: Lighthouse ≥ 95 on mobile in all four categories. Server Components by default. Use `"use client"` only for interactive pieces (`ThemeToggle`, `NavLinks`, `MobileMenu`, `ObfuscatedEmail`, `PrintButton`, `Reveal`).
 - **Dependencies**: keep runtime dependencies to `next`, `react` and `react-dom`, and justify any new one. TypeScript stays on 6.x until typescript-eslint supports 7.
 - **Git**: make small commits and do not push unless asked.
 

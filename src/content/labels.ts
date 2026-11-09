@@ -37,12 +37,6 @@ export const labels = {
     title: "Curriculum vitae",
     intro: "The full CV laid out for A4. Use Download PDF to save or print it.",
   },
-  stats: {
-    years: "years in IT",
-    companies: "companies",
-    certifications: "certifications",
-    languages: "languages",
-  },
   education: {
     degrees: "Degrees",
     languages: "Languages",
