@@ -6,7 +6,7 @@ export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:30
   "",
 );
 
-export const repoUrl = "https://github.com/TODO-user/ji-cv-personal"; // TODO(verify): GitHub user
+export const repoUrl = "https://github.com/jitorrents/ji-cv-personal";
 
 /** Build timestamp, used for the "last updated" footer. */
 export const buildDate = new Date();
