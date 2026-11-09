@@ -13,6 +13,8 @@ export const labels = {
     contact: "Contact",
   },
   cvLink: "CV",
+  logoStrip: "Certified by",
+  careerPath: "Career path",
   sections: {
     about: { eyebrow: "Who I am", title: "About" },
     experience: {

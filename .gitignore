@@ -39,6 +39,10 @@ next-env.d.ts
 resume.pdf
 linkedin.pdf
 linkedin-*.pdf
+# original personal photo and palette reference (the site uses public/photo.webp)
+Foto personal*
+foto-personal*
+colourpalete.png
 linkedin.zip
 linkedin/
 Basic_LinkedInDataExport_*

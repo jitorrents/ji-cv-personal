@@ -35,13 +35,14 @@ Before calling work done, `lint`, `typecheck` and `build` must pass. Also serve 
 
 ## Site structure
 
-A single home page of full-width colored bands with anchor navigation and scroll spy, plus a separate `/cv/` print page. The section order is in `src/lib/routes.ts` (`sections`), and sections without content are skipped.
+A single home page of full-width colored bands (layout inspired by stockagile.com: logo strip under the hero, step strip, stats band, colored CTA band; never copy its content) with anchor navigation and scroll spy, plus a separate `/cv/` print page. The section order is in `src/lib/routes.ts` (`sections`), and sections without content are skipped.
 
 | Section (`src/components/sections/`) | Tone   | Notes                                                                                                   |
 | ------------------------------------ | ------ | ------------------------------------------------------------------------------------------------------- |
 | `HeroSection`                        | stone  | Photo (`basics.photo`) or initials, name, headline, View CV / Contact / LinkedIn, drifting color shapes |
+| `LogoStripSection`                   | cloud  | "Certified by" marquee of issuer logos (decorative, `aria-hidden`)                                      |
 | `StatsSection`                       | spruce | Count-up numbers (`CountUp`) computed from the data                                                     |
-| `AboutSection`                       | plain  | Summary                                                                                                 |
+| `AboutSection`                       | plain  | Summary plus `CareerPath` (roles oldest to newest as connected steps)                                   |
 | `ExperienceSection`                  | cloud  | Timeline grouped by company (`groupByCompany`)                                                          |
 | `TeachingSection`                    | skye   | `collaborations`                                                                                        |
 | `SkillsSection`                      | plain  | By category, **no progress bars or percentages**                                                        |
@@ -59,7 +60,7 @@ A single home page of full-width colored bands with anchor navigation and scroll
 - **Base path**: the site must work at `/` and at `/ji-cv-personal`. Use `next/link` for routes. Prefix raw `/public` paths with `asset()` from `src/lib/site.ts`.
 - **Content**: all CV text lives in `src/content/resume.ts` (typed by `types.ts`). All UI strings live in `src/content/labels.ts`, so Spanish and Catalan can be added later (no i18n routing unless asked). Components never hard-code either.
 - **Dates** are stored as `YYYY-MM` and formatted only through `src/lib/dates.ts`.
-- **Privacy**: show city and country only. No phone number, address or birth date. The email is passed encoded (`encodeEmail`) and only decoded in the browser by `ObfuscatedEmail`, on click or on `beforeprint`. It must never appear in the static HTML or the React payload: check with `grep -r ji.torrents out/`. The user wants their photo: set `basics.photo` to a file under `public/`.
+- **Privacy**: show city and country only. No phone number, address or birth date. The email is passed encoded (`encodeEmail`) and only decoded in the browser by `ObfuscatedEmail`, on click or on `beforeprint`. It must never appear in the static HTML or the React payload: check with `grep -r ji.torrents out/`. The user's photo is `public/photo.webp` (640px, metadata stripped). The original `Foto personal1.jpg` is gitignored.
 - **Theme**: original, minimal, plenty of whitespace. Use only the brand palette: Warm Red `#FF462D`, White, Spruce `#29707A`, Earth `#9E9287`, Cloud `#F2F1EE`, Skye `#E4F4F1`, Dark Stone `#3D3C3C` and Digital Dark Earth `#565049`. **No greens**: the user dislikes them, so Spring Green, Deep Forest and Digital Dark Spring Green are excluded. Each band is a `tone-*` class in `src/app/globals.css` that sets `--band/--fg/--muted/--title/--link/--card/--line`. Components only use `bg-band`, `text-fg`, `text-muted`, `text-title`, `text-link`, `bg-card` and `border-line`, plus the fixed brand colors (`bg-warm`, `bg-spruce`, and so on). Section titles are colored per band, with no decorative underline. Warm red is only used as text at large sizes, following the palette's AA chart. Dark mode is the `data-theme` attribute on `<html>`, set by the inline script in `layout.tsx`, which also adds the `js` class used by `Reveal`. Keep motion subtle and respect `prefers-reduced-motion`.
 - **Print**: `@page` is A4. Ctrl+P on `/cv/` must give a clean one- or two-page resume in light colors (it is 2 pages at the moment). Hide the nav, toggle and decorative elements (class `no-print`) and avoid page breaks inside roles. "Download CV" opens the print dialog or links to a PDF generated from the site at build time. It must **never** link to `resume.pdf`.
 - **Accessibility**: semantic landmarks, skip link, visible focus states, WCAG AA contrast in both themes, alt text, keyboard-usable controls with `aria-label`.

@@ -12,6 +12,8 @@ export const resume: Resume = {
     summary:
       "Computer science engineer with a Master in Project Management and a long career in IT and consulting. I started in software development as a programmer, analyst and architect, then moved into project and service management, business development and team leadership. Today I am Head of Data in Kyndryl's Applications, Data & AI area, where I combine management, commercial and technical skills to grow the business, backed by deep knowledge of data from a strategic, governance and technology perspective.",
     location: "Barcelona, Spain",
+    // Published with the user's consent (Nov 2026). Source: "Foto personal1.jpg", resized, no metadata.
+    photo: "/photo.webp",
     email: { user: "ji.torrents", domain: "gmail.com" },
     profiles: [
       {

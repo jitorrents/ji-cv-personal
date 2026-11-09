@@ -6,40 +6,11 @@ import { Reveal } from "@/components/ui/Reveal";
 import { groupByIssuer } from "@/lib/certifications";
 import { formatYearMonth } from "@/lib/dates";
 
-/** Endless strip of issuer logos (decorative; the grid below carries the content). */
-function LogoMarquee({ issuers }: { issuers: string[] }) {
-  const row = (hidden: boolean) => (
-    <ul aria-hidden={hidden || undefined} className="flex shrink-0 items-center gap-4 pr-4">
-      {issuers.map((issuer) => (
-        <li
-          key={issuer}
-          className="tone-plain flex items-center gap-3 rounded-full bg-band px-5 py-2.5 text-fg"
-        >
-          <IssuerLogo issuer={issuer} className="size-6" />
-          <span className="text-sm font-semibold whitespace-nowrap">{issuer}</span>
-        </li>
-      ))}
-    </ul>
-  );
-  return (
-    <div
-      aria-hidden="true"
-      className="no-print group -mx-4 mb-12 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] sm:-mx-6"
-    >
-      <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused]">
-        {row(false)}
-        {row(true)}
-      </div>
-    </div>
-  );
-}
-
 export function CertificationsSection() {
   const s = labels.sections.certifications;
   const groups = groupByIssuer(resume.certifications);
   return (
     <Band id="certifications" tone="earth" eyebrow={s.eyebrow} title={s.title}>
-      <LogoMarquee issuers={groups.map(([issuer]) => issuer)} />
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {groups.map(([issuer, certs], i) => (
           <Reveal key={issuer} delay={(i % 3) * 100} className="h-full">
