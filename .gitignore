@@ -34,3 +34,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# source resume (never commit)
+resume.pdf
+
+# generated at build time
+public/CNAME
