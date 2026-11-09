@@ -43,9 +43,9 @@ A single home page of full-width colored bands (layout inspired by stockagile.co
 | `LogoStripSection`                   | cloud | "Certified by" marquee of issuer logos (decorative, `aria-hidden`)                                                                                                 |
 | `AboutSection`                       | plain | Summary plus `CareerPath` (roles oldest to newest as connected steps)                                                                                              |
 | `ExperienceSection`                  | cloud | Timeline grouped by company (`groupByCompany`)                                                                                                                     |
-| `TeachingSection`                    | skye  | `collaborations`                                                                                                                                                   |
+| `EducationSection`                   | skye  | Degrees and languages                                                                                                                                              |
 | `SkillsSection`                      | earth | Skills & certifications merged: skill cards by category (**no progress bars or percentages**), then certification cards by issuer with logos (`CertificationGrid`) |
-| `EducationSection`                   | cloud | Degrees and languages                                                                                                                                              |
+| `TeachingSection`                    | cloud | `collaborations`                                                                                                                                                   |
 | `PublicPresenceSection`              | plain | `publicPresence` items (talks, panels, articles, press); shown even when empty, with a "coming soon" note                                                          |
 | `ContactSection`                     | red   | Encoded email, profiles (no contact form)                                                                                                                          |
 

@@ -1,4 +1,3 @@
-import { CompanyLogo } from "@/components/ui/CompanyLogo";
 import { labels } from "@/content/labels";
 import { resume } from "@/content/resume";
 
@@ -21,15 +20,16 @@ export function CareerPath() {
               key={`${job.company}-${job.start}`}
               className="relative w-44 shrink-0 snap-start pr-4 lg:w-auto lg:min-w-0 lg:flex-1"
             >
-              {/* connector, through the middle of the logo tiles */}
+              {/* connector */}
               {i < steps.length - 1 && (
-                <span aria-hidden="true" className="absolute top-5 left-5 h-0.5 w-full bg-line" />
+                <span
+                  aria-hidden="true"
+                  className="absolute top-[7px] left-4 h-0.5 w-full bg-line"
+                />
               )}
-              <CompanyLogo
-                company={job.company}
-                logo={job.companyLogo}
-                size="sm"
-                className={`relative ${current ? "ring-2 ring-warm" : ""}`}
+              <span
+                aria-hidden="true"
+                className={`relative block size-4 rounded-full ring-4 ring-band ${current ? "bg-warm" : "bg-spruce"}`}
               />
               <p className="mt-4 font-display text-2xl font-bold text-title lg:text-xl xl:text-2xl">
                 {job.start.slice(0, 4)}

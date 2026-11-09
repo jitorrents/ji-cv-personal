@@ -6,9 +6,9 @@ export const sections: SectionId[] = (
   [
     ["about", Boolean(resume.basics.summary)],
     ["experience", resume.experience.length > 0],
-    ["teaching", Boolean(resume.collaborations?.length)],
-    ["skills", resume.skills.length > 0 || resume.certifications.length > 0],
     ["education", resume.education.length > 0 || resume.languages.length > 0],
+    ["skills", resume.skills.length > 0 || resume.certifications.length > 0],
+    ["teaching", Boolean(resume.collaborations?.length)],
     // Shown even when empty, with a "coming soon" note.
     ["presence", true],
     ["contact", true],

@@ -9,7 +9,7 @@ export function TeachingSection() {
   if (!resume.collaborations?.length) return null;
   const s = labels.sections.teaching;
   return (
-    <Band id="teaching" tone="skye" eyebrow={s.eyebrow} title={s.title} kpis={kpis.teaching()}>
+    <Band id="teaching" tone="cloud" eyebrow={s.eyebrow} title={s.title} kpis={kpis.teaching()}>
       <ul className="grid gap-5 md:grid-cols-3">
         {resume.collaborations.map((c, i) => (
           <li key={`${c.organization}-${c.role}`}>

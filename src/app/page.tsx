@@ -16,9 +16,9 @@ export default function Home() {
       <LogoStripSection />
       <AboutSection />
       <ExperienceSection />
-      <TeachingSection />
-      <SkillsSection />
       <EducationSection />
+      <SkillsSection />
+      <TeachingSection />
       <PublicPresenceSection />
       <ContactSection />
     </>

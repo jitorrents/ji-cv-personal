@@ -41,7 +41,7 @@ function SchoolLogo({ logo }: { logo?: string }) {
 export function EducationSection() {
   const s = labels.sections.education;
   return (
-    <Band id="education" tone="cloud" eyebrow={s.eyebrow} title={s.title} kpis={kpis.education()}>
+    <Band id="education" tone="skye" eyebrow={s.eyebrow} title={s.title} kpis={kpis.education()}>
       <div className="grid gap-12 lg:grid-cols-[2fr_1fr]">
         <div>
           <h3 className="sr-only">{labels.education.degrees}</h3>
