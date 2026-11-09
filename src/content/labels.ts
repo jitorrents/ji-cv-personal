@@ -7,7 +7,7 @@ export const labels = {
     about: "About",
     experience: "Experience",
     teaching: "Teaching",
-    skills: "Skills",
+    skills: "Skills & Certifications",
     education: "Education",
     presence: "Public presence",
     contact: "Contact",
@@ -23,7 +23,7 @@ export const labels = {
       intro: "Roles and responsibilities, newest first.",
     },
     teaching: { eyebrow: "Sharing knowledge", title: "Teaching & mentoring" },
-    skills: { eyebrow: "What I do", title: "Skills & certifications" },
+    skills: { eyebrow: "What I do", title: "Skills & Certifications" },
     education: { eyebrow: "Learning", title: "Education & languages" },
     presence: {
       eyebrow: "Out there",

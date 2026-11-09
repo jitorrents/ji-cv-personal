@@ -4,6 +4,7 @@ import { monthsBetween } from "./dates";
 export interface CompanyGroup {
   company: string;
   companyUrl?: string;
+  companyLogo?: string;
   start: YearMonth;
   end?: YearMonth;
   roles: Experience[];
@@ -21,6 +22,7 @@ export function groupByCompany(experience: Experience[]): CompanyGroup[] {
       groups.push({
         company: role.company,
         companyUrl: role.companyUrl,
+        companyLogo: role.companyLogo,
         start: role.start,
         end: role.end,
         roles: [role],

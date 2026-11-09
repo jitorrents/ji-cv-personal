@@ -28,6 +28,7 @@ export const resume: Resume = {
     {
       company: "Kyndryl",
       companyUrl: "https://www.kyndryl.com",
+      companyLogo: "/logos/kyndryl.webp",
       role: "Head of Data – Applications, Data & AI, Kyndryl Consult",
       location: "Barcelona, Spain",
       start: "2025-01",
@@ -52,6 +53,7 @@ export const resume: Resume = {
     {
       company: "Kyndryl",
       companyUrl: "https://www.kyndryl.com",
+      companyLogo: "/logos/kyndryl.webp",
       role: "Customer Technology Advisor for Data & AI, Kyndryl Consult",
       location: "Barcelona, Spain",
       start: "2022-02",
@@ -93,6 +95,7 @@ export const resume: Resume = {
     },
     {
       company: "SII Concatel",
+      companyLogo: "/logos/sii-concatel.webp",
       role: "Project Manager / Atlassian Consultant",
       location: "Barcelona, Spain",
       start: "2015-03",
@@ -106,6 +109,7 @@ export const resume: Resume = {
     },
     {
       company: "Indra",
+      companyLogo: "/logos/indra.webp",
       role: "J2EE Analyst",
       location: "Barcelona, Spain",
       start: "2014-04",
@@ -118,6 +122,7 @@ export const resume: Resume = {
     },
     {
       company: "GFT",
+      companyLogo: "/logos/gft.webp",
       role: "J2EE Analyst Programmer",
       start: "2013-06",
       end: "2014-04",
@@ -130,6 +135,7 @@ export const resume: Resume = {
     },
     {
       company: "Indra",
+      companyLogo: "/logos/indra.webp",
       role: "J2EE Analyst Programmer",
       location: "Barcelona, Spain",
       // LinkedIn gives only the year (2007); the month comes from the old CV.
@@ -295,7 +301,7 @@ export const resume: Resume = {
     { name: "ACP-620 Atlassian Certified in Managing Jira Cloud Projects", issuer: "Atlassian" },
     // TODO(verify): issuer not stated in either source.
     { name: "ITIL® Foundation Certificate in IT Service Management" },
-    { name: "First Certificate in English (FCE)", issuer: "Cambridge" },
+    { name: "First Certificate in English (FCE)", issuer: "Cambridge", featured: false },
   ],
 
   languages: [

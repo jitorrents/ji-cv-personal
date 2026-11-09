@@ -13,6 +13,8 @@ export interface Profile {
 export interface Experience {
   company: string;
   companyUrl?: string;
+  /** Company logo, path under /public (e.g. "/logos/kyndryl.webp"). Initials are shown when missing. */
+  companyLogo?: string;
   role: string;
   location?: string;
   employmentType?: string;
@@ -39,6 +41,8 @@ export interface Certification {
   name: string;
   issuer?: string;
   date?: PartialDate;
+  /** false = keep it out of the "Certified by" logo strip (still listed in the section). Default true. */
+  featured?: boolean;
   url?: string;
 }
 

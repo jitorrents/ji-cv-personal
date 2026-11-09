@@ -1,6 +1,7 @@
 import { labels } from "@/content/labels";
 import { resume } from "@/content/resume";
 import { Band } from "@/components/ui/Band";
+import { CompanyLogo } from "@/components/ui/CompanyLogo";
 import { Reveal } from "@/components/ui/Reveal";
 import { TagList } from "@/components/ui/Tag";
 import { formatDuration, formatRange, monthsBetween } from "@/lib/dates";
@@ -24,16 +25,19 @@ export function ExperienceSection() {
           <li key={`${g.company}-${g.start}`}>
             <Reveal>
               <article className="rounded-3xl bg-card p-6 shadow-sm transition-shadow hover:shadow-md sm:p-8">
-                <header className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                  <h3 className="font-display text-2xl font-bold tracking-tight">
-                    {g.companyUrl ? (
-                      <a href={g.companyUrl} className="hover:text-link">
-                        {g.company}
-                      </a>
-                    ) : (
-                      g.company
-                    )}
-                  </h3>
+                <header className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+                  <div className="flex items-center gap-4">
+                    <CompanyLogo company={g.company} logo={g.companyLogo} />
+                    <h3 className="font-display text-2xl font-bold tracking-tight">
+                      {g.companyUrl ? (
+                        <a href={g.companyUrl} className="hover:text-link">
+                          {g.company}
+                        </a>
+                      ) : (
+                        g.company
+                      )}
+                    </h3>
+                  </div>
                   <p className="rounded-full bg-band px-3 py-0.5 text-sm text-muted">
                     {formatDuration(monthsBetween(g.start, g.end))}
                   </p>

@@ -8,7 +8,8 @@ import { groupByIssuer } from "@/lib/certifications";
  * Decorative: the certifications section carries the same content as text.
  */
 export function LogoStripSection() {
-  const issuers = groupByIssuer(resume.certifications)
+  // Only issuers with at least one featured certification (see Certification.featured).
+  const issuers = groupByIssuer(resume.certifications.filter((c) => c.featured !== false))
     .map(([issuer]) => issuer)
     .filter((i) => i !== "Other");
   if (!issuers.length) return null;
