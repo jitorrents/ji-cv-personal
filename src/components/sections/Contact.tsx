@@ -1,6 +1,7 @@
 import { resume } from "@/content/resume";
 import { Section } from "@/components/ui/Section";
 import { ObfuscatedEmail } from "@/components/ui/ObfuscatedEmail";
+import { encodeEmail } from "@/lib/email";
 
 export function Contact() {
   const { email, profiles } = resume.basics;
@@ -9,7 +10,7 @@ export function Contact() {
       <ul className="space-y-2">
         {email && (
           <li>
-            <ObfuscatedEmail user={email.user} domain={email.domain} />
+            <ObfuscatedEmail encoded={encodeEmail(email.user, email.domain)} />
           </li>
         )}
         {profiles.map((p) => (

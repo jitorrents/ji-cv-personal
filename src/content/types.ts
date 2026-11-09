@@ -1,6 +1,9 @@
 /** Year and month, e.g. "2021-03". */
 export type YearMonth = `${number}-${number}`;
 
+/** Year only ("2015") or year and month ("2015-09"), for sources that give no month. */
+export type PartialDate = `${number}` | YearMonth;
+
 export interface Profile {
   network: string;
   url: string;
@@ -25,15 +28,15 @@ export interface Education {
   institution: string;
   degree: string;
   field?: string;
-  start?: YearMonth;
-  end?: YearMonth;
+  start?: PartialDate;
+  end?: PartialDate;
   notes?: string;
 }
 
 export interface Certification {
   name: string;
-  issuer: string;
-  date?: YearMonth;
+  issuer?: string;
+  date?: PartialDate;
   url?: string;
 }
 
@@ -69,6 +72,18 @@ export interface Volunteering {
   description?: string;
 }
 
+/** Teaching, mentoring, talks and similar work outside the main job. */
+export interface Collaboration {
+  organization: string;
+  role: string;
+  location?: string;
+  start: YearMonth;
+  /** undefined = "Present" */
+  end?: YearMonth;
+  description?: string;
+  url?: string;
+}
+
 export interface Resume {
   basics: {
     name: string;
@@ -87,6 +102,7 @@ export interface Resume {
   certifications: Certification[];
   skills: SkillGroup[];
   languages: Language[];
+  collaborations?: Collaboration[];
   projects?: Project[];
   awards?: Award[];
   volunteering?: Volunteering[];

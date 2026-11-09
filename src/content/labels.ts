@@ -4,6 +4,7 @@ export const labels = {
   nav: {
     about: "About",
     experience: "Experience",
+    collaborations: "Teaching",
     skills: "Skills",
     projects: "Projects",
     education: "Education",

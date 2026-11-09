@@ -16,6 +16,7 @@ export function EducationSection() {
             <p className="text-sm text-muted">
               {e.institution}
               {e.start && e.end ? ` · ${formatYearMonth(e.start)} – ${formatYearMonth(e.end)}` : ""}
+              {!e.start && e.end ? ` · ${formatYearMonth(e.end)}` : ""}
             </p>
             {e.notes && <p className="mt-1">{e.notes}</p>}
           </li>

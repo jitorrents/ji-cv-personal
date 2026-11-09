@@ -6,6 +6,7 @@ export function navSections(): SectionId[] {
   const has: Record<SectionId, boolean> = {
     about: Boolean(resume.basics.summary),
     experience: resume.experience.length > 0,
+    collaborations: Boolean(resume.collaborations?.length),
     skills: resume.skills.length > 0,
     projects: Boolean(resume.projects?.length),
     education: resume.education.length > 0,

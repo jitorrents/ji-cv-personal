@@ -12,7 +12,7 @@ export function Certifications() {
             <span className="font-medium">{c.url ? <a href={c.url}>{c.name}</a> : c.name}</span>
             <span className="text-sm text-muted">
               {" "}
-              · {c.issuer}
+              {c.issuer ? `· ${c.issuer}` : ""}
               {c.date ? ` · ${formatYearMonth(c.date)}` : ""}
             </span>
           </li>

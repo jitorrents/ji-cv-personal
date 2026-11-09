@@ -1,16 +1,17 @@
 import { labels } from "@/content/labels";
-import type { YearMonth } from "@/content/types";
+import type { PartialDate, YearMonth } from "@/content/types";
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-function parse(ym: YearMonth): { year: number; month: number } {
+function parse(ym: PartialDate): { year: number; month: number } {
   const [y, m] = ym.split("-").map(Number);
   return { year: y ?? 0, month: m ?? 1 };
 }
 
-export function formatYearMonth(ym: YearMonth): string {
+/** "Mar 2021", or just "2021" when no month is stored. */
+export function formatYearMonth(ym: PartialDate): string {
   const { year, month } = parse(ym);
-  return `${MONTHS[month - 1]} ${year}`;
+  return ym.includes("-") ? `${MONTHS[month - 1]} ${year}` : String(year);
 }
 
 /** Whole months between two dates, counting both ends (LinkedIn style). */
