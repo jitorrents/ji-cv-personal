@@ -29,7 +29,8 @@ function Portrait() {
           alt={name}
           width={448}
           height={448}
-          priority
+          loading="eager"
+          fetchPriority="high"
           className="relative size-40 rounded-full object-cover ring-8 ring-white/10 sm:size-56"
         />
       ) : (
@@ -41,6 +42,8 @@ function Portrait() {
 
 export function HeroSection() {
   const { name, headline, location, profiles } = resume.basics;
+  // Current role = first entry without an end date; its logo sits next to the headline.
+  const current = resume.experience.find((e) => !e.end);
   const linkedin = profiles.find((p) => p.network === "LinkedIn");
 
   return (
@@ -77,7 +80,20 @@ export function HeroSection() {
           >
             {name}
           </h1>
-          <p className="mt-5 text-xl text-pretty text-muted sm:text-2xl">{headline}</p>
+          <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-3">
+            {current?.companyLogo && (
+              <span className="inline-flex h-10 w-28 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white px-3 shadow-lg shadow-black/20">
+                <Image
+                  src={asset(current.companyLogo)}
+                  alt={current.company}
+                  width={192}
+                  height={192}
+                  className="h-24 w-full object-cover"
+                />
+              </span>
+            )}
+            <p className="text-xl text-pretty text-muted sm:text-2xl">{headline}</p>
+          </div>
           <div className="no-print mt-10 flex flex-wrap gap-3">
             <Link href="/cv/" className={buttonClass.primary}>
               {labels.viewCv}
