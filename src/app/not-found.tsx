@@ -1,15 +1,16 @@
 import Link from "next/link";
+import { buttonClass } from "@/components/ui/button";
 import { labels } from "@/content/labels";
 
 export default function NotFound() {
   return (
-    <main id="main" className="mx-auto flex min-h-screen max-w-xl flex-col justify-center px-4">
-      <p className="text-sm font-medium text-accent">404</p>
-      <h1 className="mt-2 text-3xl font-semibold">{labels.notFoundTitle}</h1>
+    <div className="flex min-h-[60vh] flex-col items-start justify-center py-20">
+      <p className="font-display text-7xl font-bold text-accent">404</p>
+      <h1 className="mt-4 font-display text-3xl font-semibold">{labels.notFoundTitle}</h1>
       <p className="mt-3 text-muted">{labels.notFoundBody}</p>
-      <Link href="/" className="mt-6 font-medium text-accent underline underline-offset-4">
+      <Link href="/" className={`${buttonClass.primary} mt-8`}>
         {labels.backHome}
       </Link>
-    </main>
+    </div>
   );
 }

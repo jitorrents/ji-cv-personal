@@ -1,11 +1,18 @@
-import type { SectionId } from "@/content/labels";
-import { labels } from "@/content/labels";
-
-export function Section({ id, children }: { id: SectionId; children: React.ReactNode }) {
+export function Section({
+  id,
+  title,
+  children,
+  className = "",
+}: {
+  id: string;
+  title: string;
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
-    <section id={id} aria-labelledby={`${id}-title`} className="scroll-mt-20 py-12">
-      <h2 id={`${id}-title`} className="mb-6 text-2xl font-semibold tracking-tight">
-        {labels.nav[id]}
+    <section id={id} aria-labelledby={`${id}-title`} className={`scroll-mt-24 py-10 ${className}`}>
+      <h2 id={`${id}-title`} className="mb-6 font-display text-2xl font-semibold tracking-tight">
+        {title}
       </h2>
       {children}
     </section>

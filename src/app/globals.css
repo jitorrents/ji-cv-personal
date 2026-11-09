@@ -5,23 +5,25 @@
 
 /* Design tokens: the only place colors and fonts are defined. */
 :root {
-  --bg: #fbfbfa;
+  --bg: #f6f6f3;
   --surface: #ffffff;
-  --fg: #1c1d21;
-  --muted: #5b5f6a;
-  --border: #e3e4e8;
-  --accent: #0f6e6e;
+  --fg: #15171c;
+  --muted: #545a65;
+  --border: #e2e3e7;
+  --accent: #0b6a68;
   --accent-fg: #ffffff;
+  --accent-soft: #e2f0ee;
 }
 
 [data-theme="dark"] {
-  --bg: #111215;
-  --surface: #191b1f;
-  --fg: #e9eaee;
-  --muted: #a1a5b0;
-  --border: #2c2f36;
-  --accent: #4fc7c0;
-  --accent-fg: #0b1414;
+  --bg: #0e1012;
+  --surface: #16191c;
+  --fg: #e8eaed;
+  --muted: #a0a6b0;
+  --border: #282c32;
+  --accent: #5ccac1;
+  --accent-fg: #06201e;
+  --accent-soft: #132e2c;
 }
 
 @theme inline {
@@ -32,7 +34,21 @@
   --color-border: var(--border);
   --color-accent: var(--accent);
   --color-accent-fg: var(--accent-fg);
+  --color-accent-soft: var(--accent-soft);
   --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-heading), var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --animate-rise: rise 0.6s ease-out both;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
 }
 
 html {
@@ -48,6 +64,12 @@ body {
   color: var(--fg);
 }
 
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -56,25 +78,48 @@ body {
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }
 
-/* Print: clean light resume, no chrome. Refined in the print step. */
+/* Print: A4, light colors, no site chrome. The /cv page is laid out for this. */
+@page {
+  size: A4;
+  margin: 12mm 14mm;
+}
+
 @media print {
   :root,
   [data-theme="dark"] {
     --bg: #fff;
     --surface: #fff;
-    --fg: #000;
-    --muted: #333;
-    --border: #ccc;
-    --accent: #000;
+    --fg: #111;
+    --muted: #444;
+    --border: #d4d4d4;
+    --accent: #0b5a58;
+    --accent-soft: #fff;
+    color-scheme: light;
+  }
+  html {
+    font-size: 9.5pt;
+  }
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   .no-print {
     display: none !important;
   }
-  article {
+  article,
+  li {
     break-inside: avoid;
+  }
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+  a {
+    text-decoration: none;
   }
 }

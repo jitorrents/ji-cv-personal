@@ -35,9 +35,17 @@ Before calling work done, `lint`, `typecheck` and `build` must pass. Also serve 
 
 ## Site structure
 
-A single page with anchor navigation, in this order unless the reference site suggests otherwise:
+Multiple routes, modelled on the reference site (separate pages, not anchors). Routes are listed in `src/lib/routes.ts`. A page with no content is left out of the nav and the sitemap.
 
-Header (sticky, mobile menu, theme toggle) → Hero (name, headline, location, Contact / LinkedIn / Download CV) → About (summary plus key facts such as years of experience and focus areas) → Experience (timeline with dates, duration, highlights, tech tags) → Skills (by category, **no progress bars or percentages**) → Projects (only if there is content) → Education → Certifications → Languages → Contact (no contact form) → Footer (copyright, build-time "last updated", repository link).
+| Route          | File                          | Content                                                                                                                                                                                                                            |
+| -------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/`            | `src/app/page.tsx`            | Hero (location, name, headline, View CV / Contact / LinkedIn, monogram instead of a photo) → key facts → About → Focus areas (skills by category, **no progress bars or percentages**) → Explore cards → Contact (no contact form) |
+| `/experience/` | `src/app/experience/page.tsx` | Timeline grouped by company (`groupByCompany`), with dates, duration, highlights and tech tags                                                                                                                                     |
+| `/teaching/`   | `src/app/teaching/page.tsx`   | `collaborations` (La Salle teaching and mentoring)                                                                                                                                                                                 |
+| `/education/`  | `src/app/education/page.tsx`  | Degrees, certifications grouped by issuer, languages                                                                                                                                                                               |
+| `/cv/`         | `src/app/cv/page.tsx`         | The whole CV as an A4 document (`CvDocument`) plus a Download PDF button (`window.print()`)                                                                                                                                        |
+
+The header (sticky, active-link nav, theme toggle, mobile menu) and footer (copyright, build-time "last updated", route links, repository link) live in `src/components/layout/`. Page sections live in `src/components/sections/` and shared pieces in `src/components/ui/`. Page eyebrows, titles and intros are UI text in `labels.ts`.
 
 ## Rules
 
@@ -45,12 +53,12 @@ Header (sticky, mobile menu, theme toggle) → Hero (name, headline, location, C
 - **Base path**: the site must work at `/` and at `/ji-cv-personal`. Use `next/link` for routes. Prefix raw `/public` paths with `asset()` from `src/lib/site.ts`.
 - **Content**: all CV text lives in `src/content/resume.ts` (typed by `types.ts`). All UI strings live in `src/content/labels.ts`, so Spanish and Catalan can be added later (no i18n routing unless asked). Components never hard-code either.
 - **Dates** are stored as `YYYY-MM` and formatted only through `src/lib/dates.ts`.
-- **Privacy**: show city and country only. No phone number, address or birth date. The email is assembled on the client (`ObfuscatedEmail`) and must never appear in the static HTML. Ask before adding a photo.
+- **Privacy**: show city and country only. No phone number, address or birth date. The email is passed encoded (`encodeEmail`) and only decoded in the browser by `ObfuscatedEmail`, on click or on `beforeprint`. It must never appear in the static HTML or the React payload: check with `grep -r ji.torrents out/`. Ask before adding a photo.
 - **Theme**: original, minimal, plenty of whitespace, one accent color. Colors are defined only as CSS variables in `src/app/globals.css`, which Tailwind maps through `@theme inline`. Dark mode is the `data-theme` attribute on `<html>`, set by the inline script in `layout.tsx`, and the `dark:` variant depends on it. Keep motion subtle and respect `prefers-reduced-motion`.
-- **Print**: Ctrl+P must give a clean one- or two-page resume in light colors. Hide the nav, toggle and decorative elements (class `no-print`) and avoid page breaks inside roles. "Download CV" opens the print dialog or links to a PDF generated from the site at build time. It must **never** link to `resume.pdf`.
+- **Print**: `@page` is A4. Ctrl+P on `/cv/` must give a clean one- or two-page resume in light colors (it is 2 pages at the moment). Hide the nav, toggle and decorative elements (class `no-print`) and avoid page breaks inside roles. "Download CV" opens the print dialog or links to a PDF generated from the site at build time. It must **never** link to `resume.pdf`.
 - **Accessibility**: semantic landmarks, skip link, visible focus states, WCAG AA contrast in both themes, alt text, keyboard-usable controls with `aria-label`.
 - **SEO**: root `metadata` (title, description, canonical, Open Graph, Twitter card), a static OG image, `robots.txt`, `sitemap.xml`, and JSON-LD `Person` built from `resume.ts`.
-- **Performance**: Lighthouse ≥ 95 on mobile in all four categories. Server Components by default. Use `"use client"` only for interactive pieces (`ThemeToggle`, `MobileMenu`, `ObfuscatedEmail`).
+- **Performance**: Lighthouse ≥ 95 on mobile in all four categories. Server Components by default. Use `"use client"` only for interactive pieces (`ThemeToggle`, `NavLinks`, `MobileMenu`, `ObfuscatedEmail`, `PrintButton`).
 - **Dependencies**: keep runtime dependencies to `next`, `react` and `react-dom`, and justify any new one. TypeScript stays on 6.x until typescript-eslint supports 7.
 - **Git**: make small commits and do not push unless asked.
 
