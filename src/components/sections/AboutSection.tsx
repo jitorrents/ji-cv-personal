@@ -9,7 +9,7 @@ export function AboutSection() {
   return (
     <Band id="about" tone="plain" eyebrow={s.eyebrow} title={s.title}>
       <Reveal>
-        <p className="max-w-4xl text-xl leading-relaxed text-pretty sm:text-2xl sm:leading-relaxed">
+        <p className="max-w-3xl text-base leading-relaxed text-pretty sm:text-lg">
           {resume.basics.summary}
         </p>
       </Reveal>

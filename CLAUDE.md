@@ -52,7 +52,7 @@ A single home page of full-width colored bands (layout inspired by stockagile.co
 
 `/cv/` (`src/app/cv/page.tsx`) shows the whole CV as an A4 document (`CvDocument`) with a Download PDF button (`window.print()`). The header (sticky, scroll-spy nav, CV button, theme toggle, mobile menu) and the footer (stone) live in `src/components/layout/`. Section eyebrows and titles are UI text in `labels.ts`. `Band` wraps each section, and `Reveal` fades content in on scroll.
 
-**Logos**: `components/logos/simple-icons.ts` holds Simple Icons paths (CC0). Microsoft and AWS are not in Simple Icons: Microsoft is drawn as its four squares, and AWS and others get text badges. Never copy logos from other sites.
+**Logos**: `components/logos/simple-icons.ts` holds Simple Icons paths (CC0). Microsoft and AWS are not in Simple Icons: Microsoft is drawn as its four squares, and AWS and others get text badges. Never copy logos from other sites. Education logos live in `public/logos/` (set with `education[].logo`), with sources listed in `public/logos/SOURCES.md`. La Salle has no logo yet, so it shows a cap icon.
 
 ## Rules
 

@@ -31,6 +31,8 @@ export interface Education {
   start?: PartialDate;
   end?: PartialDate;
   notes?: string;
+  /** Institution logo, path under /public (e.g. "/logos/upc.webp"). */
+  logo?: string;
 }
 
 export interface Certification {

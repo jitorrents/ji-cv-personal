@@ -241,12 +241,14 @@ export const resume: Resume = {
       institution: "Universitat Oberta de Catalunya (UOC)",
       degree: "Postgraduate degree",
       field: "Business Intelligence and Data Analysis",
+      logo: "/logos/uoc.webp",
       start: "2019",
       end: "2020",
     },
     {
       institution: "La Salle Barcelona, Universitat Ramon Llull (URL)",
       degree: "Master in Project Management (MPM)",
+      // TODO(verify): La Salle logo not found in a free source; send the file to add it.
       start: "2014",
       end: "2015",
     },
@@ -254,6 +256,7 @@ export const resume: Resume = {
       institution:
         "Facultat d'Informàtica de Barcelona (FIB), Universitat Politècnica de Catalunya",
       degree: "Computer Science Engineering",
+      logo: "/logos/upc.webp",
       start: "2008",
       end: "2010",
     },
@@ -262,6 +265,7 @@ export const resume: Resume = {
         "Facultat d'Informàtica de Barcelona (FIB), Universitat Politècnica de Catalunya",
       // TODO(verify): English name for "Ingeniería Técnica en Informática de Gestión".
       degree: "Technical Engineering in Business Information Systems",
+      logo: "/logos/upc.webp",
       start: "2003",
       end: "2008",
     },
