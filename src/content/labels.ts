@@ -4,52 +4,46 @@ export const labels = {
   skipToContent: "Skip to content",
   primaryNav: "Primary",
   nav: {
-    home: "Home",
+    about: "About",
     experience: "Experience",
     teaching: "Teaching",
+    skills: "Skills",
     education: "Education",
-    cv: "CV",
+    certifications: "Certifications",
+    contact: "Contact",
   },
-  pages: {
+  cvLink: "CV",
+  sections: {
+    about: { eyebrow: "Who I am", title: "About" },
     experience: {
       eyebrow: "Career",
       title: "Experience",
       intro: "Roles and responsibilities, newest first.",
     },
-    teaching: {
-      eyebrow: "Sharing knowledge",
-      title: "Teaching & mentoring",
-      intro: "Academic collaborations alongside my main role.",
-    },
-    education: {
-      eyebrow: "Learning",
-      title: "Education & certifications",
-      intro: "Degrees, professional certifications and languages.",
-    },
-    cv: {
-      eyebrow: "Résumé",
-      title: "Curriculum vitae",
-      intro: "The full CV on one page, laid out for A4. Use Download PDF to save or print it.",
+    teaching: { eyebrow: "Sharing knowledge", title: "Teaching & mentoring" },
+    skills: { eyebrow: "What I do", title: "Skills" },
+    education: { eyebrow: "Learning", title: "Education & languages" },
+    certifications: { eyebrow: "Credentials", title: "Certifications" },
+    contact: {
+      eyebrow: "Let's talk",
+      title: "Get in touch",
+      intro: "The best way to reach me is by email or LinkedIn.",
     },
   },
-  home: {
-    about: "About",
-    focus: "Focus areas",
-    explore: "Explore",
-    contact: "Get in touch",
-    contactIntro: "The best way to reach me is by email or LinkedIn.",
-    exploreCards: {
-      experience: "Career timeline with roles, highlights and technologies.",
-      teaching: "Academic collaborations and mentoring.",
-      education: "Degrees, certifications and languages.",
-      cv: "Everything on one A4 page, ready to print or save as PDF.",
-    },
+  cvPage: {
+    eyebrow: "Résumé",
+    title: "Curriculum vitae",
+    intro: "The full CV laid out for A4. Use Download PDF to save or print it.",
   },
-  facts: {
+  stats: {
     years: "years in IT",
-    current: "current company",
+    companies: "companies",
     certifications: "certifications",
     languages: "languages",
+  },
+  education: {
+    degrees: "Degrees",
+    languages: "Languages",
   },
   cv: {
     profile: "Profile",
@@ -58,11 +52,6 @@ export const labels = {
     education: "Education",
     certifications: "Certifications",
     skills: "Skills",
-    languages: "Languages",
-  },
-  education: {
-    degrees: "Degrees",
-    certifications: "Certifications",
     languages: "Languages",
   },
   openMenu: "Open menu",
@@ -80,4 +69,4 @@ export const labels = {
   backHome: "Back to home",
 } as const;
 
-export type RouteKey = keyof typeof labels.nav;
+export type SectionId = keyof typeof labels.nav;

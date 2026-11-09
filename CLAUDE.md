@@ -35,17 +35,23 @@ Before calling work done, `lint`, `typecheck` and `build` must pass. Also serve 
 
 ## Site structure
 
-Multiple routes, modelled on the reference site (separate pages, not anchors). Routes are listed in `src/lib/routes.ts`. A page with no content is left out of the nav and the sitemap.
+A single home page of full-width colored bands with anchor navigation and scroll spy, plus a separate `/cv/` print page. The section order is in `src/lib/routes.ts` (`sections`), and sections without content are skipped.
 
-| Route          | File                          | Content                                                                                                                                                                                                                            |
-| -------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `/`            | `src/app/page.tsx`            | Hero (location, name, headline, View CV / Contact / LinkedIn, monogram instead of a photo) → key facts → About → Focus areas (skills by category, **no progress bars or percentages**) → Explore cards → Contact (no contact form) |
-| `/experience/` | `src/app/experience/page.tsx` | Timeline grouped by company (`groupByCompany`), with dates, duration, highlights and tech tags                                                                                                                                     |
-| `/teaching/`   | `src/app/teaching/page.tsx`   | `collaborations` (La Salle teaching and mentoring)                                                                                                                                                                                 |
-| `/education/`  | `src/app/education/page.tsx`  | Degrees, certifications grouped by issuer, languages                                                                                                                                                                               |
-| `/cv/`         | `src/app/cv/page.tsx`         | The whole CV as an A4 document (`CvDocument`) plus a Download PDF button (`window.print()`)                                                                                                                                        |
+| Section (`src/components/sections/`) | Tone   | Notes                                                                                                   |
+| ------------------------------------ | ------ | ------------------------------------------------------------------------------------------------------- |
+| `HeroSection`                        | stone  | Photo (`basics.photo`) or initials, name, headline, View CV / Contact / LinkedIn, drifting color shapes |
+| `StatsSection`                       | spruce | Count-up numbers (`CountUp`) computed from the data                                                     |
+| `AboutSection`                       | plain  | Summary                                                                                                 |
+| `ExperienceSection`                  | cloud  | Timeline grouped by company (`groupByCompany`)                                                          |
+| `TeachingSection`                    | skye   | `collaborations`                                                                                        |
+| `SkillsSection`                      | plain  | By category, **no progress bars or percentages**                                                        |
+| `EducationSection`                   | cloud  | Degrees and languages                                                                                   |
+| `CertificationsSection`              | earth  | Issuer logos (`components/logos/`), moving logo strip, cards grouped by issuer                          |
+| `ContactSection`                     | red    | Encoded email, profiles (no contact form)                                                               |
 
-The header (sticky, active-link nav, theme toggle, mobile menu) and footer (copyright, build-time "last updated", route links, repository link) live in `src/components/layout/`. Page sections live in `src/components/sections/` and shared pieces in `src/components/ui/`. Page eyebrows, titles and intros are UI text in `labels.ts`.
+`/cv/` (`src/app/cv/page.tsx`) shows the whole CV as an A4 document (`CvDocument`) with a Download PDF button (`window.print()`). The header (sticky, scroll-spy nav, CV button, theme toggle, mobile menu) and the footer (stone) live in `src/components/layout/`. Section eyebrows and titles are UI text in `labels.ts`. `Band` wraps each section, and `Reveal` fades content in on scroll.
+
+**Logos**: `components/logos/simple-icons.ts` holds Simple Icons paths (CC0). Microsoft and AWS are not in Simple Icons: Microsoft is drawn as its four squares, and AWS and others get text badges. Never copy logos from other sites.
 
 ## Rules
 
@@ -53,12 +59,12 @@ The header (sticky, active-link nav, theme toggle, mobile menu) and footer (copy
 - **Base path**: the site must work at `/` and at `/ji-cv-personal`. Use `next/link` for routes. Prefix raw `/public` paths with `asset()` from `src/lib/site.ts`.
 - **Content**: all CV text lives in `src/content/resume.ts` (typed by `types.ts`). All UI strings live in `src/content/labels.ts`, so Spanish and Catalan can be added later (no i18n routing unless asked). Components never hard-code either.
 - **Dates** are stored as `YYYY-MM` and formatted only through `src/lib/dates.ts`.
-- **Privacy**: show city and country only. No phone number, address or birth date. The email is passed encoded (`encodeEmail`) and only decoded in the browser by `ObfuscatedEmail`, on click or on `beforeprint`. It must never appear in the static HTML or the React payload: check with `grep -r ji.torrents out/`. Ask before adding a photo.
-- **Theme**: original, minimal, plenty of whitespace. Brand colors: spruce `#29707A` (`accent`: text, links, buttons) and warm red `#FF462D` (`warm`: decoration and large type only, 3.4:1 on white). Use `warm-ink` `#C42D17` for small red text. Colors are defined only as CSS variables in `src/app/globals.css`, which Tailwind maps through `@theme inline`. Dark mode is the `data-theme` attribute on `<html>`, set by the inline script in `layout.tsx`, and the `dark:` variant depends on it. Keep motion subtle and respect `prefers-reduced-motion`.
+- **Privacy**: show city and country only. No phone number, address or birth date. The email is passed encoded (`encodeEmail`) and only decoded in the browser by `ObfuscatedEmail`, on click or on `beforeprint`. It must never appear in the static HTML or the React payload: check with `grep -r ji.torrents out/`. The user wants their photo: set `basics.photo` to a file under `public/`.
+- **Theme**: original, minimal, plenty of whitespace. Use only the brand palette: Warm Red `#FF462D`, White, Spruce `#29707A`, Earth `#9E9287`, Cloud `#F2F1EE`, Skye `#E4F4F1`, Dark Stone `#3D3C3C` and Digital Dark Earth `#565049`. **No greens**: the user dislikes them, so Spring Green, Deep Forest and Digital Dark Spring Green are excluded. Each band is a `tone-*` class in `src/app/globals.css` that sets `--band/--fg/--muted/--title/--link/--card/--line`. Components only use `bg-band`, `text-fg`, `text-muted`, `text-title`, `text-link`, `bg-card` and `border-line`, plus the fixed brand colors (`bg-warm`, `bg-spruce`, and so on). Section titles are colored per band, with no decorative underline. Warm red is only used as text at large sizes, following the palette's AA chart. Dark mode is the `data-theme` attribute on `<html>`, set by the inline script in `layout.tsx`, which also adds the `js` class used by `Reveal`. Keep motion subtle and respect `prefers-reduced-motion`.
 - **Print**: `@page` is A4. Ctrl+P on `/cv/` must give a clean one- or two-page resume in light colors (it is 2 pages at the moment). Hide the nav, toggle and decorative elements (class `no-print`) and avoid page breaks inside roles. "Download CV" opens the print dialog or links to a PDF generated from the site at build time. It must **never** link to `resume.pdf`.
 - **Accessibility**: semantic landmarks, skip link, visible focus states, WCAG AA contrast in both themes, alt text, keyboard-usable controls with `aria-label`.
 - **SEO**: root `metadata` (title, description, canonical, Open Graph, Twitter card), a static OG image, `robots.txt`, `sitemap.xml`, and JSON-LD `Person` built from `resume.ts`.
-- **Performance**: Lighthouse ≥ 95 on mobile in all four categories. Server Components by default. Use `"use client"` only for interactive pieces (`ThemeToggle`, `NavLinks`, `MobileMenu`, `ObfuscatedEmail`, `PrintButton`).
+- **Performance**: Lighthouse ≥ 95 on mobile in all four categories. Server Components by default. Use `"use client"` only for interactive pieces (`ThemeToggle`, `NavLinks`, `MobileMenu`, `ObfuscatedEmail`, `PrintButton`, `Reveal`, `CountUp`).
 - **Dependencies**: keep runtime dependencies to `next`, `react` and `react-dom`, and justify any new one. TypeScript stays on 6.x until typescript-eslint supports 7.
 - **Git**: make small commits and do not push unless asked.
 

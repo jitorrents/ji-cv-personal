@@ -1,19 +1,26 @@
-import { About } from "@/components/sections/home/About";
-import { Contact } from "@/components/sections/home/Contact";
-import { Explore } from "@/components/sections/home/Explore";
-import { FocusAreas } from "@/components/sections/home/FocusAreas";
-import { Hero } from "@/components/sections/home/Hero";
-import { KeyFacts } from "@/components/sections/home/KeyFacts";
+import { AboutSection } from "@/components/sections/AboutSection";
+import { CertificationsSection } from "@/components/sections/CertificationsSection";
+import { ContactSection } from "@/components/sections/ContactSection";
+import { EducationSection } from "@/components/sections/EducationSection";
+import { ExperienceSection } from "@/components/sections/ExperienceSection";
+import { HeroSection } from "@/components/sections/HeroSection";
+import { SkillsSection } from "@/components/sections/SkillsSection";
+import { StatsSection } from "@/components/sections/StatsSection";
+import { TeachingSection } from "@/components/sections/TeachingSection";
 
+/** One page of full-width colored bands; the order matches `sections` in lib/routes.ts. */
 export default function Home() {
   return (
     <>
-      <Hero />
-      <KeyFacts />
-      <About />
-      <FocusAreas />
-      <Explore />
-      <Contact />
+      <HeroSection />
+      <StatsSection />
+      <AboutSection />
+      <ExperienceSection />
+      <TeachingSection />
+      <SkillsSection />
+      <EducationSection />
+      <CertificationsSection />
+      <ContactSection />
     </>
   );
 }

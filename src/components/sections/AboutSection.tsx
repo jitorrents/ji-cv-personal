@@ -1,0 +1,17 @@
+import { labels } from "@/content/labels";
+import { resume } from "@/content/resume";
+import { Band } from "@/components/ui/Band";
+import { Reveal } from "@/components/ui/Reveal";
+
+export function AboutSection() {
+  const s = labels.sections.about;
+  return (
+    <Band id="about" tone="plain" eyebrow={s.eyebrow} title={s.title}>
+      <Reveal>
+        <p className="max-w-4xl text-xl leading-relaxed text-pretty sm:text-2xl sm:leading-relaxed">
+          {resume.basics.summary}
+        </p>
+      </Reveal>
+    </Band>
+  );
+}

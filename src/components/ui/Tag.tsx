@@ -5,7 +5,7 @@ export function TagList({ items, className = "" }: { items: string[]; className?
       {items.map((t) => (
         <li
           key={t}
-          className="rounded-full border border-border bg-surface px-2.5 py-0.5 text-xs font-medium text-muted"
+          className="rounded-full border border-line bg-band px-2.5 py-0.5 text-xs font-medium text-muted"
         >
           {t}
         </li>

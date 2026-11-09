@@ -1,7 +1,5 @@
-import Link from "next/link";
 import { labels } from "@/content/labels";
 import { resume } from "@/content/resume";
-import { routes } from "@/lib/routes";
 import { buildDate, repoUrl } from "@/lib/site";
 
 export function Footer() {
@@ -11,8 +9,8 @@ export function Footer() {
     day: "numeric",
   });
   return (
-    <footer className="no-print mt-24 border-t border-border">
-      <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-10 text-sm text-muted sm:px-6 md:flex-row md:items-center md:justify-between">
+    <footer className="tone-stone no-print bg-band text-muted">
+      <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-10 text-sm sm:px-6 md:flex-row md:items-center md:justify-between">
         <p>
           © {buildDate.getFullYear()} {resume.basics.name}
           <span aria-hidden="true"> · </span>
@@ -20,20 +18,9 @@ export function Footer() {
             {labels.lastUpdated} {updated}
           </span>
         </p>
-        <ul className="flex flex-wrap gap-x-5 gap-y-2">
-          {routes.map((r) => (
-            <li key={r.key}>
-              <Link href={r.href} className="hover:text-fg">
-                {labels.nav[r.key]}
-              </Link>
-            </li>
-          ))}
-          <li>
-            <a href={repoUrl} className="hover:text-fg">
-              {labels.sourceCode}
-            </a>
-          </li>
-        </ul>
+        <a href={repoUrl} className="text-link underline-offset-4 hover:underline">
+          {labels.sourceCode}
+        </a>
       </div>
     </footer>
   );

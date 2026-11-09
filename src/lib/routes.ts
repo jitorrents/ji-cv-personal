@@ -1,26 +1,20 @@
-import type { RouteKey } from "@/content/labels";
+import type { SectionId } from "@/content/labels";
 import { resume } from "@/content/resume";
 
-export interface Route {
-  key: RouteKey;
-  href: string;
-}
+/** Home page sections in page order; sections without content are skipped. */
+export const sections: SectionId[] = (
+  [
+    ["about", Boolean(resume.basics.summary)],
+    ["experience", resume.experience.length > 0],
+    ["teaching", Boolean(resume.collaborations?.length)],
+    ["skills", resume.skills.length > 0],
+    ["education", resume.education.length > 0 || resume.languages.length > 0],
+    ["certifications", resume.certifications.length > 0],
+    ["contact", true],
+  ] as const
+)
+  .filter(([, has]) => has)
+  .map(([id]) => id);
 
-const all: Route[] = [
-  { key: "home", href: "/" },
-  { key: "experience", href: "/experience/" },
-  { key: "teaching", href: "/teaching/" },
-  { key: "education", href: "/education/" },
-  { key: "cv", href: "/cv/" },
-];
-
-/** Routes shown in the nav and sitemap; pages without content are skipped. */
-export const routes: Route[] = all.filter(
-  (r) => r.key !== "teaching" || Boolean(resume.collaborations?.length),
-);
-
-/** Compare paths ignoring the trailing slash. */
-export function isActive(href: string, pathname: string): boolean {
-  const strip = (p: string) => (p.length > 1 ? p.replace(/\/$/, "") : p);
-  return strip(href) === strip(pathname);
-}
+/** Pages for the sitemap. */
+export const pages = ["/", "/cv/"];

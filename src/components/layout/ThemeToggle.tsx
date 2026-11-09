@@ -19,7 +19,7 @@ export function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-label={labels.toggleTheme}
-      className="grid size-9 place-items-center rounded-full text-muted transition-colors hover:bg-accent-soft hover:text-fg"
+      className="grid size-9 place-items-center rounded-full text-muted transition-colors hover:bg-card hover:text-fg"
     >
       <svg
         aria-hidden="true"

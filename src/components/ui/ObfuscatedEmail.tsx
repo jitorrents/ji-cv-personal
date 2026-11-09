@@ -23,7 +23,7 @@ export function ObfuscatedEmail({
     return () => window.removeEventListener("beforeprint", reveal);
   }, [encoded]);
 
-  const style = `text-accent underline-offset-4 hover:underline ${className}`;
+  const style = `font-semibold text-link underline underline-offset-4 ${className}`;
   if (!email) {
     return (
       <button type="button" onClick={() => setEmail(decodeEmail(encoded))} className={style}>

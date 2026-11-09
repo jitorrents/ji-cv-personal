@@ -9,7 +9,7 @@ import { groupByIssuer } from "@/lib/certifications";
 function CvSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section className="mt-7 first:mt-0 print:mt-4">
-      <h2 className="mb-3 border-b border-border pb-1.5 text-xs font-bold tracking-[0.18em] text-accent uppercase print:mb-2">
+      <h2 className="mb-3 border-b border-line pb-1.5 text-xs font-bold tracking-[0.18em] text-link uppercase print:mb-2">
         {title}
       </h2>
       {children}
@@ -23,7 +23,7 @@ export function CvDocument() {
   return (
     <article
       aria-label={name}
-      className="mx-auto max-w-[210mm] rounded-sm bg-surface p-6 text-[0.95rem] leading-snug shadow-xl ring-1 ring-border sm:p-12 print:max-w-none print:p-0 print:shadow-none print:ring-0"
+      className="tone-plain mx-auto max-w-[210mm] rounded-sm bg-band p-6 text-[0.95rem] leading-snug text-fg shadow-xl ring-1 ring-line sm:p-12 print:max-w-none print:p-0 print:shadow-none print:ring-0"
     >
       <header className="border-b-2 border-warm pb-5 print:pb-3">
         <h1 className="font-display text-3xl font-bold tracking-tight">{name}</h1>
@@ -32,7 +32,7 @@ export function CvDocument() {
           <span>{location}</span>
           {email && <ObfuscatedEmail encoded={encodeEmail(email.user, email.domain)} />}
           {profiles.map((p) => (
-            <a key={p.url} href={p.url} className="text-accent">
+            <a key={p.url} href={p.url} className="text-link">
               {p.url.replace(/^https?:\/\/(www\.)?/, "")}
             </a>
           ))}
@@ -60,7 +60,7 @@ export function CvDocument() {
                       </p>
                       {job.summary && <p className="mt-0.5 text-sm text-pretty">{job.summary}</p>}
                       {job.highlights.length > 0 && (
-                        <ul className="mt-1 list-disc space-y-0.5 pl-4 text-sm marker:text-accent">
+                        <ul className="mt-1 list-disc space-y-0.5 pl-4 text-sm marker:text-warm">
                           {job.highlights.map((h) => (
                             <li key={h}>{h}</li>
                           ))}

@@ -5,62 +5,157 @@
 
 /*
  * Design tokens: the only place colors and fonts are defined.
- * Brand: spruce #29707A (accent: text, links, buttons) and warm red #FF462D
- * (warm: decoration and large type only; 3.4:1 on white fails AA for small text).
- * warm-ink is the AA-safe red for small text.
+ *
+ * Brand palette (greens excluded on purpose):
+ *   Warm Red #FF462D · White #FFFFFF · Spruce #29707A · Earth #9E9287 · Cloud #F2F1EE
+ *   Skye #E4F4F1 · Dark Stone #3D3C3C · Digital Dark Earth #565049
+ *
+ * Each page section is a "tone" band. A tone sets the semantic variables below, and
+ * everything inside inherits them, so components only use bg-band, text-fg, text-muted,
+ * text-title, text-link, bg-card and border-line. Pairs follow the palette's AA chart:
+ * warm red is only used as text at large sizes (titles, numbers).
  */
-:root {
-  --bg: #faf7f4;
-  --surface: #ffffff;
-  --fg: #1c1917;
-  --muted: #5a5550;
-  --border: #e8e2dc;
-  --accent: #29707a;
-  --accent-fg: #ffffff;
-  --accent-soft: #e4f0f1;
-  --warm: #ff462d;
-  --warm-ink: #c42d17;
-  --warm-soft: #ffe8e3;
+:root,
+.tone-plain {
+  --band: #ffffff;
+  --fg: #3d3c3c;
+  --muted: #565049;
+  --title: #ff462d;
+  --link: #29707a;
+  --card: #f2f1ee;
+  --line: #e2dfd9;
+}
+.tone-cloud {
+  --band: #f2f1ee;
+  --fg: #3d3c3c;
+  --muted: #565049;
+  --title: #29707a;
+  --link: #29707a;
+  --card: #ffffff;
+  --line: #dedad3;
+}
+.tone-skye {
+  --band: #e4f4f1;
+  --fg: #3d3c3c;
+  --muted: #565049;
+  --title: #29707a;
+  --link: #29707a;
+  --card: #ffffff;
+  --line: #cfe3df;
+}
+.tone-stone {
+  --band: #3d3c3c;
+  --fg: #ffffff;
+  --muted: #f2f1ee;
+  --title: #ff462d;
+  --link: #e4f4f1;
+  --card: #474545;
+  --line: #5a5757;
+}
+.tone-spruce {
+  --band: #29707a;
+  --fg: #ffffff;
+  --muted: #e4f4f1;
+  --title: #ffffff;
+  --link: #ffffff;
+  --card: #317b85;
+  --line: #4b8b94;
+}
+.tone-earth {
+  --band: #565049;
+  --fg: #ffffff;
+  --muted: #f2f1ee;
+  --title: #f2f1ee;
+  --link: #ffffff;
+  --card: #615a52;
+  --line: #746d65;
+}
+.tone-red {
+  --band: #ff462d;
+  --fg: #141414;
+  --muted: #141414;
+  --title: #ffffff;
+  --link: #141414;
+  --card: #ff5a43;
+  --line: #14141433;
 }
 
-[data-theme="dark"] {
-  --bg: #101314;
-  --surface: #181c1e;
-  --fg: #eceae7;
-  --muted: #a39e98;
-  --border: #2a2f31;
-  --accent: #6cc0cb;
-  --accent-fg: #0b1f22;
-  --accent-soft: #15292c;
-  --warm: #ff6a55;
-  --warm-ink: #ff6a55;
-  --warm-soft: #3a1d18;
+/* Dark mode: light bands become warm charcoals; colored bands keep their color. */
+[data-theme="dark"],
+[data-theme="dark"] .tone-plain {
+  --band: #242323;
+  --fg: #f2f1ee;
+  --muted: #d3cec8;
+  --title: #ff462d;
+  --link: #e4f4f1;
+  --card: #2f2e2e;
+  --line: #3d3c3c;
+}
+[data-theme="dark"] .tone-cloud {
+  --band: #2c2b2b;
+  --fg: #f2f1ee;
+  --muted: #d3cec8;
+  --title: #e4f4f1;
+  --link: #e4f4f1;
+  --card: #363535;
+  --line: #474545;
+}
+[data-theme="dark"] .tone-skye {
+  --band: #24302f;
+  --fg: #f2f1ee;
+  --muted: #d3cec8;
+  --title: #e4f4f1;
+  --link: #e4f4f1;
+  --card: #2d3a39;
+  --line: #3e4b4a;
+}
+[data-theme="dark"] .tone-stone {
+  --band: #1a1919;
+  --card: #262525;
+  --line: #3d3c3c;
 }
 
 @theme inline {
-  --color-bg: var(--bg);
-  --color-surface: var(--surface);
+  --color-band: var(--band);
   --color-fg: var(--fg);
   --color-muted: var(--muted);
-  --color-border: var(--border);
-  --color-accent: var(--accent);
-  --color-accent-fg: var(--accent-fg);
-  --color-accent-soft: var(--accent-soft);
-  --color-warm: var(--warm);
-  --color-warm-ink: var(--warm-ink);
-  --color-warm-soft: var(--warm-soft);
+  --color-title: var(--title);
+  --color-link: var(--link);
+  --color-card: var(--card);
+  --color-line: var(--line);
+  /* Fixed brand colors */
+  --color-warm: #ff462d;
+  --color-spruce: #29707a;
+  --color-stone: #3d3c3c;
+  --color-cloud: #f2f1ee;
+  --color-skye: #e4f4f1;
+  --color-earth: #9e9287;
+  --color-dark-earth: #565049;
+  --color-ink: #141414;
   --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-heading), var(--font-body), ui-sans-serif, system-ui, sans-serif;
   --animate-rise: rise 0.6s ease-out both;
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-drift: drift 14s ease-in-out infinite alternate;
 
   @keyframes rise {
     from {
       opacity: 0;
-      transform: translateY(8px);
+      transform: translateY(12px);
     }
     to {
       opacity: 1;
       transform: none;
+    }
+  }
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes drift {
+    to {
+      transform: translate(-24px, 18px) scale(1.06);
     }
   }
 }
@@ -68,20 +163,36 @@
 html {
   color-scheme: light;
   scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
 }
 html[data-theme="dark"] {
   color-scheme: dark;
 }
 
 body {
-  background: var(--bg);
+  background: var(--band);
   color: var(--fg);
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid currentColor;
   outline-offset: 3px;
   border-radius: 4px;
+}
+
+/* Scroll reveal. Only hides content when JS is on and motion is allowed. */
+@media (prefers-reduced-motion: no-preference) {
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.7s ease-out,
+      transform 0.7s ease-out;
+  }
+  .js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -97,7 +208,7 @@ body {
   }
 }
 
-/* Print: A4, light colors, no site chrome. The /cv page is laid out for this. */
+/* Print: A4, every band white with dark text, no site chrome. */
 @page {
   size: A4;
   margin: 12mm 14mm;
@@ -105,17 +216,16 @@ body {
 
 @media print {
   :root,
+  [class*="tone-"],
+  [data-theme] [class*="tone-"],
   [data-theme="dark"] {
-    --bg: #fff;
-    --surface: #fff;
+    --band: #fff;
     --fg: #111;
     --muted: #444;
-    --border: #d4d4d4;
-    --accent: #29707a;
-    --accent-soft: #fff;
-    --warm: #ff462d;
-    --warm-ink: #c42d17;
-    --warm-soft: #fff;
+    --title: #29707a;
+    --link: #29707a;
+    --card: #fff;
+    --line: #d4d4d4;
     color-scheme: light;
   }
   html {
@@ -127,6 +237,10 @@ body {
   }
   .no-print {
     display: none !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
   }
   article,
   li {
