@@ -86,6 +86,17 @@ export interface Collaboration {
   url?: string;
 }
 
+/** A talk, panel, article, interview or press mention. */
+export interface PublicPresenceItem {
+  title: string;
+  type: "talk" | "panel" | "article" | "interview" | "press" | "podcast" | "other";
+  /** Event, publication or outlet. */
+  venue?: string;
+  date?: PartialDate;
+  url?: string;
+  description?: string;
+}
+
 export interface Resume {
   basics: {
     name: string;
@@ -105,6 +116,7 @@ export interface Resume {
   skills: SkillGroup[];
   languages: Language[];
   collaborations?: Collaboration[];
+  publicPresence?: PublicPresenceItem[];
   projects?: Project[];
   awards?: Award[];
   volunteering?: Volunteering[];

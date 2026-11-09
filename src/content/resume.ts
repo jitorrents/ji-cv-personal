@@ -181,6 +181,9 @@ export const resume: Resume = {
     },
   ],
 
+  // Talks, panels, articles and press. Empty for now: the section shows a "coming soon" note.
+  publicPresence: [],
+
   skills: [
     {
       category: "Data & AI",

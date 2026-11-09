@@ -5,12 +5,20 @@ import { Reveal } from "@/components/ui/Reveal";
 import { TagList } from "@/components/ui/Tag";
 import { formatDuration, formatRange, monthsBetween } from "@/lib/dates";
 import { groupByCompany } from "@/lib/experience";
+import { kpis } from "@/lib/kpis";
 
 export function ExperienceSection() {
   const s = labels.sections.experience;
   const groups = groupByCompany(resume.experience);
   return (
-    <Band id="experience" tone="cloud" eyebrow={s.eyebrow} title={s.title} intro={s.intro}>
+    <Band
+      id="experience"
+      tone="cloud"
+      eyebrow={s.eyebrow}
+      title={s.title}
+      intro={s.intro}
+      kpis={kpis.experience()}
+    >
       <ol className="space-y-6">
         {groups.map((g) => (
           <li key={`${g.company}-${g.start}`}>
@@ -26,11 +34,9 @@ export function ExperienceSection() {
                       g.company
                     )}
                   </h3>
-                  {g.roles.length > 1 && (
-                    <p className="rounded-full bg-band px-3 py-0.5 text-sm text-muted">
-                      {formatDuration(monthsBetween(g.start, g.end))}
-                    </p>
-                  )}
+                  <p className="rounded-full bg-band px-3 py-0.5 text-sm text-muted">
+                    {formatDuration(monthsBetween(g.start, g.end))}
+                  </p>
                 </header>
 
                 <ol className="mt-6 space-y-8 border-l-2 border-line pl-6">

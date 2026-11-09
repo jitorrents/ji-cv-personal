@@ -3,12 +3,13 @@ import { resume } from "@/content/resume";
 import { Band } from "@/components/ui/Band";
 import { Reveal } from "@/components/ui/Reveal";
 import { formatRange } from "@/lib/dates";
+import { kpis } from "@/lib/kpis";
 
 export function TeachingSection() {
   if (!resume.collaborations?.length) return null;
   const s = labels.sections.teaching;
   return (
-    <Band id="teaching" tone="skye" eyebrow={s.eyebrow} title={s.title}>
+    <Band id="teaching" tone="skye" eyebrow={s.eyebrow} title={s.title} kpis={kpis.teaching()}>
       <ul className="grid gap-5 md:grid-cols-3">
         {resume.collaborations.map((c, i) => (
           <li key={`${c.organization}-${c.role}`}>
