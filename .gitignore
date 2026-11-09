@@ -40,3 +40,6 @@ resume.pdf
 
 # generated at build time
 public/CNAME
+
+# playwright mcp output
+.playwright-mcp/
