@@ -15,6 +15,8 @@ export interface Experience {
   companyUrl?: string;
   /** Company logo, path under /public (e.g. "/logos/kyndryl.webp"). Initials are shown when missing. */
   companyLogo?: string;
+  /** Wide, transparent wordmark (e.g. an SVG) shown after the headline for the current role. */
+  companyWordmark?: string;
   role: string;
   location?: string;
   employmentType?: string;

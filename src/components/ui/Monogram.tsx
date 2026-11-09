@@ -17,6 +17,7 @@ export function Avatar() {
       alt=""
       width={64}
       height={64}
+      loading="eager"
       className="size-8 rounded-full object-cover ring-2 ring-warm"
     />
   );

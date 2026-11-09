@@ -59,7 +59,7 @@ export function HeroSection() {
       </div>
 
       <div className="relative mx-auto flex max-w-6xl animate-rise flex-col-reverse gap-12 px-4 py-20 sm:px-6 sm:py-28 md:flex-row md:items-center md:justify-between">
-        <div className="max-w-2xl">
+        <div className="max-w-3xl">
           <p className="inline-flex items-center gap-2 rounded-full border border-line bg-card/60 px-3 py-1 text-sm text-muted">
             <svg
               aria-hidden="true"
@@ -80,20 +80,18 @@ export function HeroSection() {
           >
             {name}
           </h1>
-          <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-3">
-            {current?.companyLogo && (
-              <span className="inline-flex h-10 w-28 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white px-3 shadow-lg shadow-black/20">
-                <Image
-                  src={asset(current.companyLogo)}
-                  alt={current.company}
-                  width={192}
-                  height={192}
-                  className="h-24 w-full object-cover"
-                />
-              </span>
+          <p className="mt-5 text-xl text-pretty text-muted sm:text-2xl">
+            {headline}
+            {current?.companyWordmark && (
+              <Image
+                src={asset(current.companyWordmark)}
+                alt={current.company}
+                width={126}
+                height={40}
+                className="ml-3 inline-block h-[1.1em] w-auto align-[-0.2em]"
+              />
             )}
-            <p className="text-xl text-pretty text-muted sm:text-2xl">{headline}</p>
-          </div>
+          </p>
           <div className="no-print mt-10 flex flex-wrap gap-3">
             <Link href="/cv/" className={buttonClass.primary}>
               {labels.viewCv}
