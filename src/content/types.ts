@@ -77,9 +77,9 @@ export interface Collaboration {
   organization: string;
   role: string;
   location?: string;
-  start: YearMonth;
+  start: PartialDate;
   /** undefined = "Present" */
-  end?: YearMonth;
+  end?: PartialDate;
   description?: string;
   url?: string;
 }

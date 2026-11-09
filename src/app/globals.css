@@ -3,27 +3,38 @@
 /* Dark mode follows the data-theme attribute set by the inline theme script. */
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
-/* Design tokens: the only place colors and fonts are defined. */
+/*
+ * Design tokens: the only place colors and fonts are defined.
+ * Brand: spruce #29707A (accent: text, links, buttons) and warm red #FF462D
+ * (warm: decoration and large type only; 3.4:1 on white fails AA for small text).
+ * warm-ink is the AA-safe red for small text.
+ */
 :root {
-  --bg: #f6f6f3;
+  --bg: #faf7f4;
   --surface: #ffffff;
-  --fg: #15171c;
-  --muted: #545a65;
-  --border: #e2e3e7;
-  --accent: #0b6a68;
+  --fg: #1c1917;
+  --muted: #5a5550;
+  --border: #e8e2dc;
+  --accent: #29707a;
   --accent-fg: #ffffff;
-  --accent-soft: #e2f0ee;
+  --accent-soft: #e4f0f1;
+  --warm: #ff462d;
+  --warm-ink: #c42d17;
+  --warm-soft: #ffe8e3;
 }
 
 [data-theme="dark"] {
-  --bg: #0e1012;
-  --surface: #16191c;
-  --fg: #e8eaed;
-  --muted: #a0a6b0;
-  --border: #282c32;
-  --accent: #5ccac1;
-  --accent-fg: #06201e;
-  --accent-soft: #132e2c;
+  --bg: #101314;
+  --surface: #181c1e;
+  --fg: #eceae7;
+  --muted: #a39e98;
+  --border: #2a2f31;
+  --accent: #6cc0cb;
+  --accent-fg: #0b1f22;
+  --accent-soft: #15292c;
+  --warm: #ff6a55;
+  --warm-ink: #ff6a55;
+  --warm-soft: #3a1d18;
 }
 
 @theme inline {
@@ -35,6 +46,9 @@
   --color-accent: var(--accent);
   --color-accent-fg: var(--accent-fg);
   --color-accent-soft: var(--accent-soft);
+  --color-warm: var(--warm);
+  --color-warm-ink: var(--warm-ink);
+  --color-warm-soft: var(--warm-soft);
   --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-heading), var(--font-body), ui-sans-serif, system-ui, sans-serif;
   --animate-rise: rise 0.6s ease-out both;
@@ -97,8 +111,11 @@ body {
     --fg: #111;
     --muted: #444;
     --border: #d4d4d4;
-    --accent: #0b5a58;
+    --accent: #29707a;
     --accent-soft: #fff;
+    --warm: #ff462d;
+    --warm-ink: #c42d17;
+    --warm-soft: #fff;
     color-scheme: light;
   }
   html {

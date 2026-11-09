@@ -11,6 +11,7 @@ export function Contact() {
       aria-labelledby="contact-title"
       className="mt-10 scroll-mt-24 rounded-3xl bg-accent-soft px-6 py-10 sm:px-10 sm:py-14"
     >
+      <span aria-hidden="true" className="mb-4 block h-1 w-12 rounded-full bg-warm" />
       <h2 id="contact-title" className="font-display text-3xl font-bold tracking-tight">
         {labels.home.contact}
       </h2>

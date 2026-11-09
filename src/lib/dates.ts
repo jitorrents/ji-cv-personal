@@ -30,8 +30,14 @@ export function formatDuration(totalMonths: number): string {
   return parts.join(" ");
 }
 
-/** "Mar 2021 – Present · 3 yrs 8 mos" */
-export function formatRange(start: YearMonth, end?: YearMonth, withDuration = true): string {
+/**
+ * "Mar 2021 – Present · 3 yrs 8 mos". The duration is left out when either end
+ * has no month, because it would not be accurate.
+ */
+export function formatRange(start: PartialDate, end?: PartialDate, withDuration = true): string {
   const range = `${formatYearMonth(start)} – ${end ? formatYearMonth(end) : labels.present}`;
-  return withDuration ? `${range} · ${formatDuration(monthsBetween(start, end))}` : range;
+  const exact = start.includes("-") && (!end || end.includes("-"));
+  return withDuration && exact
+    ? `${range} · ${formatDuration(monthsBetween(start as YearMonth, end as YearMonth | undefined))}`
+    : range;
 }

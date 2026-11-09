@@ -18,7 +18,7 @@ export function Explore() {
                 {labels.nav[r.key]}
                 <span
                   aria-hidden="true"
-                  className="text-accent transition-transform group-hover:translate-x-1"
+                  className="text-warm transition-transform group-hover:translate-x-1"
                 >
                   →
                 </span>

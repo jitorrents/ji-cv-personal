@@ -8,7 +8,7 @@ export function EducationList() {
         <li key={`${e.institution}-${e.degree}`}>
           <article className="h-full rounded-2xl border border-border bg-surface p-6">
             {(e.start || e.end) && (
-              <p className="text-sm font-medium text-accent">
+              <p className="text-sm font-medium text-warm-ink">
                 {[e.start, e.end]
                   .filter(Boolean)
                   .map((d) => formatYearMonth(d!))

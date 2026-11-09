@@ -7,7 +7,7 @@ export function TeachingList() {
       {(resume.collaborations ?? []).map((c) => (
         <li key={`${c.organization}-${c.role}`}>
           <article className="flex h-full flex-col rounded-2xl border border-border bg-surface p-6 sm:p-8">
-            <p className="text-sm font-medium text-accent">{formatRange(c.start, c.end)}</p>
+            <p className="text-sm font-medium text-warm-ink">{formatRange(c.start, c.end)}</p>
             <h2 className="mt-2 font-display text-xl font-semibold tracking-tight">{c.role}</h2>
             <p className="mt-1 text-sm text-muted">
               {c.url ? <a href={c.url}>{c.organization}</a> : c.organization}

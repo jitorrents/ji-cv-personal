@@ -37,6 +37,12 @@ next-env.d.ts
 
 # source resume (never commit)
 resume.pdf
+linkedin.pdf
+linkedin-*.pdf
+linkedin.zip
+linkedin/
+Basic_LinkedInDataExport_*
+Complete_LinkedInDataExport_*
 
 # generated at build time
 public/CNAME

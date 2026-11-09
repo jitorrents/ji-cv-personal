@@ -25,7 +25,7 @@ export function CvDocument() {
       aria-label={name}
       className="mx-auto max-w-[210mm] rounded-sm bg-surface p-6 text-[0.95rem] leading-snug shadow-xl ring-1 ring-border sm:p-12 print:max-w-none print:p-0 print:shadow-none print:ring-0"
     >
-      <header className="border-b-2 border-accent pb-5 print:pb-3">
+      <header className="border-b-2 border-warm pb-5 print:pb-3">
         <h1 className="font-display text-3xl font-bold tracking-tight">{name}</h1>
         <p className="mt-1 text-lg text-muted">{headline}</p>
         <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted">
@@ -92,20 +92,6 @@ export function CvDocument() {
               </ul>
             </CvSection>
           ) : null}
-          <CvSection title={labels.cv.certifications}>
-            <div className="grid gap-x-6 gap-y-2 text-xs sm:grid-cols-2 print:grid-cols-2">
-              {groupByIssuer(resume.certifications).map(([issuer, certs]) => (
-                <div key={issuer}>
-                  <p className="font-semibold">{issuer}</p>
-                  <ul className="text-muted">
-                    {certs.map((c) => (
-                      <li key={c.name}>{c.name}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </CvSection>
         </div>
 
         <aside>
@@ -151,6 +137,20 @@ export function CvDocument() {
                 </li>
               ))}
             </ul>
+          </CvSection>
+          <CvSection title={labels.cv.certifications}>
+            <div className="space-y-2 text-xs">
+              {groupByIssuer(resume.certifications).map(([issuer, certs]) => (
+                <div key={issuer}>
+                  <p className="font-semibold">{issuer}</p>
+                  <ul className="text-muted">
+                    {certs.map((c) => (
+                      <li key={c.name}>{c.name}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </CvSection>
         </aside>
       </div>

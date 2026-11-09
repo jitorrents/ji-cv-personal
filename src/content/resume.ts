@@ -1,17 +1,16 @@
 import type { Resume } from "./types";
 
 // Single source of truth for all CV content.
-// Source so far: resume.pdf (old CV). LinkedIn not merged yet; it wins any conflict.
-// TODO(verify): merge LinkedIn profile.
+// Sources: LinkedIn profile export (Nov 2026, Spanish) merged over the old resume.pdf.
+// LinkedIn wins every conflict. The LinkedIn export only lists the top 3 skills and
+// top 3 certifications, so the full lists still come from resume.pdf.
 export const resume: Resume = {
   basics: {
-    // PDF full name: "Joan Ignasi Torrents Vilà".
+    // Full name on both sources: "Joan Ignasi Torrents Vilà".
     name: "Joan Ignasi Torrents",
-    // TODO(verify): PDF sidebar says "Associate Partner for Application, Data & AI at Kyndryl";
-    // the Kyndryl entry also lists "Head of Data – Applications, Data & AI at Kyndryl Consult".
-    headline: "Associate Partner for Applications, Data & AI at Kyndryl",
+    headline: "Head of Data – Applications, Data & AI at Kyndryl Consult",
     summary:
-      "Computer science engineer with a Master in Project Management and a long career in IT. I started as a J2EE developer, analyst and architect at a large software company, then moved into project management, service management, consulting and team leadership. Today I lead the Data & AI value proposition at Kyndryl, owning customer engagement and consultative selling.",
+      "Computer science engineer with a Master in Project Management and a long career in IT and consulting. I started in software development as a programmer, analyst and architect, then moved into project and service management, business development and team leadership. Today I am Head of Data in Kyndryl's Applications, Data & AI area, where I combine management, commercial and technical skills to grow the business, backed by deep knowledge of data from a strategic, governance and technology perspective.",
     location: "Barcelona, Spain",
     email: { user: "ji.torrents", domain: "gmail.com" },
     profiles: [
@@ -27,24 +26,41 @@ export const resume: Resume = {
     {
       company: "Kyndryl",
       companyUrl: "https://www.kyndryl.com",
-      // TODO(verify): start date of this role (PDF only gives 02/2022 – Present for Kyndryl overall).
       role: "Head of Data – Applications, Data & AI, Kyndryl Consult",
       location: "Barcelona, Spain",
-      start: "2022-02",
-      highlights: ["Lead the Data domain: strategy, sales and delivery management."],
+      start: "2025-01",
+      summary:
+        "Lead the Data business in the Applications, Data & AI area, working closely with internal sales and technical teams.",
+      highlights: [
+        "Define the growth strategy, portfolio, objectives and roadmap of Data services, around a clear and differentiated value proposition.",
+        "Lead customer and partner engagement, building trust-based relationships and consultative selling of data solutions.",
+        "Generate business opportunities: identify needs and design innovative solutions and high-impact proposals.",
+        "Work with the sales team to detect and qualify opportunities.",
+        "Manage strategic relationships with key customers, providers and partners.",
+      ],
+      tech: [
+        "Google Cloud",
+        "Azure",
+        "Databricks",
+        "BigQuery",
+        "Data governance",
+        "Data management",
+      ],
     },
     {
       company: "Kyndryl",
       companyUrl: "https://www.kyndryl.com",
-      // TODO(verify): start and end dates of this role.
-      role: "Associate Partner, Applications, Data & AI",
+      role: "Customer Technology Advisor for Data & AI, Kyndryl Consult",
       location: "Barcelona, Spain",
       start: "2022-02",
+      end: "2025-01",
+      // TODO(verify): LinkedIn has no description for this role. The text below comes from the
+      // old CV, where the role was called "Associate Partner for Application, Data & AI".
       summary:
-        "Associate Partner in the Advisory & Implementation Services department for Spain and Portugal, specialised in Data & AI.",
+        "Advisory & Implementation Services for Spain and Portugal, specialised in Data & AI.",
       highlights: [
-        "Build the value proposition for the Data area.",
-        "Lead customer engagement and consultative selling.",
+        "Built the value proposition for the Data area.",
+        "Led customer engagement and consultative selling.",
       ],
     },
     {
@@ -55,10 +71,10 @@ export const resume: Resume = {
       end: "2022-02",
       summary: "Led the BI & Analytics department.",
       highlights: [
-        "Managed the data engineering team.",
-        "Ran project management and service management for key customers.",
-        "Owned budgets and provider relationships.",
-        "Owned the Jira ticketing system.",
+        "Managed and led the data engineering team.",
+        "Ran project management for the department's projects and service management for its main customers.",
+        "Handled department management: budget, operations and providers.",
+        "Owned the company's Jira ticketing system.",
       ],
       tech: ["Microsoft Azure", "Microsoft data platform", "Jira"],
     },
@@ -68,23 +84,23 @@ export const resume: Resume = {
       location: "Barcelona, Spain",
       start: "2017-04",
       end: "2018-12",
+      summary: "Led the BI & Analytics area.",
       highlights: [
-        "Managed the BI & Analytics team.",
-        "Ran service and project management for the Business Intelligence and Analytics projects of the area.",
+        "Managed the team, and ran service and project management for the department's customers and projects.",
       ],
     },
     {
       company: "SII Concatel",
-      role: "Project Manager / Consultant",
+      role: "Project Manager / Atlassian Consultant",
       location: "Barcelona, Spain",
       start: "2015-03",
       end: "2017-04",
-      summary: "Atlassian consultant for Jira and Confluence.",
       highlights: [
-        "Managed and delivered product implementation and customisation projects for a wide range of customers.",
-        "Focused on end-user satisfaction and on bringing teams into agile ways of working through Jira.",
+        "Managed and delivered Atlassian suite implementation projects for several customers, as project manager and consultant.",
+        "Planned, controlled and tracked projects alongside specialist Atlassian consulting.",
+        "Advised customers on adopting Agile methods (Scrum, Kanban) with Jira.",
       ],
-      tech: ["Jira", "Confluence", "Agile"],
+      tech: ["Jira", "Confluence", "Scrum", "Kanban"],
     },
     {
       company: "Indra",
@@ -92,21 +108,46 @@ export const resume: Resume = {
       location: "Barcelona, Spain",
       start: "2014-04",
       end: "2015-03",
-      // TODO(verify): the PDF has no description for this role.
-      highlights: [],
+      highlights: [
+        "Team member on the enforced tax-collection project for the Government of the Canary Islands.",
+        "J2EE analysis and architecture.",
+      ],
+      tech: ["J2EE"],
+    },
+    {
+      company: "GFT",
+      role: "J2EE Analyst Programmer",
+      start: "2013-06",
+      end: "2014-04",
+      employmentType: "Full-time, in English",
+      highlights: [
+        "Member of the J2EE development team on a project for an international investment bank.",
+        "Technical analysis, architecture, design and software development.",
+      ],
       tech: ["J2EE"],
     },
     {
       company: "Indra",
-      // PDF (Spanish): "Analista Programador J2EE".
       role: "J2EE Analyst Programmer",
       location: "Barcelona, Spain",
+      // LinkedIn gives only the year (2007); the month comes from the old CV.
       start: "2007-01",
       end: "2013-05",
+      summary: "Tax-management projects for public administrations.",
       highlights: [
-        "Analyst and developer in a large project for the Government of the Canary Islands.",
+        "IKUS (tax inspection system) for Gipuzkoa, as analyst programmer: business analysis, software design and development, documentation and task organisation.",
+        "M@gin (automated tax-management model) for the Government of the Canary Islands, as analyst programmer: analysis, development and documentation.",
+        "G@udi (automated tax management) for the Government of Catalonia, as programmer: software development and technical documentation.",
       ],
       tech: ["J2EE"],
+    },
+    {
+      company: "ACS Informáticos S.L.",
+      role: "Hardware Technician and Programmer",
+      start: "2005-06",
+      end: "2007-12",
+      highlights: ["Hardware repair, equipment and network installation, and PHP programming."],
+      tech: ["PHP"],
     },
   ],
 
@@ -116,43 +157,70 @@ export const resume: Resume = {
       role: "Master Thesis Tutor",
       location: "Barcelona, Spain",
       start: "2020-03",
+      end: "2022-12",
       description:
-        "Part-time mentoring of final theses in the Master in Project Management, based on the PMP methodology.",
+        "Mentored and tutored final projects of the Master in Project Management, based on the PMP framework.",
     },
     {
       organization: "La Salle Barcelona (Universitat Ramon Llull)",
       role: "Big Data Master Speaker",
       location: "Barcelona, Spain",
+      // TODO(verify): only in the old CV (12/2020 – Present); not on LinkedIn. Still active?
       start: "2020-12",
       description: "Classes in the Big Data Master on data management in cloud environments.",
+    },
+    {
+      organization: "Orvi Formació",
+      role: "Teacher",
+      start: "2006",
+      end: "2007",
+      description:
+        "Designed and taught “Programador d'aplicacions orientades a objectes”, a beginner Java programming course for the Catalan Public Employment Service (SOC).",
     },
   ],
 
   skills: [
     {
-      category: "Leadership & management",
+      category: "Data & AI",
       items: [
-        "IT management",
+        "Data strategy",
+        "Data management",
+        "Data governance",
+        "Business Intelligence",
+        "Data analysis",
+        "Databricks",
+        "BigQuery",
+        "Power BI",
+        "SQL Server",
+      ],
+    },
+    {
+      category: "Business & leadership",
+      items: [
+        "Consultative selling",
+        "Business development",
+        "Customer and partner engagement",
         "Team leadership",
-        "Project management (PMP / PMI)",
-        "IT service management (ITIL)",
-        "Agile (Scrum, Kanban)",
+        "Teamwork",
+        "IT management",
         "Budget and provider management",
       ],
     },
     {
-      category: "Data & analytics",
+      category: "Delivery",
       items: [
-        "Business Intelligence",
-        "Data analysis",
-        "Power BI",
-        "SQL Server",
-        "Microsoft Azure",
+        "Project management (PMP / PMI)",
+        "IT service management (ITIL)",
+        "Agile (Scrum, Kanban)",
       ],
     },
     {
+      category: "Cloud",
+      items: ["Google Cloud", "Microsoft Azure"],
+    },
+    {
       category: "Software engineering",
-      items: ["Analysis and design", "Software development", "J2EE"],
+      items: ["Analysis and design", "Software development", "J2EE", "PHP"],
     },
     {
       category: "Tools",
@@ -175,8 +243,8 @@ export const resume: Resume = {
       end: "2020",
     },
     {
-      institution: "La Salle Business Engineering School, Universitat Ramon Llull (URL)",
-      degree: "Master in Project Management",
+      institution: "La Salle Barcelona, Universitat Ramon Llull (URL)",
+      degree: "Master in Project Management (MPM)",
       start: "2014",
       end: "2015",
     },
@@ -190,14 +258,14 @@ export const resume: Resume = {
     {
       institution:
         "Facultat d'Informàtica de Barcelona (FIB), Universitat Politècnica de Catalunya",
-      degree: "Computer Science Technical Engineering",
+      // TODO(verify): English name for "Ingeniería Técnica en Informática de Gestión".
+      degree: "Technical Engineering in Business Information Systems",
       start: "2003",
-      // TODO(verify): the PDF says "2003 – 208"; assumed 2008.
       end: "2008",
     },
   ],
 
-  // TODO(verify): the PDF gives no dates or credential links for any certification.
+  // TODO(verify): neither source gives dates or credential links for the certifications.
   certifications: [
     { name: "Microsoft Certified: Azure Data Engineer Associate (DP-203)", issuer: "Microsoft" },
     { name: "Microsoft Certified: Azure Data Fundamentals (DP-900)", issuer: "Microsoft" },
@@ -216,7 +284,7 @@ export const resume: Resume = {
     },
     { name: "ACP-120 Atlassian Certified Jira Administrator for Cloud", issuer: "Atlassian" },
     { name: "ACP-620 Atlassian Certified in Managing Jira Cloud Projects", issuer: "Atlassian" },
-    // TODO(verify): issuer not stated in the PDF.
+    // TODO(verify): issuer not stated in either source.
     { name: "ITIL® Foundation Certificate in IT Service Management" },
     { name: "First Certificate in English (FCE)", issuer: "Cambridge" },
   ],

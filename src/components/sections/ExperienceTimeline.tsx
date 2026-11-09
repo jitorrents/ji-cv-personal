@@ -33,7 +33,7 @@ export function ExperienceTimeline() {
                   <span
                     aria-hidden="true"
                     className={`absolute top-1.5 -left-[31px] size-3 rounded-full ring-4 ring-surface ${
-                      job.end ? "bg-border" : "bg-accent"
+                      job.end ? "bg-border" : "bg-warm"
                     }`}
                   />
                   <h3 className="font-semibold">{job.role}</h3>
@@ -47,7 +47,10 @@ export function ExperienceTimeline() {
                     <ul className="mt-3 space-y-1.5">
                       {job.highlights.map((h) => (
                         <li key={h} className="flex gap-3 text-pretty">
-                          <span aria-hidden="true" className="mt-2.5 h-px w-3 shrink-0 bg-accent" />
+                          <span
+                            aria-hidden="true"
+                            className="mt-2.5 h-0.5 w-3 shrink-0 rounded-full bg-warm"
+                          />
                           {h}
                         </li>
                       ))}

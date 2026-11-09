@@ -15,13 +15,17 @@ export function Hero() {
         aria-hidden="true"
         className="no-print pointer-events-none absolute -top-24 right-0 -z-10 size-[28rem] rounded-full bg-accent/15 blur-3xl"
       />
+      <div
+        aria-hidden="true"
+        className="no-print pointer-events-none absolute top-24 right-40 -z-10 size-72 rounded-full bg-warm/15 blur-3xl"
+      />
       <div className="flex animate-rise flex-col-reverse gap-10 md:flex-row md:items-center md:justify-between">
         <div className="max-w-2xl">
           <p className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-sm text-muted">
             <svg
               aria-hidden="true"
               viewBox="0 0 24 24"
-              className="size-4 text-accent"
+              className="size-4 text-warm"
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
