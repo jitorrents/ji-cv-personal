@@ -162,14 +162,17 @@ export type Labels = {
     teaching: {
       eyebrow: string;
       title: string;
+      intro: string;
     };
     skills: {
       eyebrow: string;
       title: string;
+      intro: string;
     };
     education: {
       eyebrow: string;
       title: string;
+      intro: string;
     };
     presence: {
       eyebrow: string;

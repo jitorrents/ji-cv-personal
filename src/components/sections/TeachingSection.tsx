@@ -14,6 +14,7 @@ export function TeachingSection({ locale }: { locale: Locale }) {
       tone="cloud"
       eyebrow={s.eyebrow}
       title={s.title}
+      intro={s.intro}
       kpis={kpis(t, r).teaching()}
     >
       <ul className="grid gap-5 md:grid-cols-3">

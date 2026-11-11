@@ -98,8 +98,8 @@ export const content: Content = {
           es: "Experiencia",
         },
         intro: {
-          en: "Roles and responsibilities, newest first.",
-          es: "Roles y responsabilidades, del más reciente al más antiguo.",
+          en: "Over more than 20 years in IT I have gone from writing J2EE code for public administrations to leading the Data business at Kyndryl, with stops in Atlassian consulting, Business Intelligence management and service delivery along the way.",
+          es: "En más de 20 años en IT he pasado de programar en J2EE para la administración pública a liderar el negocio de Data en Kyndryl, pasando por la consultoría Atlassian, la dirección de Business Intelligence y la gestión de servicios.",
         },
       },
       teaching: {
@@ -111,6 +111,10 @@ export const content: Content = {
           en: "Teaching & mentoring",
           es: "Docencia y mentoría",
         },
+        intro: {
+          en: "I enjoy sharing what I have learned: from teaching Java to beginners early in my career to mentoring Master in Project Management theses and teaching data management in the cloud at La Salle.",
+          es: "Me gusta compartir lo que he aprendido: desde enseñar Java a principiantes al inicio de mi carrera hasta tutorizar trabajos de fin de Máster en Project Management y dar clases de gestión de datos en la nube en La Salle.",
+        },
       },
       skills: {
         eyebrow: {
@@ -121,6 +125,10 @@ export const content: Content = {
           en: "Skills & Certifications",
           es: "Aptitudes y Certificaciones",
         },
+        intro: {
+          en: "My work sits where data strategy, delivery and business meet. These are the skills I use every day, backed by certifications from Microsoft, AWS, Google Cloud, Cloudera, Databricks and Atlassian.",
+          es: "Mi trabajo está donde se encuentran la estrategia de datos, la ejecución y el negocio. Estas son las aptitudes que uso a diario, respaldadas por certificaciones de Microsoft, AWS, Google Cloud, Cloudera, Databricks y Atlassian.",
+        },
       },
       education: {
         eyebrow: {
@@ -130,6 +138,10 @@ export const content: Content = {
         title: {
           en: "Education & languages",
           es: "Formación e idiomas",
+        },
+        intro: {
+          en: "An engineering foundation from the Universitat Politècnica de Catalunya, a Master in Project Management from La Salle and a postgraduate degree in Business Intelligence from the UOC, plus four languages.",
+          es: "Una base de ingeniería en la Universitat Politècnica de Catalunya, un Máster en Project Management por La Salle y un posgrado en Business Intelligence por la UOC, además de cuatro idiomas.",
         },
       },
       presence: {
@@ -142,8 +154,8 @@ export const content: Content = {
           es: "Presencia pública",
         },
         intro: {
-          en: "Talks, panels, articles and press.",
-          es: "Charlas, mesas redondas, artículos y prensa.",
+          en: "Beyond my day-to-day role as Head of Data at Kyndryl, I take part in the industry conversation around data spaces, AI and data platforms: at events such as MWC and Smart City Expo World Congress, in panel discussions and in the trade press. Here is a selection of the talks, articles and conversations I have been part of.",
+          es: "Más allá de mi día a día como Head of Data en Kyndryl, participo en la conversación del sector sobre espacios de datos, IA y plataformas de datos: en eventos como el MWC o el Smart City Expo World Congress, en mesas redondas y en la prensa especializada. Esta es una selección de las charlas, artículos y conversaciones en las que he participado.",
         },
         empty: {
           en: "Coming soon.",
@@ -160,8 +172,8 @@ export const content: Content = {
           es: "Contacto",
         },
         intro: {
-          en: "The best way to reach me is through LinkedIn.",
-          es: "La mejor forma de contactar conmigo es a través de LinkedIn.",
+          en: "Whether it is a data project, a talk or simply a conversation, LinkedIn is the best way to reach me.",
+          es: "Ya sea para un proyecto de datos, una charla o simplemente una conversación, la mejor forma de contactar conmigo es a través de LinkedIn.",
         },
       },
     },

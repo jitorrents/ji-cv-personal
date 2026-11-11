@@ -63,6 +63,7 @@ export function EducationSection({ locale }: { locale: Locale }) {
       tone="skye"
       eyebrow={s.eyebrow}
       title={s.title}
+      intro={s.intro}
       kpis={kpis(t, r).education()}
     >
       {r.education.length > 0 && (

@@ -16,7 +16,14 @@ export function SkillsSection({ locale }: { locale: Locale }) {
   const { t, r } = getContent(locale);
   const s = t.sections.skills;
   return (
-    <Band id="skills" tone="earth" eyebrow={s.eyebrow} title={s.title} kpis={kpis(t, r).skills()}>
+    <Band
+      id="skills"
+      tone="earth"
+      eyebrow={s.eyebrow}
+      title={s.title}
+      intro={s.intro}
+      kpis={kpis(t, r).skills()}
+    >
       {r.skills.length > 0 && (
         <>
           <SubHeading>{t.skillsSection.skills}</SubHeading>
