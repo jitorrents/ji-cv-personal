@@ -21,7 +21,9 @@ export function LogoStripSection({ locale }: { locale: Locale }) {
             <IssuerWordmark issuer={issuer} className="h-5" />
           ) : (
             <>
-              <IssuerLogo issuer={issuer} className="size-7" />
+              <span className="shrink-0 rounded-md dark:bg-white dark:p-0.5">
+                <IssuerLogo issuer={issuer} className="size-7" />
+              </span>
               <span className="font-display text-lg font-bold whitespace-nowrap">{issuer}</span>
             </>
           )}

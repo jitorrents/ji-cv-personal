@@ -20,7 +20,9 @@ export function CertificationGrid({ locale }: { locale: Locale }) {
                 </h4>
               ) : (
                 <>
-                  <IssuerLogo issuer={certs[0]?.issuer} className="size-9" />
+                  <span className="shrink-0 rounded-lg dark:bg-white dark:p-1">
+                    <IssuerLogo issuer={certs[0]?.issuer} className="size-9" />
+                  </span>
                   <h4 className="font-display text-lg font-bold">{issuer}</h4>
                 </>
               )}

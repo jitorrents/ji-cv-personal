@@ -1,13 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 
 /**
- * Shows the email as a mailto link, filled in by the browser as soon as the page loads.
- *
- * The address arrives encoded (see `encodeEmail`), so neither the static HTML nor the
- * React payload contains it: spam bots that scrape raw HTML never see it, while every
- * visitor (and the printed CV) does, with no click needed.
+ * Receives the address encoded (see `encodeEmail`), so neither the HTML nor the
+ * React payload contains it. It is decoded in the browser on click, or just
+ * before printing so the PDF CV includes it.
  */
 export function ObfuscatedEmail({
   encoded,
@@ -15,28 +13,33 @@ export function ObfuscatedEmail({
   className = "",
 }: {
   encoded: string;
-  /** Accessible placeholder until the address is filled in ("Email address"). */
+  /** Text of the reveal button ("Show email address"). */
   label: string;
   className?: string;
 }) {
-  const ref = useRef<HTMLAnchorElement>(null);
+  const [email, setEmail] = useState<string | null>(null);
 
   useEffect(() => {
-    const a = ref.current;
-    if (!a) return;
-    const email = atob(encoded).split("").reverse().join("");
-    a.href = `mailto:${email}`;
-    a.textContent = email;
-    a.classList.remove("invisible");
+    const reveal = () => setEmail(decodeEmail(encoded));
+    window.addEventListener("beforeprint", reveal);
+    return () => window.removeEventListener("beforeprint", reveal);
   }, [encoded]);
 
+  const style = `font-semibold text-link underline underline-offset-4 ${className}`;
+  if (!email) {
+    return (
+      <button type="button" onClick={() => setEmail(decodeEmail(encoded))} className={style}>
+        {label}
+      </button>
+    );
+  }
   return (
-    // Invisible (but space-keeping) until the effect fills in the real address.
-    <a
-      ref={ref}
-      className={`invisible font-semibold text-link underline underline-offset-4 ${className}`}
-    >
-      {label}
+    <a href={`mailto:${email}`} className={style}>
+      {email}
     </a>
   );
+}
+
+function decodeEmail(encoded: string): string {
+  return atob(encoded).split("").reverse().join("");
 }
