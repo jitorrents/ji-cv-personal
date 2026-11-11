@@ -1,6 +1,7 @@
 import type { Viewport } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { getContent, type Locale } from "@/content/i18n";
+import { goatcounterCode } from "@/lib/site";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import "@/app/globals.css";
@@ -56,6 +57,13 @@ export function RootDocument({
           {children}
         </main>
         {chrome && <Footer locale={locale} />}
+        {goatcounterCode && process.env.NODE_ENV === "production" && (
+          <script
+            data-goatcounter={`https://${goatcounterCode}.goatcounter.com/count`}
+            async
+            src="https://gc.zgo.at/count.js"
+          />
+        )}
       </body>
     </html>
   );
