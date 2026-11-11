@@ -823,7 +823,7 @@ export const content: Content = {
         image: "/presence/byte344.webp",
       },
       {
-        type: "event",
+        type: "talk",
         event: "Cloudera Evolve",
         title: {
           en: "Kyndryl at Cloudera Evolve Forum 2025",
