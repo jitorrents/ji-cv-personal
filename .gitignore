@@ -53,3 +53,6 @@ public/CNAME
 
 # playwright mcp output
 .playwright-mcp/
+
+# raw logo files from the user (processed copies go to public/logos/)
+logos-inbox/

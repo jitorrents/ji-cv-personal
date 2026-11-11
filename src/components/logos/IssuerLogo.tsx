@@ -1,4 +1,42 @@
+import Image from "next/image";
+import { asset } from "@/lib/site";
 import { simpleIcons } from "./simple-icons";
+
+/** Official square icons provided by the user (files in public/logos/, see SOURCES.md). */
+const imageByIssuer: Record<string, string> = {
+  "Google Cloud": "/logos/google-cloud.webp",
+};
+
+/**
+ * Official wordmarks (logo that already contains the name). Where one exists it replaces
+ * both the icon and the issuer name text; the name stays available as the image's alt text.
+ */
+const wordmarkByIssuer: Record<string, { src: string; width: number; height: number }> = {
+  Cloudera: { src: "/logos/cloudera.webp", width: 480, height: 60 },
+};
+
+/** The issuer's wordmark image (with the issuer name as alt text), or null if it has none. */
+export function IssuerWordmark({
+  issuer,
+  className = "h-5",
+}: {
+  issuer: string;
+  className?: string;
+}) {
+  const mark = wordmarkByIssuer[issuer];
+  if (!mark) return null;
+  return (
+    <Image
+      src={asset(mark.src)}
+      alt={issuer}
+      width={mark.width}
+      height={mark.height}
+      className={`w-auto ${className}`}
+    />
+  );
+}
+
+export const hasWordmark = (issuer: string) => issuer in wordmarkByIssuer;
 
 /** Microsoft's four-squares mark (simple geometry, official colors). */
 function MicrosoftMark({ className }: { className: string }) {
@@ -13,7 +51,6 @@ function MicrosoftMark({ className }: { className: string }) {
 }
 
 const iconByIssuer: Record<string, keyof typeof simpleIcons> = {
-  "Google Cloud": "googlecloud",
   Databricks: "databricks",
   Atlassian: "atlassian",
   Cloudera: "cloudera",
@@ -37,6 +74,19 @@ export function IssuerLogo({
   className?: string;
 }) {
   if (issuer === "Microsoft") return <MicrosoftMark className={className} />;
+  const image = issuer ? imageByIssuer[issuer] : undefined;
+  if (image) {
+    return (
+      <Image
+        src={asset(image)}
+        alt=""
+        aria-hidden="true"
+        width={96}
+        height={96}
+        className={`object-contain ${className}`}
+      />
+    );
+  }
   const key = issuer ? iconByIssuer[issuer] : undefined;
   const icon = key ? simpleIcons[key] : undefined;
   if (icon) {

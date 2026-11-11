@@ -1,5 +1,5 @@
 import { resume } from "@/content/resume";
-import { IssuerLogo } from "@/components/logos/IssuerLogo";
+import { IssuerLogo, IssuerWordmark, hasWordmark } from "@/components/logos/IssuerLogo";
 import { Reveal } from "@/components/ui/Reveal";
 import { groupByIssuer } from "@/lib/certifications";
 import { formatYearMonth } from "@/lib/dates";
@@ -13,8 +13,16 @@ export function CertificationGrid() {
         <Reveal key={issuer} delay={(i % 3) * 100} className="h-full">
           <article className="tone-plain h-full rounded-3xl bg-band p-6 text-fg shadow-lg shadow-black/10">
             <header className="flex items-center gap-3">
-              <IssuerLogo issuer={issuer} className="size-9" />
-              <h4 className="font-display text-lg font-bold">{issuer}</h4>
+              {hasWordmark(issuer) ? (
+                <h4 className="flex h-9 items-center">
+                  <IssuerWordmark issuer={issuer} className="h-5" />
+                </h4>
+              ) : (
+                <>
+                  <IssuerLogo issuer={issuer} className="size-9" />
+                  <h4 className="font-display text-lg font-bold">{issuer}</h4>
+                </>
+              )}
             </header>
             <ul className="mt-4 space-y-2.5 text-sm">
               {certs.map((c) => (

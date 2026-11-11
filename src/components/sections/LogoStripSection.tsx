@@ -1,6 +1,6 @@
 import { labels } from "@/content/labels";
 import { resume } from "@/content/resume";
-import { IssuerLogo } from "@/components/logos/IssuerLogo";
+import { IssuerLogo, IssuerWordmark, hasWordmark } from "@/components/logos/IssuerLogo";
 import { groupByIssuer } from "@/lib/certifications";
 
 /**
@@ -17,8 +17,14 @@ export function LogoStripSection() {
     <ul aria-hidden={hidden || undefined} className="flex shrink-0 items-center gap-12 pr-12">
       {issuers.map((issuer) => (
         <li key={issuer} className="flex items-center gap-3 text-muted">
-          <IssuerLogo issuer={issuer} className="size-7" />
-          <span className="font-display text-lg font-bold whitespace-nowrap">{issuer}</span>
+          {hasWordmark(issuer) ? (
+            <IssuerWordmark issuer={issuer} className="h-5" />
+          ) : (
+            <>
+              <IssuerLogo issuer={issuer} className="size-7" />
+              <span className="font-display text-lg font-bold whitespace-nowrap">{issuer}</span>
+            </>
+          )}
         </li>
       ))}
     </ul>
