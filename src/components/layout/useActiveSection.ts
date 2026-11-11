@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import type { SectionId } from "@/content/labels";
+import type { SectionId } from "@/content/types";
 import { isHomePath } from "@/content/locale";
 
 /** The home-page section currently in the middle of the viewport (scroll spy). */

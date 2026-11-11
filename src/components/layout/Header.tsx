@@ -36,7 +36,11 @@ export function Header({ locale }: { locale: Locale }) {
         </nav>
 
         <div className="flex items-center gap-1 justify-self-end">
-          <LanguageSwitch locale={locale} label={t.language.label} names={t.language} />
+          <LanguageSwitch
+            locale={locale}
+            label={t.language.label}
+            names={{ en: t.language.english, es: t.language.spanish }}
+          />
           <ThemeToggle label={t.toggleTheme} />
           <Link
             href={localePath(locale, "/#contact")}

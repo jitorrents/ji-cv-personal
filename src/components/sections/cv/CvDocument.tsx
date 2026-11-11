@@ -38,11 +38,11 @@ export function CvDocument({ locale }: { locale: Locale }) {
 
       <div className="mt-6 grid gap-x-10 md:grid-cols-[1fr_15rem] print:mt-4 print:grid-cols-[1fr_52mm] print:gap-x-8">
         <div>
-          <CvSection title={t.cv.profile}>
+          <CvSection title={t.cvHeadings.profile}>
             <p className="text-pretty">{summary}</p>
           </CvSection>
 
-          <CvSection title={t.cv.experience}>
+          <CvSection title={t.cvHeadings.experience}>
             <div className="space-y-4 print:space-y-3">
               {groupByCompany(r.experience).map((g) => (
                 <article key={`${g.company}-${g.start}`}>
@@ -71,7 +71,7 @@ export function CvDocument({ locale }: { locale: Locale }) {
           </CvSection>
 
           {r.collaborations?.length ? (
-            <CvSection title={t.cv.teaching}>
+            <CvSection title={t.cvHeadings.teaching}>
               <ul className="space-y-2">
                 {r.collaborations.map((c) => (
                   <li key={`${c.organization}-${c.role}`}>
@@ -92,7 +92,7 @@ export function CvDocument({ locale }: { locale: Locale }) {
         </div>
 
         <aside>
-          <CvSection title={t.cv.education}>
+          <CvSection title={t.cvHeadings.education}>
             <ul className="space-y-2.5 text-sm">
               {r.education.map((e) => (
                 <li key={`${e.institution}-${e.degree}`}>
@@ -114,7 +114,7 @@ export function CvDocument({ locale }: { locale: Locale }) {
             </ul>
           </CvSection>
 
-          <CvSection title={t.cv.skills}>
+          <CvSection title={t.cvHeadings.skills}>
             <div className="space-y-2 text-sm">
               {r.skills.map((g) => (
                 <p key={g.category}>
@@ -125,7 +125,7 @@ export function CvDocument({ locale }: { locale: Locale }) {
             </div>
           </CvSection>
 
-          <CvSection title={t.cv.languages}>
+          <CvSection title={t.cvHeadings.languages}>
             <ul className="space-y-0.5 text-sm">
               {r.languages.map((l) => (
                 <li key={l.language}>
@@ -135,7 +135,7 @@ export function CvDocument({ locale }: { locale: Locale }) {
               ))}
             </ul>
           </CvSection>
-          <CvSection title={t.cv.certifications}>
+          <CvSection title={t.cvHeadings.certifications}>
             <div className="space-y-2 text-xs">
               {groupByIssuer(r.certifications, t.otherIssuer).map(([issuer, certs]) => (
                 <div key={issuer}>

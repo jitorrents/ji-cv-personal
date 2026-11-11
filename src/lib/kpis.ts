@@ -1,4 +1,4 @@
-import type { Labels } from "@/content/labels";
+import type { Labels } from "@/content/types";
 import type { Resume } from "@/content/types";
 import { companyCount, yearsOfExperience } from "./experience";
 

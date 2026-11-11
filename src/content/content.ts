@@ -1,0 +1,1059 @@
+import type { Content } from "./types";
+
+/*
+ * ALL THE TEXT OF THE SITE, IN ONE FILE / TODOS LOS TEXTOS DE LA WEB, EN UN SOLO FICHERO
+ *
+ * How to edit / Cómo editar:
+ * - A text that differs per language is a pair:   title: { en: "About", es: "Sobre mí" }
+ *   Un texto que cambia según el idioma es un par: title: { en: "About", es: "Sobre mí" }
+ * - A text shared by both languages is a single value (names, dates, URLs, logos):
+ *   company: "Kyndryl"  ·  start: "2025-01"  ·  companyLogo: "/logos/kyndryl.webp"
+ * - Lists (highlights, skills...) can be a list of pairs, or a pair of lists:
+ *   highlights: [{ en: "...", es: "..." }, ...]  or  { en: ["...", "..."], es: ["...", "..."] }
+ * - Dates: "YYYY-MM", or "YYYY" if the month is unknown. Experience goes newest first.
+ * - To add a language later, add it to locales in locale.ts and an entry next to en/es.
+ *
+ * `ui` = interface (menus, section titles, buttons, month names).
+ * `cv` = CV content (profile, experience, education, skills, certifications...).
+ * The type checker (pnpm typecheck) flags any typo in the structure.
+ *
+ * Sources: LinkedIn profile export (Nov 2026, Spanish) merged over the old resume.pdf;
+ * LinkedIn wins every conflict. The LinkedIn export only lists the top 3 skills and
+ * certifications, so the full lists come from resume.pdf. Spanish wording follows the
+ * LinkedIn export wherever it has the same content.
+ */
+export const content: Content = {
+  ui: {
+    skipToContent: {
+      en: "Skip to content",
+      es: "Saltar al contenido",
+    },
+    primaryNav: {
+      en: "Primary",
+      es: "Principal",
+    },
+    nav: {
+      about: {
+        en: "About",
+        es: "Sobre mí",
+      },
+      experience: {
+        en: "Experience",
+        es: "Experiencia",
+      },
+      education: {
+        en: "Education",
+        es: "Formación",
+      },
+      skills: {
+        en: "Skills & Certifications",
+        es: "Aptitudes y Certificaciones",
+      },
+      teaching: {
+        en: "Teaching",
+        es: "Docencia",
+      },
+      presence: {
+        en: "Public presence",
+        es: "Presencia pública",
+      },
+      contact: {
+        en: "Contact",
+        es: "Contacto",
+      },
+    },
+    cvLink: "CV",
+    navGroups: {
+      career: {
+        en: "Career",
+        es: "Trayectoria",
+      },
+    },
+    logoStrip: {
+      en: "Certified by",
+      es: "Certificado por",
+    },
+    careerPath: {
+      en: "Career path",
+      es: "Trayectoria",
+    },
+    sections: {
+      about: {
+        eyebrow: {
+          en: "Who I am",
+          es: "Quién soy",
+        },
+        title: {
+          en: "About",
+          es: "Sobre mí",
+        },
+      },
+      experience: {
+        eyebrow: {
+          en: "Career",
+          es: "Carrera",
+        },
+        title: {
+          en: "Experience",
+          es: "Experiencia",
+        },
+        intro: {
+          en: "Roles and responsibilities, newest first.",
+          es: "Roles y responsabilidades, del más reciente al más antiguo.",
+        },
+      },
+      teaching: {
+        eyebrow: {
+          en: "Sharing knowledge",
+          es: "Compartir conocimiento",
+        },
+        title: {
+          en: "Teaching & mentoring",
+          es: "Docencia y mentoría",
+        },
+      },
+      skills: {
+        eyebrow: {
+          en: "What I do",
+          es: "Qué hago",
+        },
+        title: {
+          en: "Skills & Certifications",
+          es: "Aptitudes y Certificaciones",
+        },
+      },
+      education: {
+        eyebrow: {
+          en: "Learning",
+          es: "Aprendizaje",
+        },
+        title: {
+          en: "Education & languages",
+          es: "Formación e idiomas",
+        },
+      },
+      presence: {
+        eyebrow: {
+          en: "Out there",
+          es: "En público",
+        },
+        title: {
+          en: "Public presence",
+          es: "Presencia pública",
+        },
+        intro: {
+          en: "Talks, panels, articles and press.",
+          es: "Charlas, mesas redondas, artículos y prensa.",
+        },
+        empty: {
+          en: "Coming soon.",
+          es: "Próximamente.",
+        },
+      },
+      contact: {
+        eyebrow: {
+          en: "Let's talk",
+          es: "Hablemos",
+        },
+        title: {
+          en: "Get in touch",
+          es: "Contacto",
+        },
+        intro: {
+          en: "The best way to reach me is through LinkedIn.",
+          es: "La mejor forma de contactar conmigo es a través de LinkedIn.",
+        },
+      },
+    },
+    cvPage: {
+      eyebrow: {
+        en: "Résumé",
+        es: "Currículum",
+      },
+      title: "Curriculum vitae",
+      intro: {
+        en: "The full CV laid out for A4. Use Download PDF to save or print it.",
+        es: "El CV completo en formato A4. Usa Descargar PDF para guardarlo o imprimirlo.",
+      },
+    },
+    skillsSection: {
+      skills: {
+        en: "Skills",
+        es: "Aptitudes",
+      },
+      certifications: {
+        en: "Certifications",
+        es: "Certificaciones",
+      },
+    },
+    kpis: {
+      yearsInIt: {
+        en: "years in IT",
+        es: "años en IT",
+      },
+      companies: {
+        en: "companies",
+        es: "empresas",
+      },
+      roles: "roles",
+      institutions: {
+        en: "institutions",
+        es: "instituciones",
+      },
+      certifications: {
+        en: "certifications",
+        es: "certificaciones",
+      },
+      issuers: {
+        en: "issuers",
+        es: "emisores",
+      },
+      skillAreas: {
+        en: "skill areas",
+        es: "áreas",
+      },
+      degrees: {
+        en: "degrees",
+        es: "titulaciones",
+      },
+      languages: {
+        en: "languages",
+        es: "idiomas",
+      },
+      items: {
+        en: "appearances",
+        es: "apariciones",
+      },
+    },
+    presenceTypes: {
+      talk: {
+        en: "Talk",
+        es: "Charla",
+      },
+      panel: {
+        en: "Panel",
+        es: "Mesa redonda",
+      },
+      article: {
+        en: "Article",
+        es: "Artículo",
+      },
+      interview: {
+        en: "Interview",
+        es: "Entrevista",
+      },
+      press: {
+        en: "Press",
+        es: "Prensa",
+      },
+      podcast: "Podcast",
+      other: {
+        en: "Other",
+        es: "Otro",
+      },
+    },
+    education: {
+      degrees: {
+        en: "Degrees",
+        es: "Titulaciones",
+      },
+      languages: {
+        en: "Languages",
+        es: "Idiomas",
+      },
+      // Joins degree and field: "Postgraduate degree in Business Intelligence".
+      fieldJoiner: {
+        en: " in ",
+        es: " en ",
+      },
+    },
+    cvHeadings: {
+      profile: {
+        en: "Profile",
+        es: "Perfil",
+      },
+      experience: {
+        en: "Experience",
+        es: "Experiencia",
+      },
+      teaching: {
+        en: "Teaching",
+        es: "Docencia",
+      },
+      education: {
+        en: "Education",
+        es: "Formación",
+      },
+      certifications: {
+        en: "Certifications",
+        es: "Certificaciones",
+      },
+      skills: {
+        en: "Skills",
+        es: "Aptitudes",
+      },
+      languages: {
+        en: "Languages",
+        es: "Idiomas",
+      },
+    },
+    openMenu: {
+      en: "Open menu",
+      es: "Abrir menú",
+    },
+    closeMenu: {
+      en: "Close menu",
+      es: "Cerrar menú",
+    },
+    toggleTheme: {
+      en: "Toggle dark mode",
+      es: "Cambiar modo oscuro",
+    },
+    viewCv: {
+      en: "View CV",
+      es: "Ver CV",
+    },
+    contactMe: {
+      en: "Contact",
+      es: "Contacto",
+    },
+    downloadPdf: {
+      en: "Download PDF",
+      es: "Descargar PDF",
+    },
+    lastUpdated: {
+      en: "Last updated",
+      es: "Última actualización",
+    },
+    sourceCode: {
+      en: "Source code",
+      es: "Código fuente",
+    },
+    notFoundTitle: {
+      en: "Page not found",
+      es: "Página no encontrada",
+    },
+    notFoundBody: {
+      en: "The page you are looking for does not exist.",
+      es: "La página que buscas no existe.",
+    },
+    backHome: {
+      en: "Back to home",
+      es: "Volver al inicio",
+    },
+    // Language switch: label of the control, and the name of each language (in its own language).
+    language: {
+      label: {
+        en: "Language",
+        es: "Idioma",
+      },
+      english: "English",
+      spanish: "Español",
+    },
+    otherIssuer: {
+      en: "Other",
+      es: "Otros",
+    },
+    dates: {
+      months: [
+        {
+          en: "Jan",
+          es: "ene",
+        },
+        {
+          en: "Feb",
+          es: "feb",
+        },
+        {
+          en: "Mar",
+          es: "mar",
+        },
+        {
+          en: "Apr",
+          es: "abr",
+        },
+        {
+          en: "May",
+          es: "may",
+        },
+        {
+          en: "Jun",
+          es: "jun",
+        },
+        {
+          en: "Jul",
+          es: "jul",
+        },
+        {
+          en: "Aug",
+          es: "ago",
+        },
+        {
+          en: "Sep",
+          es: "sept",
+        },
+        {
+          en: "Oct",
+          es: "oct",
+        },
+        {
+          en: "Nov",
+          es: "nov",
+        },
+        {
+          en: "Dec",
+          es: "dic",
+        },
+      ],
+      present: {
+        en: "Present",
+        es: "actualidad",
+      },
+      yr: {
+        en: "yr",
+        es: "año",
+      },
+      yrs: {
+        en: "yrs",
+        es: "años",
+      },
+      mo: {
+        en: "mo",
+        es: "mes",
+      },
+      mos: {
+        en: "mos",
+        es: "meses",
+      },
+    },
+    meta: {
+      description: {
+        en: "CV and portfolio of Joan Ignasi Torrents: Data & AI leadership, consulting and project management.",
+        es: "CV y portfolio de Joan Ignasi Torrents: liderazgo en Data & AI, consultoría y dirección de proyectos.",
+      },
+    },
+  },
+  cv: {
+    basics: {
+      // Full name on both sources: "Joan Ignasi Torrents Vilà".
+      name: "Joan Ignasi Torrents",
+      headline: {
+        en: "Head of Data – Applications, Data & AI at Kyndryl Consult",
+        es: "Head of Data – Applications, Data & AI en Kyndryl Consult",
+      },
+      summary: {
+        en: "Computer science engineer with a Master in Project Management and a long career in IT and consulting. I started in software development as a programmer, analyst and architect, then moved into project and service management, business development and team leadership. Today I am Head of Data in Kyndryl's Applications, Data & AI area, where I combine management, commercial and technical skills to grow the business, backed by deep knowledge of data from a strategic, governance and technology perspective.",
+        es: "Ingeniero Informático y Máster en Project Management, con una amplia trayectoria en el sector IT y la consultoría. Comencé mi carrera en el desarrollo de software como programador, analista y arquitecto, y más adelante orienté mi camino hacia la gestión de proyectos y servicios, el desarrollo de negocio y el liderazgo de equipos. Actualmente soy Head of Data en el área de Aplicaciones, Datos e IA de Kyndryl, donde combino habilidades de gestión, comerciales y técnicas para impulsar el crecimiento de la unidad, apoyado en un profundo conocimiento del mundo del dato desde una perspectiva estratégica, de gobierno y tecnológica.",
+      },
+      location: {
+        en: "Barcelona, Spain",
+        es: "Barcelona, España",
+      },
+      // Published with the user's consent (Nov 2026). Source: "Foto personal1.jpg", resized, no metadata.
+      photo: "/photo.webp",
+      profiles: [
+        {
+          network: "LinkedIn",
+          url: "https://www.linkedin.com/in/jitorrents",
+          username: "jitorrents",
+        },
+      ],
+    },
+    experience: [
+      {
+        company: "Kyndryl",
+        companyUrl: "https://www.kyndryl.com",
+        companyLogo: "/logos/kyndryl.webp",
+        companyWordmark: "/logos/kyndryl.svg",
+        role: "Head of Data – Applications, Data & AI, Kyndryl Consult",
+        location: {
+          en: "Barcelona, Spain",
+          es: "Barcelona, España",
+        },
+        start: "2025-01",
+        summary: {
+          en: "Lead the Data business in the Applications, Data & AI area, working closely with internal sales and technical teams.",
+          es: "Lidero el negocio de Data en el área de Aplicaciones, Datos e IA, colaborando estrechamente con los equipos internos de ventas y técnicos.",
+        },
+        highlights: [
+          {
+            en: "Define the growth strategy, portfolio, objectives and roadmap of Data services, around a clear and differentiated value proposition.",
+            es: "Defino la estrategia de crecimiento, el portfolio, los objetivos y el roadmap de los servicios de Data, alineados con una propuesta de valor clara y diferenciadora.",
+          },
+          {
+            en: "Lead customer and partner engagement, building trust-based relationships and consultative selling of data solutions.",
+            es: "Lidero el engagement con clientes y partners, con relaciones basadas en la confianza y en la venta consultiva de soluciones alrededor del dato.",
+          },
+          {
+            en: "Generate business opportunities: identify needs and design innovative solutions and high-impact proposals.",
+            es: "Genero oportunidades de negocio: identificación de necesidades, diseño de soluciones innovadoras y propuestas de alto impacto.",
+          },
+          {
+            en: "Work with the sales team to detect and qualify opportunities.",
+            es: "Trabajo junto al equipo de ventas para detectar y cualificar oportunidades.",
+          },
+          {
+            en: "Manage strategic relationships with key customers, providers and partners.",
+            es: "Gestiono relaciones estratégicas con clientes, proveedores y partners clave.",
+          },
+        ],
+        tech: [
+          "Google Cloud",
+          "Azure",
+          "Databricks",
+          "BigQuery",
+          {
+            en: "Data governance",
+            es: "Gobierno del dato",
+          },
+          "Data management",
+        ],
+      },
+      {
+        company: "Kyndryl",
+        companyUrl: "https://www.kyndryl.com",
+        companyLogo: "/logos/kyndryl.webp",
+        companyWordmark: "/logos/kyndryl.svg",
+        // TODO(verify): LinkedIn has no description for this role. Its summary and highlights come from
+        // the old CV, where the role was called "Associate Partner for Application, Data & AI".
+        role: "Customer Technology Advisor for Data & AI, Kyndryl Consult",
+        location: {
+          en: "Barcelona, Spain",
+          es: "Barcelona, España",
+        },
+        start: "2022-02",
+        end: "2025-01",
+        summary: {
+          en: "Advisory & Implementation Services for Spain and Portugal, specialised in Data & AI.",
+          es: "Servicios de Advisory & Implementation para España y Portugal, con especialización en Data & AI.",
+        },
+        highlights: [
+          {
+            en: "Built the value proposition for the Data area.",
+            es: "Construí la propuesta de valor del área de Data.",
+          },
+          {
+            en: "Led customer engagement and consultative selling.",
+            es: "Lideré el engagement con clientes y la venta consultiva.",
+          },
+        ],
+      },
+      {
+        company: "Mediacloud",
+        companyLogo: "/logos/mediacloud.webp",
+        role: "Head of Data & Analytics",
+        location: {
+          en: "Barcelona, Spain",
+          es: "Barcelona, España",
+        },
+        start: "2018-12",
+        end: "2022-02",
+        summary: {
+          en: "Led the BI & Analytics department.",
+          es: "Responsable del departamento de BI & Analytics.",
+        },
+        highlights: [
+          {
+            en: "Managed and led the data engineering team.",
+            es: "Gestión y liderazgo del equipo de data engineers.",
+          },
+          {
+            en: "Ran project management for the department's projects and service management for its main customers.",
+            es: "Project management de los proyectos del departamento y service management de los principales clientes.",
+          },
+          {
+            en: "Handled department management: budget, operations and providers.",
+            es: "Gestión del departamento: presupuesto, operaciones y proveedores.",
+          },
+          {
+            en: "Owned the company's Jira ticketing system.",
+            es: "Responsable del sistema de ticketing de la compañía (Jira).",
+          },
+        ],
+        tech: [
+          "Microsoft Azure",
+          {
+            en: "Microsoft data platform",
+            es: "Plataforma de datos de Microsoft",
+          },
+          "Jira",
+        ],
+      },
+      {
+        company: "Mediacloud",
+        companyLogo: "/logos/mediacloud.webp",
+        role: "Business Intelligence Manager",
+        location: {
+          en: "Barcelona, Spain",
+          es: "Barcelona, España",
+        },
+        start: "2017-04",
+        end: "2018-12",
+        summary: {
+          en: "Led the BI & Analytics area.",
+          es: "Responsable del área de BI & Analytics.",
+        },
+        highlights: [
+          {
+            en: "Managed the team, and ran service and project management for the department's customers and projects.",
+            es: "Gestión del equipo, service management y project management de los clientes y proyectos del departamento.",
+          },
+        ],
+      },
+      {
+        company: "SII Concatel",
+        companyLogo: "/logos/sii-concatel.webp",
+        role: {
+          en: "Project Manager / Atlassian Consultant",
+          es: "Project Manager / Consultor Atlassian",
+        },
+        location: {
+          en: "Barcelona, Spain",
+          es: "Barcelona, España",
+        },
+        start: "2015-03",
+        end: "2017-04",
+        highlights: [
+          {
+            en: "Managed and delivered Atlassian suite implementation projects for several customers, as project manager and consultant.",
+            es: "Gestión y ejecución de proyectos de implantación de la suite Atlassian en varios clientes, como project manager y consultor.",
+          },
+          {
+            en: "Planned, controlled and tracked projects alongside specialist Atlassian consulting.",
+            es: "Planificación, control y seguimiento de proyectos, junto con la consultoría especializada en Atlassian.",
+          },
+          {
+            en: "Advised customers on adopting Agile methods (Scrum, Kanban) with Jira.",
+            es: "Asesoramiento en la implantación de metodologías Agile (Scrum, Kanban) con Jira.",
+          },
+        ],
+        tech: ["Jira", "Confluence", "Scrum", "Kanban"],
+      },
+      {
+        company: "Indra",
+        companyLogo: "/logos/indra.webp",
+        role: {
+          en: "J2EE Analyst",
+          es: "Analista J2EE",
+        },
+        location: {
+          en: "Barcelona, Spain",
+          es: "Barcelona, España",
+        },
+        start: "2014-04",
+        end: "2015-03",
+        highlights: [
+          {
+            en: "Team member on the enforced tax-collection project for the Government of the Canary Islands.",
+            es: "Miembro del equipo del proyecto de recaudación de impuestos en ejecutiva para el Gobierno de Canarias.",
+          },
+          {
+            en: "J2EE analysis and architecture.",
+            es: "Análisis y arquitectura J2EE.",
+          },
+        ],
+        tech: ["J2EE"],
+      },
+      {
+        company: "GFT",
+        companyLogo: "/logos/gft.webp",
+        role: {
+          en: "J2EE Analyst Programmer",
+          es: "Analista-Programador J2EE",
+        },
+        start: "2013-06",
+        end: "2014-04",
+        employmentType: {
+          en: "Full-time, in English",
+          es: "Jornada completa, en inglés",
+        },
+        highlights: [
+          {
+            en: "Member of the J2EE development team on a project for an international investment bank.",
+            es: "Miembro del equipo de desarrollo J2EE en un proyecto para una entidad internacional de banca de inversión.",
+          },
+          {
+            en: "Technical analysis, architecture, design and software development.",
+            es: "Análisis técnico, arquitectura, diseño y desarrollo de software.",
+          },
+        ],
+        tech: ["J2EE"],
+      },
+      {
+        company: "Indra",
+        companyLogo: "/logos/indra.webp",
+        role: {
+          en: "J2EE Analyst Programmer",
+          es: "Analista-Programador J2EE",
+        },
+        location: {
+          en: "Barcelona, Spain",
+          es: "Barcelona, España",
+        },
+        // LinkedIn gives only the year (2007); the month comes from the old CV.
+        start: "2007-01",
+        end: "2013-05",
+        summary: {
+          en: "Tax-management projects for public administrations.",
+          es: "Proyectos tributarios para la administración pública.",
+        },
+        highlights: [
+          {
+            en: "IKUS (tax inspection system) for Gipuzkoa, as analyst programmer: business analysis, software design and development, documentation and task organisation.",
+            es: "IKUS (sistema de inspección tributaria) para Gipuzkoa, como analista-programador: análisis de negocio, diseño y desarrollo de software, documentación y organización de tareas.",
+          },
+          {
+            en: "M@gin (automated tax-management model) for the Government of the Canary Islands, as analyst programmer: analysis, development and documentation.",
+            es: "M@gin (modelo automatizado de gestión de impuestos) para el Gobierno de Canarias, como analista-programador: análisis, desarrollo y documentación.",
+          },
+          {
+            en: "G@udi (automated tax management) for the Government of Catalonia, as programmer: software development and technical documentation.",
+            es: "G@udi (gestió automatitzada d'impostos) para la Generalitat de Catalunya, como programador: desarrollo de software y documentación técnica.",
+          },
+        ],
+        tech: ["J2EE"],
+      },
+      {
+        company: "ACS Informáticos S.L.",
+        role: {
+          en: "Hardware Technician and Programmer",
+          es: "Técnico de hardware y programador",
+        },
+        start: "2005-06",
+        end: "2007-12",
+        highlights: [
+          {
+            en: "Hardware repair, equipment and network installation, and PHP programming.",
+            es: "Reparación de hardware, instalación de equipos y redes, y programación PHP.",
+          },
+        ],
+        tech: ["PHP"],
+      },
+    ],
+    collaborations: [
+      {
+        organization: "La Salle Barcelona (Universitat Ramon Llull)",
+        role: {
+          en: "Master Thesis Tutor",
+          es: "Tutor de TFM",
+        },
+        location: {
+          en: "Barcelona, Spain",
+          es: "Barcelona, España",
+        },
+        start: "2020-03",
+        end: "2022-12",
+        description: {
+          en: "Mentored and tutored final projects of the Master in Project Management, based on the PMP framework.",
+          es: "Mentoría y tutorización de proyectos finales del Máster en Project Management, basados en el marco del PMP.",
+        },
+      },
+      {
+        organization: "La Salle Barcelona (Universitat Ramon Llull)",
+        role: {
+          en: "Big Data Master Speaker",
+          es: "Ponente en el Máster en Big Data",
+        },
+        location: {
+          en: "Barcelona, Spain",
+          es: "Barcelona, España",
+        },
+        // TODO(verify): only in the old CV (12/2020 – Present); not on LinkedIn. Still active?
+        start: "2020-12",
+        description: {
+          en: "Classes in the Big Data Master on data management in cloud environments.",
+          es: "Clases en el Máster en Big Data sobre gestión de datos en entornos cloud.",
+        },
+      },
+      {
+        organization: "Orvi Formació",
+        role: {
+          en: "Teacher",
+          es: "Profesor",
+        },
+        start: "2006",
+        end: "2007",
+        description: {
+          en: "Designed and taught “Programador d'aplicacions orientades a objectes”, a beginner Java programming course for the Catalan Public Employment Service (SOC).",
+          es: "Diseño e impartición del curso “Programador d'aplicacions orientades a objectes” del Servei d'Ocupació de Catalunya (SOC), un curso de programación Java para principiantes.",
+        },
+      },
+    ],
+    // Talks, panels, articles and press. Empty for now: the section shows a "coming soon" note.
+    // Item: { title: { en, es }, type: "talk" | "panel" | "article" | "interview" | "press" | "podcast" | "other", venue?, date?: "YYYY-MM", url? }
+    publicPresence: [],
+    skills: [
+      {
+        category: "Data & AI",
+        items: [
+          {
+            en: "Data strategy",
+            es: "Estrategia de datos",
+          },
+          "Data management",
+          {
+            en: "Data governance",
+            es: "Gobierno del dato",
+          },
+          "Business Intelligence",
+          {
+            en: "Data analysis",
+            es: "Análisis de datos",
+          },
+          "Databricks",
+          "BigQuery",
+          "Power BI",
+          "SQL Server",
+        ],
+      },
+      {
+        category: {
+          en: "Business & leadership",
+          es: "Negocio y liderazgo",
+        },
+        items: [
+          {
+            en: "Consultative selling",
+            es: "Venta consultiva",
+          },
+          {
+            en: "Business development",
+            es: "Desarrollo de negocio",
+          },
+          {
+            en: "Customer and partner engagement",
+            es: "Relación con clientes y partners",
+          },
+          {
+            en: "Team leadership",
+            es: "Liderazgo de equipos",
+          },
+          {
+            en: "Teamwork",
+            es: "Trabajo en equipo",
+          },
+          {
+            en: "IT management",
+            es: "Dirección de IT",
+          },
+          {
+            en: "Budget and provider management",
+            es: "Gestión de presupuesto y proveedores",
+          },
+        ],
+      },
+      {
+        category: "Delivery",
+        items: [
+          {
+            en: "Project management (PMP / PMI)",
+            es: "Dirección de proyectos (PMP / PMI)",
+          },
+          {
+            en: "IT service management (ITIL)",
+            es: "Gestión de servicios IT (ITIL)",
+          },
+          "Agile (Scrum, Kanban)",
+        ],
+      },
+      {
+        category: "Cloud",
+        items: ["Google Cloud", "Microsoft Azure"],
+      },
+      {
+        category: {
+          en: "Software engineering",
+          es: "Ingeniería de software",
+        },
+        items: [
+          {
+            en: "Analysis and design",
+            es: "Análisis y diseño",
+          },
+          {
+            en: "Software development",
+            es: "Desarrollo de software",
+          },
+          "J2EE",
+          "PHP",
+        ],
+      },
+      {
+        category: {
+          en: "Tools",
+          es: "Herramientas",
+        },
+        items: [
+          "Jira",
+          "Confluence",
+          {
+            en: "Atlassian administration",
+            es: "Administración de Atlassian",
+          },
+          "Microsoft Project",
+          "Microsoft Office",
+        ],
+      },
+    ],
+    education: [
+      {
+        institution: "Universitat Oberta de Catalunya (UOC)",
+        degree: {
+          en: "Postgraduate degree",
+          es: "Posgrado",
+        },
+        field: {
+          en: "Business Intelligence and Data Analysis",
+          es: "Inteligencia de negocio y análisis de datos",
+        },
+        logo: "/logos/uoc.webp",
+        start: "2019",
+        end: "2020",
+      },
+      {
+        institution: "La Salle Barcelona, Universitat Ramon Llull (URL)",
+        degree: {
+          en: "Master in Project Management (MPM)",
+          es: "Máster en Project Management (MPM)",
+        },
+        logo: "/logos/lasalle.webp",
+        start: "2014",
+        end: "2015",
+      },
+      {
+        institution:
+          "Facultat d'Informàtica de Barcelona (FIB), Universitat Politècnica de Catalunya",
+        degree: {
+          en: "Computer Science Engineering",
+          es: "Ingeniería Informática",
+        },
+        logo: "/logos/upc.webp",
+        start: "2008",
+        end: "2010",
+      },
+      {
+        institution:
+          "Facultat d'Informàtica de Barcelona (FIB), Universitat Politècnica de Catalunya",
+        // TODO(verify): English name for "Ingeniería Técnica en Informática de Gestión".
+        degree: {
+          en: "Technical Engineering in Business Information Systems",
+          es: "Ingeniería Técnica en Informática de Gestión",
+        },
+        logo: "/logos/upc.webp",
+        start: "2003",
+        end: "2008",
+      },
+    ],
+    // TODO(verify): neither source gives dates or credential links for the certifications.
+    // Official certification names stay in English in both languages.
+    certifications: [
+      {
+        name: "Microsoft Certified: Azure Data Engineer Associate (DP-203)",
+        issuer: "Microsoft",
+      },
+      {
+        name: "Microsoft Certified: Azure Data Fundamentals (DP-900)",
+        issuer: "Microsoft",
+      },
+      {
+        name: "Microsoft Certified: Data Analyst Associate (DA-100)",
+        issuer: "Microsoft",
+      },
+      {
+        name: "Microsoft Certified: Azure AI Fundamentals (AI-900)",
+        issuer: "Microsoft",
+      },
+      {
+        name: "Microsoft Certified: Azure Fundamentals (AZ-900)",
+        issuer: "Microsoft",
+      },
+      {
+        name: "AWS Certified Cloud Practitioner",
+        issuer: "Amazon Web Services",
+      },
+      {
+        name: "Google Cloud Certified: Cloud Digital Leader",
+        issuer: "Google Cloud",
+      },
+      {
+        name: "CDP-0011 CDP Certified Generalist",
+        issuer: "Cloudera",
+      },
+      {
+        name: "Cloudera Technical Professional (CTP) Accreditation",
+        issuer: "Cloudera",
+      },
+      {
+        name: "Cloudera Connect Sales Accreditation",
+        issuer: "Cloudera",
+      },
+      {
+        name: "Fundamentals of Delta Lake Accreditation",
+        issuer: "Databricks",
+      },
+      {
+        name: "Fundamentals of Unified Data Analytics with Databricks Accreditation",
+        issuer: "Databricks",
+      },
+      {
+        name: "ACP-120 Atlassian Certified Jira Administrator for Cloud",
+        issuer: "Atlassian",
+      },
+      {
+        name: "ACP-620 Atlassian Certified in Managing Jira Cloud Projects",
+        issuer: "Atlassian",
+      },
+      // TODO(verify): issuer not stated in either source.
+      {
+        name: "ITIL® Foundation Certificate in IT Service Management",
+      },
+      {
+        name: "First Certificate in English (FCE)",
+        issuer: "Cambridge",
+        featured: false,
+      },
+    ],
+    languages: [
+      {
+        language: {
+          en: "Spanish",
+          es: "Castellano",
+        },
+        level: {
+          en: "Native or bilingual",
+          es: "Nativo o bilingüe",
+        },
+      },
+      {
+        language: {
+          en: "Catalan",
+          es: "Catalán",
+        },
+        level: {
+          en: "Native or bilingual",
+          es: "Nativo o bilingüe",
+        },
+      },
+      {
+        language: {
+          en: "English",
+          es: "Inglés",
+        },
+        level: {
+          en: "Full professional",
+          es: "Competencia profesional completa",
+        },
+      },
+      {
+        language: {
+          en: "French",
+          es: "Francés",
+        },
+        level: {
+          en: "Elementary",
+          es: "Básico",
+        },
+      },
+    ],
+  },
+};

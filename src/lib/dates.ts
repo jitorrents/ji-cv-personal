@@ -1,4 +1,4 @@
-import type { Labels } from "@/content/labels";
+import type { Labels } from "@/content/types";
 import type { PartialDate, YearMonth } from "@/content/types";
 
 type DateLabels = Labels["dates"];

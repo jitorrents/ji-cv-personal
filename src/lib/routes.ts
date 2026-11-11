@@ -1,4 +1,4 @@
-import type { SectionId } from "@/content/labels";
+import type { SectionId } from "@/content/types";
 import { locales, localePath } from "@/content/i18n";
 import type { Resume } from "@/content/types";
 

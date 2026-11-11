@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import type { SectionId } from "@/content/labels";
+import type { SectionId } from "@/content/types";
 import { localePath, type Locale } from "@/content/locale";
 import { useActiveSection } from "./useActiveSection";
 

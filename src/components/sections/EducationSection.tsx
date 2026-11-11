@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { getContent, type Locale } from "@/content/i18n";
-import type { Labels } from "@/content/labels";
+import type { Labels } from "@/content/types";
 import type { PartialDate } from "@/content/types";
 import { Band } from "@/components/ui/Band";
 import { Reveal } from "@/components/ui/Reveal";

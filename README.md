@@ -31,15 +31,21 @@ mkdir -p /tmp/pages && rm -rf /tmp/pages/ji-cv-personal && cp -r out /tmp/pages/
 npx serve /tmp/pages   # open http://localhost:3000/ji-cv-personal/
 ```
 
-## Editing the CV
+## Editing the CV and the site texts
 
-The site has two languages: English at `/` and Spanish at `/es/`. The header's **EN | ES** switch links each page to its translation.
+**Every text on the site is in one file: [`src/content/content.ts`](src/content/content.ts).** The site has two languages, English at `/` and Spanish at `/es/`, and each text sits next to its translation:
 
-- **CV content:** `src/content/resume.ts` (English) and `src/content/resume.es.ts` (Spanish). Change **both** when you update the CV. The Spanish file reuses dates, logos, links and certification names from the English one, so only the text needs translating.
-- **UI text** (section titles, buttons, month names): `src/content/labels.ts` and `src/content/labels.es.ts`.
-- Dates are `YYYY-MM`, or `YYYY` where the month is unknown.
-- Experience goes newest first. Consecutive roles at the same company are grouped automatically.
-- The photo is `public/photo.webp`. Set it with `basics.photo`. Logos are in `public/logos/` (sources in `public/logos/SOURCES.md`).
+```ts
+title: { en: "About", es: "Sobre mí" },        // different per language
+company: "Kyndryl",                             // shared by both languages
+start: "2025-01",                               // dates: "YYYY-MM", or "YYYY" if the month is unknown
+```
+
+- `ui` holds the interface: menus, section titles, buttons, month names.
+- `cv` holds the CV: profile, experience (newest first), education, skills, certifications, teaching and public presence.
+- After editing, `pnpm typecheck` points out any mistake in the structure (a missing comma, a misspelled field…).
+- Consecutive roles at the same company are grouped automatically.
+- The photo is `public/photo.webp` (`cv.basics.photo`). Logos are in `public/logos/`, with sources in `public/logos/SOURCES.md`.
 
 ## Deploying to GitHub Pages
 
