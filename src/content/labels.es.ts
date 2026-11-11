@@ -14,6 +14,9 @@ export const labelsEs: Labels = {
     contact: "Contacto",
   },
   cvLink: "CV",
+  navGroups: {
+    career: "Trayectoria",
+  },
   logoStrip: "Certificado por",
   careerPath: "Trayectoria",
   sections: {

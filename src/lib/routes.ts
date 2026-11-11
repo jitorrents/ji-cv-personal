@@ -20,5 +20,24 @@ export function sections(r: Resume): SectionId[] {
     .map(([id]) => id);
 }
 
+/** A top-level header link, or a dropdown grouping several sections. */
+export type NavItem = { id: SectionId } | { group: "career"; ids: SectionId[] };
+
+/**
+ * Header navigation (Stockagile-style: few centered items, one dropdown):
+ * About · Career ▾ (Experience, Education, Teaching) · Skills · Public presence.
+ * Contact is a separate action on the right. A group with one section becomes a plain link.
+ */
+export function navTree(ids: SectionId[]): NavItem[] {
+  const has = (id: SectionId) => ids.includes(id);
+  const career = (["experience", "education", "teaching"] as SectionId[]).filter(has);
+  const items: NavItem[] = [];
+  if (has("about")) items.push({ id: "about" });
+  if (career.length > 1) items.push({ group: "career", ids: career });
+  else career.forEach((id) => items.push({ id }));
+  for (const id of ["skills", "presence"] as SectionId[]) if (has(id)) items.push({ id });
+  return items;
+}
+
 /** Every page in every language, for the sitemap. */
 export const pages = locales.flatMap((l) => ["/", "/cv/"].map((p) => localePath(l, p)));

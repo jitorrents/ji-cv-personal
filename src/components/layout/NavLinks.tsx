@@ -1,54 +1,138 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useEffect, useId, useRef, useState } from "react";
 import type { SectionId } from "@/content/labels";
 import { localePath, type Locale } from "@/content/locale";
+import type { NavItem } from "@/lib/routes";
 import { useActiveSection } from "./useActiveSection";
 
+const linkClass = (active: boolean) =>
+  `inline-flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors hover:bg-card ${
+    active ? "text-link" : "text-fg"
+  }`;
+
+/** Dropdown for a group of sections (opens on hover or click; Escape / outside click closes). */
+function NavDropdown({
+  label,
+  ids,
+  labels,
+  locale,
+  active,
+}: {
+  label: string;
+  ids: SectionId[];
+  labels: Record<SectionId, string>;
+  locale: Locale;
+  active: SectionId | null;
+}) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLLIElement>(null);
+  const menuId = useId();
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    const onClick = (e: MouseEvent) => !ref.current?.contains(e.target as Node) && setOpen(false);
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("mousedown", onClick);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("mousedown", onClick);
+    };
+  }, [open]);
+
+  const isActive = active !== null && ids.includes(active);
+  return (
+    <li
+      ref={ref}
+      className="relative"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+    >
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-controls={menuId}
+        onClick={() => setOpen((o) => !o)}
+        className={linkClass(isActive)}
+      >
+        {label}
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          className={`size-4 transition-transform ${open ? "rotate-180" : ""}`}
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="m6 9 6 6 6-6" />
+        </svg>
+      </button>
+      {/* pt-2 bridges the gap so the menu stays open while the pointer moves into it */}
+      <div id={menuId} hidden={!open} className="absolute top-full left-1/2 -translate-x-1/2 pt-2">
+        <ul className="min-w-56 rounded-xl border border-line bg-band p-2 shadow-xl">
+          {ids.map((id) => (
+            <li key={id}>
+              <Link
+                href={localePath(locale, `/#${id}`)}
+                onClick={() => setOpen(false)}
+                aria-current={active === id ? "location" : undefined}
+                className={`block rounded-lg px-3 py-2 text-sm font-medium hover:bg-card ${
+                  active === id ? "text-link" : "text-fg"
+                }`}
+              >
+                {labels[id]}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </li>
+  );
+}
+
+/** Centered desktop navigation. */
 export function NavLinks({
+  items,
   ids,
   locale,
   labels,
-  cvLabel,
+  groupLabels,
 }: {
+  items: NavItem[];
   ids: SectionId[];
   locale: Locale;
   labels: Record<SectionId, string>;
-  cvLabel: string;
+  groupLabels: Record<"career", string>;
 }) {
   const active = useActiveSection(ids);
-  const onCv = /\/cv\/?$/.test(usePathname());
   return (
-    <ul className="hidden items-center gap-0.5 text-sm xl:flex">
-      {ids.map((id) => (
-        <li key={id}>
-          <Link
-            href={localePath(locale, `/#${id}`)}
-            aria-current={active === id ? "location" : undefined}
-            className={`relative rounded-full px-2.5 py-1.5 whitespace-nowrap transition-colors ${
-              active === id ? "font-semibold text-fg" : "text-muted hover:text-fg"
-            }`}
-          >
-            {labels[id]}
-            <span
-              aria-hidden="true"
-              className={`absolute inset-x-2.5 -bottom-0.5 h-0.5 origin-left rounded-full bg-warm transition-transform duration-300 ${
-                active === id ? "scale-x-100" : "scale-x-0"
-              }`}
-            />
-          </Link>
-        </li>
-      ))}
-      <li className="ml-2">
-        <Link
-          href={localePath(locale, "/cv/")}
-          aria-current={onCv ? "page" : undefined}
-          className="rounded-full bg-warm px-4 py-1.5 font-semibold text-ink transition-shadow hover:shadow-md hover:shadow-warm/30"
-        >
-          {cvLabel}
-        </Link>
-      </li>
+    <ul className="hidden items-center gap-1 xl:flex">
+      {items.map((item) =>
+        "group" in item ? (
+          <NavDropdown
+            key={item.group}
+            label={groupLabels[item.group]}
+            ids={item.ids}
+            labels={labels}
+            locale={locale}
+            active={active}
+          />
+        ) : (
+          <li key={item.id}>
+            <Link
+              href={localePath(locale, `/#${item.id}`)}
+              aria-current={active === item.id ? "location" : undefined}
+              className={linkClass(active === item.id)}
+            >
+              {labels[item.id]}
+            </Link>
+          </li>
+        ),
+      )}
     </ul>
   );
 }

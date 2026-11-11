@@ -72,7 +72,7 @@ export function MobileMenu({
             <Link
               href={localePath(locale, "/cv/")}
               onClick={close}
-              className="inline-flex rounded-full bg-warm px-5 py-2 font-semibold text-ink"
+              className="inline-flex rounded-lg bg-warm px-5 py-2 font-semibold text-ink"
             >
               {cvLabel}
             </Link>

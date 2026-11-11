@@ -13,6 +13,9 @@ export const labels = {
     contact: "Contact",
   },
   cvLink: "CV",
+  navGroups: {
+    career: "Career",
+  },
   logoStrip: "Certified by",
   careerPath: "Career path",
   sections: {
