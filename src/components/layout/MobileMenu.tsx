@@ -2,21 +2,36 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { labels, type SectionId } from "@/content/labels";
+import type { SectionId } from "@/content/labels";
+import { localePath, type Locale } from "@/content/locale";
 import { useActiveSection } from "./useActiveSection";
 
-export function MobileMenu({ ids }: { ids: SectionId[] }) {
+export function MobileMenu({
+  ids,
+  locale,
+  labels,
+  cvLabel,
+  openLabel,
+  closeLabel,
+}: {
+  ids: SectionId[];
+  locale: Locale;
+  labels: Record<SectionId, string>;
+  cvLabel: string;
+  openLabel: string;
+  closeLabel: string;
+}) {
   const [open, setOpen] = useState(false);
   const active = useActiveSection(ids);
   const close = () => setOpen(false);
 
   return (
-    <div className="lg:hidden">
+    <div className="xl:hidden">
       <button
         type="button"
         aria-expanded={open}
         aria-controls="mobile-nav"
-        aria-label={open ? labels.closeMenu : labels.openMenu}
+        aria-label={open ? closeLabel : openLabel}
         onClick={() => setOpen((o) => !o)}
         className="grid size-9 place-items-center rounded-full text-fg hover:bg-card"
       >
@@ -40,7 +55,7 @@ export function MobileMenu({ ids }: { ids: SectionId[] }) {
           {ids.map((id) => (
             <li key={id}>
               <Link
-                href={`/#${id}`}
+                href={localePath(locale, `/#${id}`)}
                 onClick={close}
                 aria-current={active === id ? "location" : undefined}
                 className={`flex items-center gap-3 rounded-lg px-3 py-2.5 ${active === id ? "bg-card font-semibold" : ""}`}
@@ -49,17 +64,17 @@ export function MobileMenu({ ids }: { ids: SectionId[] }) {
                   aria-hidden="true"
                   className={`size-1.5 rounded-full ${active === id ? "bg-warm" : "bg-line"}`}
                 />
-                {labels.nav[id]}
+                {labels[id]}
               </Link>
             </li>
           ))}
           <li className="mt-2 px-3 pb-1">
             <Link
-              href="/cv/"
+              href={localePath(locale, "/cv/")}
               onClick={close}
               className="inline-flex rounded-full bg-warm px-5 py-2 font-semibold text-ink"
             >
-              {labels.cvLink}
+              {cvLabel}
             </Link>
           </li>
         </ul>

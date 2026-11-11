@@ -1,6 +1,5 @@
-import { labels } from "@/content/labels";
-import { resume } from "@/content/resume";
 import { ObfuscatedEmail } from "@/components/ui/ObfuscatedEmail";
+import { getContent, type Locale } from "@/content/i18n";
 import { formatRange, formatYearMonth } from "@/lib/dates";
 import { encodeEmail } from "@/lib/email";
 import { groupByCompany } from "@/lib/experience";
@@ -18,8 +17,9 @@ function CvSection({ title, children }: { title: string; children: React.ReactNo
 }
 
 /** The whole CV, laid out for an A4 sheet. On screen it shows as a paper card. */
-export function CvDocument() {
-  const { name, headline, location, email, profiles, summary } = resume.basics;
+export function CvDocument({ locale }: { locale: Locale }) {
+  const { t, r } = getContent(locale);
+  const { name, headline, location, email, profiles, summary } = r.basics;
   return (
     <article
       aria-label={name}
@@ -30,7 +30,9 @@ export function CvDocument() {
         <p className="mt-1 text-lg text-muted">{headline}</p>
         <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted">
           <span>{location}</span>
-          {email && <ObfuscatedEmail encoded={encodeEmail(email.user, email.domain)} />}
+          {email && (
+            <ObfuscatedEmail encoded={encodeEmail(email.user, email.domain)} label={t.showEmail} />
+          )}
           {profiles.map((p) => (
             <a key={p.url} href={p.url} className="text-link">
               {p.url.replace(/^https?:\/\/(www\.)?/, "")}
@@ -41,13 +43,13 @@ export function CvDocument() {
 
       <div className="mt-6 grid gap-x-10 md:grid-cols-[1fr_15rem] print:mt-4 print:grid-cols-[1fr_52mm] print:gap-x-8">
         <div>
-          <CvSection title={labels.cv.profile}>
+          <CvSection title={t.cv.profile}>
             <p className="text-pretty">{summary}</p>
           </CvSection>
 
-          <CvSection title={labels.cv.experience}>
+          <CvSection title={t.cv.experience}>
             <div className="space-y-4 print:space-y-3">
-              {groupByCompany(resume.experience).map((g) => (
+              {groupByCompany(r.experience).map((g) => (
                 <article key={`${g.company}-${g.start}`}>
                   <h3 className="font-semibold">{g.company}</h3>
                   {g.roles.map((job) => (
@@ -55,7 +57,7 @@ export function CvDocument() {
                       <p className="flex flex-wrap justify-between gap-x-3">
                         <span className="font-medium">{job.role}</span>
                         <span className="text-xs text-muted tabular-nums">
-                          {formatRange(job.start, job.end, false)}
+                          {formatRange(job.start, job.end, t.dates, false)}
                         </span>
                       </p>
                       {job.summary && <p className="mt-0.5 text-sm text-pretty">{job.summary}</p>}
@@ -73,17 +75,17 @@ export function CvDocument() {
             </div>
           </CvSection>
 
-          {resume.collaborations?.length ? (
-            <CvSection title={labels.cv.teaching}>
+          {r.collaborations?.length ? (
+            <CvSection title={t.cv.teaching}>
               <ul className="space-y-2">
-                {resume.collaborations.map((c) => (
+                {r.collaborations.map((c) => (
                   <li key={`${c.organization}-${c.role}`}>
                     <p className="flex flex-wrap justify-between gap-x-3">
                       <span className="font-medium">
                         {c.role}, {c.organization}
                       </span>
                       <span className="text-xs text-muted tabular-nums">
-                        {formatRange(c.start, c.end, false)}
+                        {formatRange(c.start, c.end, t.dates, false)}
                       </span>
                     </p>
                     {c.description && <p className="text-sm">{c.description}</p>}
@@ -95,20 +97,20 @@ export function CvDocument() {
         </div>
 
         <aside>
-          <CvSection title={labels.cv.education}>
+          <CvSection title={t.cv.education}>
             <ul className="space-y-2.5 text-sm">
-              {resume.education.map((e) => (
+              {r.education.map((e) => (
                 <li key={`${e.institution}-${e.degree}`}>
                   <p className="font-medium">
                     {e.degree}
-                    {e.field ? ` in ${e.field}` : ""}
+                    {e.field ? `${t.education.fieldJoiner}${e.field}` : ""}
                   </p>
                   <p className="text-muted">{e.institution}</p>
                   {(e.start || e.end) && (
                     <p className="text-xs text-muted tabular-nums">
                       {[e.start, e.end]
                         .filter(Boolean)
-                        .map((d) => formatYearMonth(d!))
+                        .map((d) => formatYearMonth(d!, t.dates))
                         .join(" – ")}
                     </p>
                   )}
@@ -117,9 +119,9 @@ export function CvDocument() {
             </ul>
           </CvSection>
 
-          <CvSection title={labels.cv.skills}>
+          <CvSection title={t.cv.skills}>
             <div className="space-y-2 text-sm">
-              {resume.skills.map((g) => (
+              {r.skills.map((g) => (
                 <p key={g.category}>
                   <span className="font-medium">{g.category}: </span>
                   <span className="text-muted">{g.items.join(", ")}</span>
@@ -128,9 +130,9 @@ export function CvDocument() {
             </div>
           </CvSection>
 
-          <CvSection title={labels.cv.languages}>
+          <CvSection title={t.cv.languages}>
             <ul className="space-y-0.5 text-sm">
-              {resume.languages.map((l) => (
+              {r.languages.map((l) => (
                 <li key={l.language}>
                   <span className="font-medium">{l.language}</span>{" "}
                   <span className="text-muted">· {l.level}</span>
@@ -138,9 +140,9 @@ export function CvDocument() {
               ))}
             </ul>
           </CvSection>
-          <CvSection title={labels.cv.certifications}>
+          <CvSection title={t.cv.certifications}>
             <div className="space-y-2 text-xs">
-              {groupByIssuer(resume.certifications).map(([issuer, certs]) => (
+              {groupByIssuer(r.certifications, t.otherIssuer).map(([issuer, certs]) => (
                 <div key={issuer}>
                   <p className="font-semibold">{issuer}</p>
                   <ul className="text-muted">

@@ -1,10 +1,9 @@
 "use client";
 
-import { labels } from "@/content/labels";
 import { buttonClass } from "./button";
 
 /** Opens the print dialog; "Save as PDF" there produces the A4 CV. */
-export function PrintButton() {
+export function PrintButton({ label }: { label: string }) {
   return (
     <button type="button" onClick={() => window.print()} className={buttonClass.primary}>
       <svg
@@ -19,7 +18,7 @@ export function PrintButton() {
       >
         <path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14" />
       </svg>
-      {labels.downloadPdf}
+      {label}
     </button>
   );
 }

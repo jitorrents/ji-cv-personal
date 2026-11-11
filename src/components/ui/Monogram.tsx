@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { resume } from "@/content/resume";
+import { getContent, type Locale } from "@/content/i18n";
 import { asset } from "@/lib/site";
 
 const sizes = {
@@ -8,9 +8,10 @@ const sizes = {
 };
 
 /** Small round avatar for the header: the photo, or initials when there is none. */
-export function Avatar() {
-  const { photo } = resume.basics;
-  if (!photo) return <Monogram size="sm" />;
+export function Avatar({ locale }: { locale: Locale }) {
+  const { r } = getContent(locale);
+  const { photo, name } = r.basics;
+  if (!photo) return <Monogram size="sm" name={name} />;
   return (
     <Image
       src={asset(photo)}
@@ -24,8 +25,8 @@ export function Avatar() {
 }
 
 /** Initials badge, used when there is no photo. */
-export function Monogram({ size }: { size: keyof typeof sizes }) {
-  const initials = resume.basics.name
+export function Monogram({ size, name }: { size: keyof typeof sizes; name: string }) {
+  const initials = name
     .split(" ")
     .map((w) => w[0])
     .join("");

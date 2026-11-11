@@ -1,6 +1,5 @@
-import { labels } from "@/content/labels";
-import { resume } from "@/content/resume";
 import { Band } from "@/components/ui/Band";
+import { getContent, type Locale } from "@/content/i18n";
 import { Reveal } from "@/components/ui/Reveal";
 import { kpis } from "@/lib/kpis";
 import { CertificationGrid } from "./CertificationGrid";
@@ -13,15 +12,16 @@ function SubHeading({ children }: { children: React.ReactNode }) {
 }
 
 /** Skills and certifications in one band: skill cards, then certification cards by issuer. */
-export function SkillsSection() {
-  const s = labels.sections.skills;
+export function SkillsSection({ locale }: { locale: Locale }) {
+  const { t, r } = getContent(locale);
+  const s = t.sections.skills;
   return (
-    <Band id="skills" tone="earth" eyebrow={s.eyebrow} title={s.title} kpis={kpis.skills()}>
-      {resume.skills.length > 0 && (
+    <Band id="skills" tone="earth" eyebrow={s.eyebrow} title={s.title} kpis={kpis(t, r).skills()}>
+      {r.skills.length > 0 && (
         <>
-          <SubHeading>{labels.skillsSection.skills}</SubHeading>
+          <SubHeading>{t.skillsSection.skills}</SubHeading>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {resume.skills.map((g, i) => (
+            {r.skills.map((g, i) => (
               <Reveal key={g.category} delay={(i % 3) * 100} className="h-full">
                 <article className="tone-plain h-full rounded-3xl bg-band p-6 text-fg shadow-lg shadow-black/10 sm:p-7">
                   <span
@@ -42,10 +42,10 @@ export function SkillsSection() {
           </div>
         </>
       )}
-      {resume.certifications.length > 0 && (
+      {r.certifications.length > 0 && (
         <div className="mt-16">
-          <SubHeading>{labels.skillsSection.certifications}</SubHeading>
-          <CertificationGrid />
+          <SubHeading>{t.skillsSection.certifications}</SubHeading>
+          <CertificationGrid locale={locale} />
         </div>
       )}
     </Band>

@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { labels } from "@/content/labels";
-import { resume } from "@/content/resume";
+import { getContent, type Locale } from "@/content/i18n";
+import type { Labels } from "@/content/labels";
 import type { PartialDate } from "@/content/types";
 import { Band } from "@/components/ui/Band";
 import { Reveal } from "@/components/ui/Reveal";
@@ -39,10 +39,14 @@ function SchoolLogo({ logo }: { logo?: string }) {
   );
 }
 
-function years(start?: PartialDate, end?: PartialDate): string {
+function years(
+  start: PartialDate | undefined,
+  end: PartialDate | undefined,
+  d: Labels["dates"],
+): string {
   return [start, end]
     .filter((d) => d !== undefined)
-    .map(formatYearMonth)
+    .map((x) => formatYearMonth(x, d))
     .join(" – ");
 }
 
@@ -50,16 +54,23 @@ function years(start?: PartialDate, end?: PartialDate): string {
 const accents = ["bg-warm", "bg-spruce", "bg-earth", "bg-dark-earth"];
 
 /** Academic timeline (newest first), then the languages as a row of cards. */
-export function EducationSection() {
-  const s = labels.sections.education;
+export function EducationSection({ locale }: { locale: Locale }) {
+  const { t, r } = getContent(locale);
+  const s = t.sections.education;
   return (
-    <Band id="education" tone="skye" eyebrow={s.eyebrow} title={s.title} kpis={kpis.education()}>
-      {resume.education.length > 0 && (
+    <Band
+      id="education"
+      tone="skye"
+      eyebrow={s.eyebrow}
+      title={s.title}
+      kpis={kpis(t, r).education()}
+    >
+      {r.education.length > 0 && (
         <>
-          <h3 className="sr-only">{labels.education.degrees}</h3>
+          <h3 className="sr-only">{t.education.degrees}</h3>
           <ol className="relative">
-            {resume.education.map((e, i) => {
-              const last = i === resume.education.length - 1;
+            {r.education.map((e, i) => {
+              const last = i === r.education.length - 1;
               return (
                 <li
                   key={`${e.institution}-${e.degree}`}
@@ -67,12 +78,12 @@ export function EducationSection() {
                 >
                   {/* Years: own column on larger screens, above the card on phones */}
                   <p className="hidden pt-5 text-right font-display text-lg font-bold text-title tabular-nums sm:block">
-                    {years(e.start, e.end)}
+                    {years(e.start, e.end, t.dates)}
                   </p>
 
                   {/* Line and dot */}
                   <div className="relative flex justify-center" aria-hidden="true">
-                    {resume.education.length > 1 && (
+                    {r.education.length > 1 && (
                       <span
                         className={`absolute w-0.5 bg-line ${
                           i === 0 ? "top-7 bottom-0" : last ? "top-0 h-7" : "top-0 bottom-0"
@@ -89,11 +100,11 @@ export function EducationSection() {
                       <SchoolLogo logo={e.logo} />
                       <div className="min-w-0">
                         <p className="font-display text-sm font-bold text-title tabular-nums sm:hidden">
-                          {years(e.start, e.end)}
+                          {years(e.start, e.end, t.dates)}
                         </p>
                         <h4 className="font-display text-lg font-bold text-pretty sm:text-xl">
                           {e.degree}
-                          {e.field ? ` in ${e.field}` : ""}
+                          {e.field ? `${t.education.fieldJoiner}${e.field}` : ""}
                         </h4>
                         <p className="mt-1 text-sm text-muted">{e.institution}</p>
                         {e.notes && <p className="mt-3">{e.notes}</p>}
@@ -107,13 +118,13 @@ export function EducationSection() {
         </>
       )}
 
-      {resume.languages.length > 0 && (
+      {r.languages.length > 0 && (
         <div className="mt-16">
           <h3 className="mb-6 font-display text-2xl font-bold text-title">
-            {labels.education.languages}
+            {t.education.languages}
           </h3>
           <dl className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-            {resume.languages.map((l, i) => (
+            {r.languages.map((l, i) => (
               <Reveal key={l.language} delay={i * 100} className="h-full">
                 <div className="h-full rounded-3xl bg-card p-5 shadow-sm sm:p-6">
                   <dt className="font-display text-2xl font-bold">

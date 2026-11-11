@@ -1,8 +1,6 @@
 "use client";
 
-import { labels } from "@/content/labels";
-
-export function ThemeToggle() {
+export function ThemeToggle({ label }: { label: string }) {
   function toggle() {
     const root = document.documentElement;
     const next = root.dataset.theme === "dark" ? "light" : "dark";
@@ -18,7 +16,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggle}
-      aria-label={labels.toggleTheme}
+      aria-label={label}
       className="grid size-9 place-items-center rounded-full text-muted transition-colors hover:bg-card hover:text-fg"
     >
       <svg

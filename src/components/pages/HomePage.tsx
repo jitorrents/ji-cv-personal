@@ -1,3 +1,4 @@
+import type { Locale } from "@/content/i18n";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { EducationSection } from "@/components/sections/EducationSection";
@@ -9,18 +10,18 @@ import { SkillsSection } from "@/components/sections/SkillsSection";
 import { TeachingSection } from "@/components/sections/TeachingSection";
 
 /** One page of full-width colored bands; the order matches `sections` in lib/routes.ts. */
-export default function Home() {
+export function HomePage({ locale }: { locale: Locale }) {
   return (
     <>
-      <HeroSection />
-      <LogoStripSection />
-      <AboutSection />
-      <ExperienceSection />
-      <EducationSection />
-      <SkillsSection />
-      <TeachingSection />
-      <PublicPresenceSection />
-      <ContactSection />
+      <HeroSection locale={locale} />
+      <LogoStripSection locale={locale} />
+      <AboutSection locale={locale} />
+      <ExperienceSection locale={locale} />
+      <EducationSection locale={locale} />
+      <SkillsSection locale={locale} />
+      <TeachingSection locale={locale} />
+      <PublicPresenceSection locale={locale} />
+      <ContactSection locale={locale} />
     </>
   );
 }

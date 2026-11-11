@@ -11,6 +11,8 @@ const nextConfig: NextConfig = {
   assetPrefix: basePath || undefined,
   images: { unoptimized: true },
   reactStrictMode: true,
+  // Two root layouts (one per language) need a global 404 page: src/app/global-not-found.tsx.
+  experimental: { globalNotFound: true },
 };
 
 export default nextConfig;

@@ -1,5 +1,4 @@
-import { labels } from "@/content/labels";
-import { resume } from "@/content/resume";
+import { getContent, type Locale } from "@/content/i18n";
 
 /** Role title without the unit suffix ("Head of Data – Applications, …" → "Head of Data"). */
 function shortRole(role: string): string {
@@ -7,11 +6,12 @@ function shortRole(role: string): string {
 }
 
 /** Roles from oldest to newest as connected steps (scrolls sideways on small screens). */
-export function CareerPath() {
-  const steps = [...resume.experience].reverse();
+export function CareerPath({ locale }: { locale: Locale }) {
+  const { t, r } = getContent(locale);
+  const steps = [...r.experience].reverse();
   return (
     <div className="mt-16">
-      <h3 className="font-display text-xl font-bold">{labels.careerPath}</h3>
+      <h3 className="font-display text-xl font-bold">{t.careerPath}</h3>
       <ol className="mt-8 flex snap-x [scrollbar-width:thin] gap-0 overflow-x-auto pb-4">
         {steps.map((job, i) => {
           const current = !job.end;

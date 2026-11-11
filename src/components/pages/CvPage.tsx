@@ -1,16 +1,10 @@
-import type { Metadata } from "next";
 import { CvDocument } from "@/components/sections/cv/CvDocument";
 import { PrintButton } from "@/components/ui/PrintButton";
-import { labels } from "@/content/labels";
+import { getContent, type Locale } from "@/content/i18n";
 
-const page = labels.cvPage;
-
-export const metadata: Metadata = {
-  title: page.title,
-  alternates: { canonical: "cv/" },
-};
-
-export default function CvPage() {
+export function CvPage({ locale }: { locale: Locale }) {
+  const { t } = getContent(locale);
+  const page = t.cvPage;
   return (
     <div className="tone-cloud bg-band text-fg print:bg-white">
       <div className="mx-auto max-w-6xl px-4 pb-20 sm:px-6 print:p-0">
@@ -23,10 +17,10 @@ export default function CvPage() {
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-muted">{page.intro}</p>
           <div className="mt-8">
-            <PrintButton />
+            <PrintButton label={t.downloadPdf} />
           </div>
         </header>
-        <CvDocument />
+        <CvDocument locale={locale} />
       </div>
     </div>
   );

@@ -96,7 +96,7 @@ export function IssuerLogo({
       </svg>
     );
   }
-  if (!issuer || issuer === "Other") {
+  if (!issuer) {
     // Generic certificate mark when the issuer is unknown.
     return (
       <svg
@@ -116,7 +116,7 @@ export function IssuerLogo({
   }
   const text =
     (issuer && badgeByIssuer[issuer]) ??
-    (issuer ?? "Other")
+    issuer
       .split(/\s+/)
       .map((w) => w[0])
       .join("")

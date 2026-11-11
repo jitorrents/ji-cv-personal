@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { labels } from "@/content/labels";
 
 /**
  * Receives the address encoded (see `encodeEmail`), so neither the HTML nor the
@@ -10,9 +9,12 @@ import { labels } from "@/content/labels";
  */
 export function ObfuscatedEmail({
   encoded,
+  label,
   className = "",
 }: {
   encoded: string;
+  /** Text of the reveal button ("Show email address"). */
+  label: string;
   className?: string;
 }) {
   const [email, setEmail] = useState<string | null>(null);
@@ -27,7 +29,7 @@ export function ObfuscatedEmail({
   if (!email) {
     return (
       <button type="button" onClick={() => setEmail(decodeEmail(encoded))} className={style}>
-        {labels.showEmail}
+        {label}
       </button>
     );
   }

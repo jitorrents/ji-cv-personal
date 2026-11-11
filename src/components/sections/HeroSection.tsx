@@ -1,13 +1,13 @@
 import Image from "next/image";
+import { getContent, localePath, type Locale } from "@/content/i18n";
 import Link from "next/link";
-import { labels } from "@/content/labels";
-import { resume } from "@/content/resume";
 import { Monogram } from "@/components/ui/Monogram";
 import { buttonClass } from "@/components/ui/button";
 import { asset } from "@/lib/site";
 
-function Portrait() {
-  const { photo, name } = resume.basics;
+function Portrait({ locale }: { locale: Locale }) {
+  const { r } = getContent(locale);
+  const { photo, name } = r.basics;
   return (
     <div className="relative mx-auto shrink-0 md:mx-0">
       {/* Decorative orbit */}
@@ -34,16 +34,17 @@ function Portrait() {
           className="relative size-40 rounded-full object-cover ring-8 ring-white/10 sm:size-56"
         />
       ) : (
-        <Monogram size="lg" />
+        <Monogram size="lg" name={name} />
       )}
     </div>
   );
 }
 
-export function HeroSection() {
-  const { name, headline, location, profiles } = resume.basics;
+export function HeroSection({ locale }: { locale: Locale }) {
+  const { t, r } = getContent(locale);
+  const { name, headline, location, profiles } = r.basics;
   // Current role = first entry without an end date; its logo sits next to the headline.
-  const current = resume.experience.find((e) => !e.end);
+  const current = r.experience.find((e) => !e.end);
   const linkedin = profiles.find((p) => p.network === "LinkedIn");
 
   return (
@@ -93,11 +94,11 @@ export function HeroSection() {
             )}
           </p>
           <div className="no-print mt-10 flex flex-wrap gap-3">
-            <Link href="/cv/" className={buttonClass.primary}>
-              {labels.viewCv}
+            <Link href={localePath(locale, "/cv/")} className={buttonClass.primary}>
+              {t.viewCv}
             </Link>
-            <Link href="/#contact" className={buttonClass.outline}>
-              {labels.contactMe}
+            <Link href={localePath(locale, "/#contact")} className={buttonClass.outline}>
+              {t.contactMe}
             </Link>
             {linkedin && (
               <a href={linkedin.url} className={buttonClass.outline}>
@@ -106,7 +107,7 @@ export function HeroSection() {
             )}
           </div>
         </div>
-        <Portrait />
+        <Portrait locale={locale} />
       </div>
     </section>
   );

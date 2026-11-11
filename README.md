@@ -33,12 +33,13 @@ npx serve /tmp/pages   # open http://localhost:3000/ji-cv-personal/
 
 ## Editing the CV
 
-All CV content is in **`src/content/resume.ts`**, typed by `src/content/types.ts`. Edit only that file to update the site and the `/cv/` print page.
+The site has two languages: English at `/` and Spanish at `/es/`. The header's **EN | ES** switch links each page to its translation.
 
+- **CV content:** `src/content/resume.ts` (English) and `src/content/resume.es.ts` (Spanish). Change **both** when you update the CV. The Spanish file reuses dates, logos, links and certification names from the English one, so only the text needs translating.
+- **UI text** (section titles, buttons, month names): `src/content/labels.ts` and `src/content/labels.es.ts`.
 - Dates are `YYYY-MM`, or `YYYY` where the month is unknown.
 - Experience goes newest first. Consecutive roles at the same company are grouped automatically.
-- UI text (section titles, buttons) is in `src/content/labels.ts`.
-- The photo is `public/photo.webp`. Set it with `basics.photo`.
+- The photo is `public/photo.webp`. Set it with `basics.photo`. Logos are in `public/logos/` (sources in `public/logos/SOURCES.md`).
 
 ## Deploying to GitHub Pages
 

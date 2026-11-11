@@ -1,12 +1,13 @@
-import { resume } from "@/content/resume";
 import { IssuerLogo, IssuerWordmark, hasWordmark } from "@/components/logos/IssuerLogo";
+import { getContent, type Locale } from "@/content/i18n";
 import { Reveal } from "@/components/ui/Reveal";
 import { groupByIssuer } from "@/lib/certifications";
 import { formatYearMonth } from "@/lib/dates";
 
 /** Certification cards grouped by issuer, each with the issuer's logo. */
-export function CertificationGrid() {
-  const groups = groupByIssuer(resume.certifications);
+export function CertificationGrid({ locale }: { locale: Locale }) {
+  const { t, r } = getContent(locale);
+  const groups = groupByIssuer(r.certifications, t.otherIssuer);
   return (
     <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {groups.map(([issuer, certs], i) => (
@@ -19,7 +20,7 @@ export function CertificationGrid() {
                 </h4>
               ) : (
                 <>
-                  <IssuerLogo issuer={issuer} className="size-9" />
+                  <IssuerLogo issuer={certs[0]?.issuer} className="size-9" />
                   <h4 className="font-display text-lg font-bold">{issuer}</h4>
                 </>
               )}
@@ -47,7 +48,9 @@ export function CertificationGrid() {
                     ) : (
                       c.name
                     )}
-                    {c.date && <span className="text-muted"> · {formatYearMonth(c.date)}</span>}
+                    {c.date && (
+                      <span className="text-muted"> · {formatYearMonth(c.date, t.dates)}</span>
+                    )}
                   </span>
                 </li>
               ))}

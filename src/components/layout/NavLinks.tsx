@@ -2,27 +2,38 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { labels, type SectionId } from "@/content/labels";
+import type { SectionId } from "@/content/labels";
+import { localePath, type Locale } from "@/content/locale";
 import { useActiveSection } from "./useActiveSection";
 
-export function NavLinks({ ids }: { ids: SectionId[] }) {
+export function NavLinks({
+  ids,
+  locale,
+  labels,
+  cvLabel,
+}: {
+  ids: SectionId[];
+  locale: Locale;
+  labels: Record<SectionId, string>;
+  cvLabel: string;
+}) {
   const active = useActiveSection(ids);
-  const onCv = usePathname().startsWith("/cv");
+  const onCv = /\/cv\/?$/.test(usePathname());
   return (
-    <ul className="hidden items-center gap-0.5 text-sm lg:flex">
+    <ul className="hidden items-center gap-0.5 text-sm xl:flex">
       {ids.map((id) => (
         <li key={id}>
           <Link
-            href={`/#${id}`}
+            href={localePath(locale, `/#${id}`)}
             aria-current={active === id ? "location" : undefined}
-            className={`relative rounded-full px-3 py-1.5 transition-colors ${
+            className={`relative rounded-full px-2.5 py-1.5 whitespace-nowrap transition-colors ${
               active === id ? "font-semibold text-fg" : "text-muted hover:text-fg"
             }`}
           >
-            {labels.nav[id]}
+            {labels[id]}
             <span
               aria-hidden="true"
-              className={`absolute inset-x-3 -bottom-0.5 h-0.5 origin-left rounded-full bg-warm transition-transform duration-300 ${
+              className={`absolute inset-x-2.5 -bottom-0.5 h-0.5 origin-left rounded-full bg-warm transition-transform duration-300 ${
                 active === id ? "scale-x-100" : "scale-x-0"
               }`}
             />
@@ -31,11 +42,11 @@ export function NavLinks({ ids }: { ids: SectionId[] }) {
       ))}
       <li className="ml-2">
         <Link
-          href="/cv/"
+          href={localePath(locale, "/cv/")}
           aria-current={onCv ? "page" : undefined}
           className="rounded-full bg-warm px-4 py-1.5 font-semibold text-ink transition-shadow hover:shadow-md hover:shadow-warm/30"
         >
-          {labels.cvLink}
+          {cvLabel}
         </Link>
       </li>
     </ul>

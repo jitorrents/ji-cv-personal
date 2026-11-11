@@ -1,5 +1,5 @@
-// All UI strings live here so Spanish and Catalan can be added later.
-// CV facts never go here; they live in resume.ts.
+// English UI strings. The Spanish ones are in labels.es.ts, with the same shape (Labels).
+// CV facts never go here; they live in resume.ts / resume.es.ts.
 export const labels = {
   skipToContent: "Skip to content",
   primaryNav: "Primary",
@@ -70,6 +70,8 @@ export const labels = {
   education: {
     degrees: "Degrees",
     languages: "Languages",
+    /** Joins degree and field: "Postgraduate degree in Business Intelligence". */
+    fieldJoiner: " in ",
   },
   cv: {
     profile: "Profile",
@@ -83,7 +85,6 @@ export const labels = {
   openMenu: "Open menu",
   closeMenu: "Close menu",
   toggleTheme: "Toggle dark mode",
-  present: "Present",
   viewCv: "View CV",
   contactMe: "Contact",
   downloadPdf: "Download PDF",
@@ -93,6 +94,25 @@ export const labels = {
   notFoundTitle: "Page not found",
   notFoundBody: "The page you are looking for does not exist.",
   backHome: "Back to home",
-} as const;
+  language: {
+    label: "Language",
+    en: "English",
+    es: "Español",
+  },
+  otherIssuer: "Other",
+  dates: {
+    months: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    present: "Present",
+    yr: "yr",
+    yrs: "yrs",
+    mo: "mo",
+    mos: "mos",
+  },
+  meta: {
+    description:
+      "CV and portfolio of Joan Ignasi Torrents: Data & AI leadership, consulting and project management.",
+  },
+};
 
-export type SectionId = keyof typeof labels.nav;
+export type Labels = typeof labels;
+export type SectionId = keyof Labels["nav"];

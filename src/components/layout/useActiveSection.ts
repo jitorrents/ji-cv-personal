@@ -3,14 +3,16 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import type { SectionId } from "@/content/labels";
+import { isHomePath } from "@/content/locale";
 
 /** The home-page section currently in the middle of the viewport (scroll spy). */
 export function useActiveSection(ids: SectionId[]): SectionId | null {
   const pathname = usePathname();
+  const home = isHomePath(pathname);
   const [active, setActive] = useState<SectionId | null>(null);
 
   useEffect(() => {
-    if (pathname !== "/") return;
+    if (!home) return;
     const els = ids.map((id) => document.getElementById(id)).filter((el) => el !== null);
     const io = new IntersectionObserver(
       (entries) => {
@@ -20,7 +22,7 @@ export function useActiveSection(ids: SectionId[]): SectionId | null {
     );
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
-  }, [ids, pathname]);
+  }, [ids, home]);
 
-  return pathname === "/" ? active : null;
+  return home ? active : null;
 }

@@ -1,6 +1,5 @@
-import { labels } from "@/content/labels";
-import { resume } from "@/content/resume";
 import { Band } from "@/components/ui/Band";
+import { getContent, type Locale } from "@/content/i18n";
 import { CompanyLogo } from "@/components/ui/CompanyLogo";
 import { Reveal } from "@/components/ui/Reveal";
 import { TagList } from "@/components/ui/Tag";
@@ -8,9 +7,10 @@ import { formatDuration, formatRange, monthsBetween } from "@/lib/dates";
 import { groupByCompany } from "@/lib/experience";
 import { kpis } from "@/lib/kpis";
 
-export function ExperienceSection() {
-  const s = labels.sections.experience;
-  const groups = groupByCompany(resume.experience);
+export function ExperienceSection({ locale }: { locale: Locale }) {
+  const { t, r } = getContent(locale);
+  const s = t.sections.experience;
+  const groups = groupByCompany(r.experience);
   return (
     <Band
       id="experience"
@@ -18,7 +18,7 @@ export function ExperienceSection() {
       eyebrow={s.eyebrow}
       title={s.title}
       intro={s.intro}
-      kpis={kpis.experience()}
+      kpis={kpis(t, r).experience()}
     >
       <ol className="space-y-6">
         {groups.map((g) => (
@@ -39,7 +39,7 @@ export function ExperienceSection() {
                     </h3>
                   </div>
                   <p className="rounded-full bg-band px-3 py-0.5 text-sm text-muted">
-                    {formatDuration(monthsBetween(g.start, g.end))}
+                    {formatDuration(monthsBetween(g.start, g.end), t.dates)}
                   </p>
                 </header>
 
@@ -54,7 +54,7 @@ export function ExperienceSection() {
                       />
                       <h4 className="font-semibold">{job.role}</h4>
                       <p className="mt-0.5 text-sm text-muted">
-                        {formatRange(job.start, job.end)}
+                        {formatRange(job.start, job.end, t.dates)}
                         {job.location ? ` · ${job.location}` : ""}
                         {job.employmentType ? ` · ${job.employmentType}` : ""}
                       </p>

@@ -1,14 +1,14 @@
-import { labels } from "@/content/labels";
-import { resume } from "@/content/resume";
 import { Band } from "@/components/ui/Band";
+import { getContent, type Locale } from "@/content/i18n";
 import { Reveal } from "@/components/ui/Reveal";
 import { formatYearMonth } from "@/lib/dates";
 import { kpis } from "@/lib/kpis";
 
 /** Talks, panels, articles and press. Shows a "coming soon" note while the list is empty. */
-export function PublicPresenceSection() {
-  const s = labels.sections.presence;
-  const items = resume.publicPresence ?? [];
+export function PublicPresenceSection({ locale }: { locale: Locale }) {
+  const { t, r } = getContent(locale);
+  const s = t.sections.presence;
+  const items = r.publicPresence ?? [];
   return (
     <Band
       id="presence"
@@ -16,7 +16,7 @@ export function PublicPresenceSection() {
       eyebrow={s.eyebrow}
       title={s.title}
       intro={s.intro}
-      kpis={kpis.presence()}
+      kpis={kpis(t, r).presence()}
     >
       {items.length === 0 ? (
         <Reveal>
@@ -44,8 +44,8 @@ export function PublicPresenceSection() {
               <Reveal delay={(i % 3) * 100} className="h-full">
                 <article className="flex h-full flex-col rounded-3xl bg-card p-6">
                   <p className="text-xs font-semibold tracking-wider text-link uppercase">
-                    {labels.presenceTypes[item.type]}
-                    {item.date ? ` · ${formatYearMonth(item.date)}` : ""}
+                    {t.presenceTypes[item.type]}
+                    {item.date ? ` · ${formatYearMonth(item.date, t.dates)}` : ""}
                   </p>
                   <h3 className="mt-2 font-display text-lg font-bold">
                     {item.url ? (
