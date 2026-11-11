@@ -826,10 +826,10 @@ export const content: Content = {
         type: "talk",
         event: "Cloudera Evolve",
         title: {
-          en: "Kyndryl at Cloudera Evolve Forum 2025",
-          es: "Kyndryl en Cloudera Evolve Forum 2025",
+          en: "Speaker at Cloudera EVOLVE Forum 2025",
+          es: "Ponente en Cloudera EVOLVE Forum 2025",
         },
-        venue: "Cloudera Evolve Forum 2025",
+        venue: "Cloudera EVOLVE Forum, Madrid",
         date: "2025-11",
         url: "https://www.linkedin.com/posts/jitorrents_ha-sido-un-aut%C3%A9ntico-placer-haber-podido-ugcPost-7392642311098355712-DfVO",
         image: "/presence/cloudera25.webp",
