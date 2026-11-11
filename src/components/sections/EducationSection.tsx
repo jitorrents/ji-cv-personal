@@ -11,7 +11,7 @@ import { asset } from "@/lib/site";
 /** Institution logo on a white tile; a graduation cap when there is no logo. */
 function SchoolLogo({ logo }: { logo?: string }) {
   return (
-    <span className="tone-plain grid size-14 shrink-0 place-items-center rounded-2xl bg-band p-2 shadow-sm ring-1 ring-line">
+    <span className="tone-plain grid size-14 shrink-0 place-items-center rounded-2xl bg-band p-2 shadow-sm">
       {logo ? (
         <Image
           src={asset(logo)}

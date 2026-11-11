@@ -71,6 +71,7 @@ export const resume: Resume = {
     },
     {
       company: "Mediacloud",
+      companyLogo: "/logos/mediacloud.webp",
       role: "Head of Data & Analytics",
       location: "Barcelona, Spain",
       start: "2018-12",
@@ -86,6 +87,7 @@ export const resume: Resume = {
     },
     {
       company: "Mediacloud",
+      companyLogo: "/logos/mediacloud.webp",
       role: "Business Intelligence Manager",
       location: "Barcelona, Spain",
       start: "2017-04",
@@ -259,7 +261,7 @@ export const resume: Resume = {
     {
       institution: "La Salle Barcelona, Universitat Ramon Llull (URL)",
       degree: "Master in Project Management (MPM)",
-      // TODO(verify): La Salle logo not found in a free source; send the file to add it.
+      logo: "/logos/lasalle.webp",
       start: "2014",
       end: "2015",
     },

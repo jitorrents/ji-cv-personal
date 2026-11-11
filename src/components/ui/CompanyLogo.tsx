@@ -32,7 +32,7 @@ export function CompanyLogo({
   return (
     <span
       aria-hidden="true"
-      className={`tone-plain grid shrink-0 place-items-center bg-band shadow-sm ring-1 ring-line ${s.box} ${className}`}
+      className={`tone-plain grid shrink-0 place-items-center bg-band shadow-sm ${s.box} ${className}`}
     >
       {logo ? (
         <Image

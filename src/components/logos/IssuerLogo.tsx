@@ -5,6 +5,7 @@ import { simpleIcons } from "./simple-icons";
 /** Official square icons provided by the user (files in public/logos/, see SOURCES.md). */
 const imageByIssuer: Record<string, string> = {
   "Google Cloud": "/logos/google-cloud.webp",
+  "Amazon Web Services": "/logos/aws.webp",
 };
 
 /**
@@ -58,7 +59,6 @@ const iconByIssuer: Record<string, keyof typeof simpleIcons> = {
 
 /** Text badge for issuers without a freely usable logo. */
 const badgeByIssuer: Record<string, string> = {
-  "Amazon Web Services": "aws",
   Cambridge: "FCE",
 };
 
