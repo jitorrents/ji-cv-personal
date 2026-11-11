@@ -13,7 +13,7 @@ export const repoUrl = "https://github.com/jitorrents/ji-cv-personal";
  * Empty = disabled. Set it to the code chosen at goatcounter.com, e.g. "jitorrents"
  * for https://jitorrents.goatcounter.com. Only production builds count visits.
  */
-export const goatcounterCode = "";
+export const goatcounterCode = "jitorrents";
 
 /** Build timestamp, used for the "last updated" footer. */
 export const buildDate = new Date();
