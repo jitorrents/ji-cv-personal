@@ -242,7 +242,22 @@ body {
     opacity: 1 !important;
     transform: none !important;
   }
-  article,
+  /* Paginate as plain blocks: a full-height flex body and overflow clipping make
+     Firefox/Safari push content to page 2 (blank first page) or cut it off. */
+  body {
+    display: block !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+  }
+  main {
+    display: block;
+  }
+  /* Keep each role / list item together, but let the whole CV flow across pages
+     (an "avoid" on a block taller than a page moves it to the next page). */
+  article {
+    break-inside: auto;
+  }
+  article article,
   li {
     break-inside: avoid;
   }

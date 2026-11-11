@@ -88,7 +88,7 @@ export const labelsEs: Labels = {
   viewCv: "Ver CV",
   contactMe: "Contacto",
   downloadPdf: "Descargar PDF",
-  showEmail: "Mostrar email",
+  showEmail: "Dirección de email",
   lastUpdated: "Última actualización",
   sourceCode: "Código fuente",
   notFoundTitle: "Página no encontrada",

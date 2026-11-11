@@ -1,11 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
 /**
- * Receives the address encoded (see `encodeEmail`), so neither the HTML nor the
- * React payload contains it. It is decoded in the browser on click, or just
- * before printing so the PDF CV includes it.
+ * Shows the email as a mailto link, filled in by the browser as soon as the page loads.
+ *
+ * The address arrives encoded (see `encodeEmail`), so neither the static HTML nor the
+ * React payload contains it: spam bots that scrape raw HTML never see it, while every
+ * visitor (and the printed CV) does, with no click needed.
  */
 export function ObfuscatedEmail({
   encoded,
@@ -13,33 +15,28 @@ export function ObfuscatedEmail({
   className = "",
 }: {
   encoded: string;
-  /** Text of the reveal button ("Show email address"). */
+  /** Accessible placeholder until the address is filled in ("Email address"). */
   label: string;
   className?: string;
 }) {
-  const [email, setEmail] = useState<string | null>(null);
+  const ref = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
-    const reveal = () => setEmail(decodeEmail(encoded));
-    window.addEventListener("beforeprint", reveal);
-    return () => window.removeEventListener("beforeprint", reveal);
+    const a = ref.current;
+    if (!a) return;
+    const email = atob(encoded).split("").reverse().join("");
+    a.href = `mailto:${email}`;
+    a.textContent = email;
+    a.classList.remove("invisible");
   }, [encoded]);
 
-  const style = `font-semibold text-link underline underline-offset-4 ${className}`;
-  if (!email) {
-    return (
-      <button type="button" onClick={() => setEmail(decodeEmail(encoded))} className={style}>
-        {label}
-      </button>
-    );
-  }
   return (
-    <a href={`mailto:${email}`} className={style}>
-      {email}
+    // Invisible (but space-keeping) until the effect fills in the real address.
+    <a
+      ref={ref}
+      className={`invisible font-semibold text-link underline underline-offset-4 ${className}`}
+    >
+      {label}
     </a>
   );
-}
-
-function decodeEmail(encoded: string): string {
-  return atob(encoded).split("").reverse().join("");
 }
