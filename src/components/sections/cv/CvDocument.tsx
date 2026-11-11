@@ -17,7 +17,7 @@ function CvSection({ title, children }: { title: string; children: React.ReactNo
 /** The whole CV, laid out for an A4 sheet. On screen it shows as a paper card. */
 export function CvDocument({ locale }: { locale: Locale }) {
   const { t, r } = getContent(locale);
-  const { name, headline, location, profiles, summary } = r.basics;
+  const { name, headline, tagline, location, profiles, summary } = r.basics;
   return (
     <article
       aria-label={name}
@@ -26,6 +26,7 @@ export function CvDocument({ locale }: { locale: Locale }) {
       <header className="border-b-2 border-warm pb-5 print:pb-3">
         <h1 className="font-display text-3xl font-bold tracking-tight">{name}</h1>
         <p className="mt-1 text-lg text-muted">{headline}</p>
+        {tagline && <p className="mt-1 text-sm font-semibold text-pretty text-link">{tagline}</p>}
         <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted">
           <span>{location}</span>
           {profiles.map((p) => (

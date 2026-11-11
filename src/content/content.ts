@@ -460,6 +460,10 @@ export const content: Content = {
         en: "Head of Data – Applications, Data & AI at Kyndryl Consult",
         es: "Head of Data – Applications, Data & AI en Kyndryl Consult",
       },
+      tagline: {
+        en: "Leading the teams, alliances and offerings that make enterprise data ready for AI.",
+        es: "Lidero los equipos, alianzas y propuestas que preparan los datos de las empresas para la IA.",
+      },
       summary: {
         en: "Computer science engineer with a Master in Project Management and a long career in IT and consulting. I started in software development as a programmer, analyst and architect, then moved into project and service management, business development and team leadership. Today I am Head of Data in Kyndryl's Applications, Data & AI area, where I combine management, commercial and technical skills to grow the business, backed by deep knowledge of data from a strategic, governance and technology perspective.",
         es: "Ingeniero Informático y Máster en Project Management, con una amplia trayectoria en el sector IT y la consultoría. Comencé mi carrera en el desarrollo de software como programador, analista y arquitecto, y más adelante orienté mi camino hacia la gestión de proyectos y servicios, el desarrollo de negocio y el liderazgo de equipos. Actualmente soy Head of Data en el área de Aplicaciones, Datos e IA de Kyndryl, donde combino habilidades de gestión, comerciales y técnicas para impulsar el crecimiento de la unidad, apoyado en un profundo conocimiento del mundo del dato desde una perspectiva estratégica, de gobierno y tecnológica.",
@@ -483,7 +487,6 @@ export const content: Content = {
         company: "Kyndryl",
         companyUrl: "https://www.kyndryl.com",
         companyLogo: "/logos/kyndryl.webp",
-        companyWordmark: "/logos/kyndryl.svg",
         role: "Head of Data – Applications, Data & AI, Kyndryl Consult",
         location: {
           en: "Barcelona, Spain",
@@ -538,7 +541,6 @@ export const content: Content = {
         company: "Kyndryl",
         companyUrl: "https://www.kyndryl.com",
         companyLogo: "/logos/kyndryl.webp",
-        companyWordmark: "/logos/kyndryl.svg",
         // TODO(verify): LinkedIn has no description for this role. Its summary and highlights come from
         // the old CV, where the role was called "Associate Partner for Application, Data & AI".
         role: "Customer Technology Advisor for Data & AI, Kyndryl Consult",

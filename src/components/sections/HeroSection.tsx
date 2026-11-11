@@ -42,9 +42,7 @@ function Portrait({ locale }: { locale: Locale }) {
 
 export function HeroSection({ locale }: { locale: Locale }) {
   const { t, r } = getContent(locale);
-  const { name, headline, location, profiles } = r.basics;
-  // Current role = first entry without an end date; its logo sits next to the headline.
-  const current = r.experience.find((e) => !e.end);
+  const { name, headline, tagline, location, profiles } = r.basics;
   const linkedin = profiles.find((p) => p.network === "LinkedIn");
 
   return (
@@ -81,18 +79,14 @@ export function HeroSection({ locale }: { locale: Locale }) {
           >
             {name}
           </h1>
-          <p className="mt-5 text-xl text-pretty text-muted sm:text-2xl">
-            {headline}
-            {current?.companyWordmark && (
-              <Image
-                src={asset(current.companyWordmark)}
-                alt={current.company}
-                width={126}
-                height={40}
-                className="ml-3 inline-block h-[1.1em] w-auto align-[-0.2em]"
-              />
-            )}
-          </p>
+          <p className="mt-5 text-xl text-pretty text-muted sm:text-2xl">{headline}</p>
+          {tagline && (
+            // Positioning statement: heading font and full contrast so it reads above body
+            // text, but smaller than the name; width-capped to stay within 2 lines on desktop.
+            <p className="mt-6 max-w-2xl border-l-4 border-warm pl-4 font-display text-lg leading-snug font-semibold text-balance sm:text-2xl">
+              {tagline}
+            </p>
+          )}
           <div className="no-print mt-10 flex flex-wrap gap-3">
             <Link href={localePath(locale, "/cv/")} className={buttonClass.primary}>
               {t.viewCv}
