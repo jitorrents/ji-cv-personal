@@ -6,113 +6,176 @@
 /*
  * Design tokens: the only place colors and fonts are defined.
  *
- * Brand palette (greens excluded on purpose):
- *   Warm Red #FF462D · White #FFFFFF · Spruce #29707A · Earth #9E9287 · Cloud #F2F1EE
- *   Skye #E4F4F1 · Dark Stone #3D3C3C · Digital Dark Earth #565049
- *
- * Each page section is a "tone" band. A tone sets the semantic variables below, and
- * everything inside inherits them, so components only use bg-band, text-fg, text-muted,
- * text-title, text-link, bg-card and border-line. Pairs follow the palette's AA chart:
- * warm red is only used as text at large sizes (titles, numbers).
+ * A palette is ~14 base colors (--p-*). Section "tones" are derived from them, so
+ * components only use bg-band, text-fg, text-muted, text-title, text-link, bg-card and
+ * border-line, plus the role colors below (bg-warm = accent, bg-spruce = primary, ...).
+ * Palettes: default (A, Kyndryl-style), and B/C/D under [data-palette], selectable with
+ * ?palette=B for comparison. Every text/background pair is checked for WCAG AA.
  */
-:root,
-.tone-plain {
-  --band: #ffffff;
-  --fg: #3d3c3c;
-  --muted: #565049;
-  --title: #ff462d;
-  --link: #29707a;
-  --card: #f2f1ee;
-  --line: #e2dfd9;
+:root {
+  /* A — Current, calmer: Spruce + Warm Red (accent only) */
+  --p-white: #ffffff;
+  --p-neutral: #f2f1ee; /* light neutral band (Cloud) */
+  --p-tint: #e4f4f1; /* light tinted band (Skye) */
+  --p-dark: #3d3c3c; /* hero / footer (Dark Stone) */
+  --p-primary: #29707a; /* titles and links on light bands (Spruce) */
+  --p-deep: #565049; /* secondary dark band (Digital Dark Earth) */
+  --p-mid: #9e9287; /* decorative mid tone (Earth) */
+  --p-accent: #ff462d; /* buttons, dots, highlights (Warm Red) */
+  --p-on-accent: #141414; /* text on the accent */
+  --p-ink: #3d3c3c; /* body text on light bands */
+  --p-muted: #565049; /* secondary text on light bands */
+  --p-title-dark: #ff462d; /* large titles on the dark band */
+  --p-cta: #29707a; /* contact band */
+  --p-cta-fg: #ffffff;
 }
-.tone-cloud {
-  --band: #f2f1ee;
-  --fg: #3d3c3c;
-  --muted: #565049;
-  --title: #29707a;
-  --link: #29707a;
-  --card: #ffffff;
-  --line: #dedad3;
+:root[data-palette="B"] {
+  /* B — Navy & Terracotta */
+  --p-neutral: #f5f1ea;
+  --p-tint: #eaf0f6;
+  --p-dark: #16243b;
+  --p-primary: #1f4e79;
+  --p-deep: #2e3a4f;
+  --p-mid: #a89f91;
+  --p-accent: #c2502e;
+  --p-on-accent: #ffffff;
+  --p-ink: #1e2430;
+  --p-muted: #4f5865;
+  --p-title-dark: #f0a68c;
+  --p-cta: #c2502e;
+  --p-cta-fg: #ffffff;
 }
-.tone-skye {
-  --band: #e4f4f1;
-  --fg: #3d3c3c;
-  --muted: #565049;
-  --title: #29707a;
-  --link: #29707a;
-  --card: #ffffff;
-  --line: #cfe3df;
+:root[data-palette="C"] {
+  /* C — Slate & Amber */
+  --p-neutral: #f6f5f2;
+  --p-tint: #fbf3e4;
+  --p-dark: #1f2933;
+  --p-primary: #2f4858;
+  --p-deep: #3e4c59;
+  --p-mid: #9aa5b1;
+  --p-accent: #e0a100;
+  --p-on-accent: #1f2933;
+  --p-ink: #1f2933;
+  --p-muted: #52606d;
+  --p-title-dark: #f5c04a;
+  --p-cta: #e0a100;
+  --p-cta-fg: #1f2933;
 }
-.tone-stone {
-  --band: #3d3c3c;
-  --fg: #ffffff;
-  --muted: #f2f1ee;
-  --title: #ff462d;
-  --link: #e4f4f1;
-  --card: #474545;
-  --line: #5a5757;
-}
-.tone-spruce {
-  --band: #29707a;
-  --fg: #ffffff;
-  --muted: #e4f4f1;
-  --title: #ffffff;
-  --link: #ffffff;
-  --card: #317b85;
-  --line: #4b8b94;
-}
-.tone-earth {
-  --band: #565049;
-  --fg: #ffffff;
-  --muted: #f2f1ee;
-  --title: #f2f1ee;
-  --link: #ffffff;
-  --card: #615a52;
-  --line: #746d65;
-}
-.tone-red {
-  --band: #ff462d;
-  --fg: #141414;
-  --muted: #141414;
-  --title: #ffffff;
-  --link: #141414;
-  --card: #ff5a43;
-  --line: #14141433;
+:root[data-palette="D"] {
+  /* D — Burgundy & Ivory */
+  --p-neutral: #f8f4ee;
+  --p-tint: #f4e9e7;
+  --p-dark: #2a1f24;
+  --p-primary: #7a2638;
+  --p-deep: #4a3b40;
+  --p-mid: #b49a8a;
+  --p-accent: #b8862e;
+  --p-on-accent: #1f1a1c;
+  --p-ink: #2a2326;
+  --p-muted: #5e5257;
+  --p-title-dark: #e2b866;
+  --p-cta: #7a2638;
+  --p-cta-fg: #ffffff;
 }
 
-/* Dark mode: light bands become warm charcoals; colored bands keep their color. */
+/* Section tones, derived from the palette. Lines and cards are mixes of fg and band. */
+:root,
+.tone-plain,
+.tone-cloud,
+.tone-skye,
+.tone-stone,
+.tone-spruce,
+.tone-earth,
+.tone-red {
+  --line: color-mix(in oklab, var(--fg) 14%, var(--band));
+}
+:root,
+.tone-plain {
+  --band: var(--p-white);
+  --fg: var(--p-ink);
+  --muted: var(--p-muted);
+  --title: var(--p-primary);
+  --link: var(--p-primary);
+  --card: var(--p-neutral);
+}
+.tone-cloud {
+  --band: var(--p-neutral);
+  --fg: var(--p-ink);
+  --muted: var(--p-muted);
+  --title: var(--p-primary);
+  --link: var(--p-primary);
+  --card: var(--p-white);
+}
+.tone-skye {
+  --band: var(--p-tint);
+  --fg: var(--p-ink);
+  --muted: var(--p-muted);
+  --title: var(--p-primary);
+  --link: var(--p-primary);
+  --card: var(--p-white);
+}
+.tone-stone {
+  --band: var(--p-dark);
+  --fg: #ffffff;
+  --muted: color-mix(in oklab, #ffffff 82%, var(--p-dark));
+  --title: var(--p-title-dark);
+  --link: var(--p-tint);
+  --card: color-mix(in oklab, #ffffff 8%, var(--p-dark));
+}
+.tone-spruce {
+  --band: var(--p-primary);
+  --fg: #ffffff;
+  --muted: color-mix(in oklab, #ffffff 85%, var(--p-primary));
+  --title: #ffffff;
+  --link: #ffffff;
+  --card: color-mix(in oklab, #ffffff 10%, var(--p-primary));
+}
+.tone-earth {
+  --band: var(--p-deep);
+  --fg: #ffffff;
+  --muted: color-mix(in oklab, #ffffff 85%, var(--p-deep));
+  --title: var(--p-neutral);
+  --link: #ffffff;
+  --card: color-mix(in oklab, #ffffff 8%, var(--p-deep));
+}
+/* Contact band (kept as "tone-red" for the class name; colour comes from --p-cta). */
+.tone-red {
+  --band: var(--p-cta);
+  --fg: var(--p-cta-fg);
+  --muted: var(--p-cta-fg);
+  --title: var(--p-cta-fg);
+  --link: var(--p-cta-fg);
+  --card: color-mix(in oklab, var(--p-cta-fg) 10%, var(--p-cta));
+}
+
+/* Dark mode: light bands become very dark shades of the palette's dark colour. */
+[data-theme="dark"],
+[data-theme="dark"] .tone-plain,
+[data-theme="dark"] .tone-cloud,
+[data-theme="dark"] .tone-skye {
+  --fg: var(--p-neutral);
+  --muted: color-mix(in oklab, var(--p-neutral) 80%, var(--p-dark));
+  --link: var(--p-tint);
+}
 [data-theme="dark"],
 [data-theme="dark"] .tone-plain {
-  --band: #242323;
-  --fg: #f2f1ee;
-  --muted: #d3cec8;
-  --title: #ff462d;
-  --link: #e4f4f1;
-  --card: #2f2e2e;
-  --line: #3d3c3c;
+  --band: color-mix(in oklab, var(--p-dark) 62%, #000);
+  --title: var(--p-title-dark);
+  --card: color-mix(in oklab, var(--p-dark) 78%, #000);
 }
 [data-theme="dark"] .tone-cloud {
-  --band: #2c2b2b;
-  --fg: #f2f1ee;
-  --muted: #d3cec8;
-  --title: #e4f4f1;
-  --link: #e4f4f1;
-  --card: #363535;
-  --line: #474545;
+  --band: color-mix(in oklab, var(--p-dark) 72%, #000);
+  --title: var(--p-tint);
+  --card: color-mix(in oklab, var(--p-dark) 88%, #000);
 }
 [data-theme="dark"] .tone-skye {
-  --band: #24302f;
-  --fg: #f2f1ee;
-  --muted: #d3cec8;
-  --title: #e4f4f1;
-  --link: #e4f4f1;
-  --card: #2d3a39;
-  --line: #3e4b4a;
+  --band: color-mix(in oklab, color-mix(in oklab, var(--p-dark) 70%, #000) 88%, var(--p-tint));
+  --title: var(--p-tint);
+  --card: color-mix(in oklab, color-mix(in oklab, var(--p-dark) 82%, #000) 88%, var(--p-tint));
 }
 [data-theme="dark"] .tone-stone {
-  --band: #1a1919;
-  --card: #262525;
-  --line: #3d3c3c;
+  --band: color-mix(in oklab, var(--p-dark) 45%, #000);
+  --card: color-mix(in oklab, var(--p-dark) 60%, #000);
 }
 
 @theme inline {
@@ -123,15 +186,16 @@
   --color-link: var(--link);
   --color-card: var(--card);
   --color-line: var(--line);
-  /* Fixed brand colors */
-  --color-warm: #ff462d;
-  --color-spruce: #29707a;
-  --color-stone: #3d3c3c;
-  --color-cloud: #f2f1ee;
-  --color-skye: #e4f4f1;
-  --color-earth: #9e9287;
-  --color-dark-earth: #565049;
-  --color-ink: #141414;
+  /* Role colours (historic names from the first palette): warm = accent, spruce = primary,
+     stone = dark, cloud = neutral, skye = tint, earth = mid, dark-earth = deep, ink = on accent. */
+  --color-warm: var(--p-accent);
+  --color-spruce: var(--p-primary);
+  --color-stone: var(--p-dark);
+  --color-cloud: var(--p-neutral);
+  --color-skye: var(--p-tint);
+  --color-earth: var(--p-mid);
+  --color-dark-earth: var(--p-deep);
+  --color-ink: var(--p-on-accent);
   --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-heading), var(--font-body), ui-sans-serif, system-ui, sans-serif;
   --animate-rise: rise 0.6s ease-out both;
@@ -222,8 +286,8 @@ body {
     --band: #fff;
     --fg: #111;
     --muted: #444;
-    --title: #29707a;
-    --link: #29707a;
+    --title: var(--p-primary);
+    --link: var(--p-primary);
     --card: #fff;
     --line: #d4d4d4;
     color-scheme: light;
