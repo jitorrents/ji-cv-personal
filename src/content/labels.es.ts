@@ -38,7 +38,7 @@ export const labelsEs: Labels = {
     contact: {
       eyebrow: "Hablemos",
       title: "Contacto",
-      intro: "La mejor forma de contactar conmigo es por email o LinkedIn.",
+      intro: "La mejor forma de contactar conmigo es a través de LinkedIn.",
     },
   },
   cvPage: {
@@ -91,7 +91,6 @@ export const labelsEs: Labels = {
   viewCv: "Ver CV",
   contactMe: "Contacto",
   downloadPdf: "Descargar PDF",
-  showEmail: "Mostrar email",
   lastUpdated: "Última actualización",
   sourceCode: "Código fuente",
   notFoundTitle: "Página no encontrada",

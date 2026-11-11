@@ -110,8 +110,6 @@ export interface Resume {
     summary: string;
     /** City, country only. */
     location: string;
-    /** Rendered obfuscated on the client. */
-    email?: { user: string; domain: string };
     profiles: Profile[];
     /** Path under /public. Ask before publishing a photo. */
     photo?: string;

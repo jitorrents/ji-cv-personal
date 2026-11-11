@@ -14,7 +14,6 @@ export const resume: Resume = {
     location: "Barcelona, Spain",
     // Published with the user's consent (Nov 2026). Source: "Foto personal1.jpg", resized, no metadata.
     photo: "/photo.webp",
-    email: { user: "ji.torrents", domain: "gmail.com" },
     profiles: [
       {
         network: "LinkedIn",

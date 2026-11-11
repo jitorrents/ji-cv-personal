@@ -1,7 +1,5 @@
-import { ObfuscatedEmail } from "@/components/ui/ObfuscatedEmail";
 import { getContent, type Locale } from "@/content/i18n";
 import { formatRange, formatYearMonth } from "@/lib/dates";
-import { encodeEmail } from "@/lib/email";
 import { groupByCompany } from "@/lib/experience";
 import { groupByIssuer } from "@/lib/certifications";
 
@@ -19,7 +17,7 @@ function CvSection({ title, children }: { title: string; children: React.ReactNo
 /** The whole CV, laid out for an A4 sheet. On screen it shows as a paper card. */
 export function CvDocument({ locale }: { locale: Locale }) {
   const { t, r } = getContent(locale);
-  const { name, headline, location, email, profiles, summary } = r.basics;
+  const { name, headline, location, profiles, summary } = r.basics;
   return (
     <article
       aria-label={name}
@@ -30,9 +28,6 @@ export function CvDocument({ locale }: { locale: Locale }) {
         <p className="mt-1 text-lg text-muted">{headline}</p>
         <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted">
           <span>{location}</span>
-          {email && (
-            <ObfuscatedEmail encoded={encodeEmail(email.user, email.domain)} label={t.showEmail} />
-          )}
           {profiles.map((p) => (
             <a key={p.url} href={p.url} className="text-link">
               {p.url.replace(/^https?:\/\/(www\.)?/, "")}
