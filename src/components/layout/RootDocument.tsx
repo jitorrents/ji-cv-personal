@@ -21,8 +21,7 @@ export const viewport: Viewport = {
 };
 
 // Runs before paint so the page never flashes the wrong theme.
-// ?palette=B|C|D previews an alternative palette (see globals.css); no effect otherwise.
-const themeScript = `(function(){var d=document.documentElement;d.classList.add('js');try{var p=new URLSearchParams(location.search).get('palette');if(p&&/^[BCD]$/.test(p))d.dataset.palette=p}catch(e){}try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}d.dataset.theme=t}catch(e){}})()`;
+const themeScript = `(function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}d.dataset.theme=t}catch(e){}})()`;
 
 /** <html> shell shared by the English and Spanish root layouts. */
 export function RootDocument({

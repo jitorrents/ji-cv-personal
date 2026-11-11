@@ -6,75 +6,27 @@
 /*
  * Design tokens: the only place colors and fonts are defined.
  *
- * A palette is ~14 base colors (--p-*). Section "tones" are derived from them, so
+ * Palette "Navy & Terracotta" (chosen Nov 2026 over Kyndryl-style, Slate & Amber and
+ * Burgundy & Ivory; those are in git history, commit 7737de8). No greens.
+ * The palette is ~14 base colors (--p-*). Section "tones" are derived from them, so
  * components only use bg-band, text-fg, text-muted, text-title, text-link, bg-card and
  * border-line, plus the role colors below (bg-warm = accent, bg-spruce = primary, ...).
- * Palettes: default (A, Kyndryl-style), and B/C/D under [data-palette], selectable with
- * ?palette=B for comparison. Every text/background pair is checked for WCAG AA.
+ * Every text/background pair passes WCAG AA (lowest body-text pair 4.69:1).
  */
 :root {
-  /* A — Current, calmer: Spruce + Warm Red (accent only) */
   --p-white: #ffffff;
-  --p-neutral: #f2f1ee; /* light neutral band (Cloud) */
-  --p-tint: #e4f4f1; /* light tinted band (Skye) */
-  --p-dark: #3d3c3c; /* hero / footer (Dark Stone) */
-  --p-primary: #29707a; /* titles and links on light bands (Spruce) */
-  --p-deep: #565049; /* secondary dark band (Digital Dark Earth) */
-  --p-mid: #9e9287; /* decorative mid tone (Earth) */
-  --p-accent: #ff462d; /* buttons, dots, highlights (Warm Red) */
-  --p-on-accent: #141414; /* text on the accent */
-  --p-ink: #3d3c3c; /* body text on light bands */
-  --p-muted: #565049; /* secondary text on light bands */
-  --p-title-dark: #ff462d; /* large titles on the dark band */
-  --p-cta: #29707a; /* contact band */
-  --p-cta-fg: #ffffff;
-}
-:root[data-palette="B"] {
-  /* B — Navy & Terracotta */
-  --p-neutral: #f5f1ea;
-  --p-tint: #eaf0f6;
-  --p-dark: #16243b;
-  --p-primary: #1f4e79;
-  --p-deep: #2e3a4f;
-  --p-mid: #a89f91;
-  --p-accent: #c2502e;
-  --p-on-accent: #ffffff;
-  --p-ink: #1e2430;
-  --p-muted: #4f5865;
-  --p-title-dark: #f0a68c;
-  --p-cta: #c2502e;
-  --p-cta-fg: #ffffff;
-}
-:root[data-palette="C"] {
-  /* C — Slate & Amber */
-  --p-neutral: #f6f5f2;
-  --p-tint: #fbf3e4;
-  --p-dark: #1f2933;
-  --p-primary: #2f4858;
-  --p-deep: #3e4c59;
-  --p-mid: #9aa5b1;
-  --p-accent: #e0a100;
-  --p-on-accent: #1f2933;
-  --p-ink: #1f2933;
-  --p-muted: #52606d;
-  --p-title-dark: #f5c04a;
-  --p-cta: #e0a100;
-  --p-cta-fg: #1f2933;
-}
-:root[data-palette="D"] {
-  /* D — Burgundy & Ivory */
-  --p-neutral: #f8f4ee;
-  --p-tint: #f4e9e7;
-  --p-dark: #2a1f24;
-  --p-primary: #7a2638;
-  --p-deep: #4a3b40;
-  --p-mid: #b49a8a;
-  --p-accent: #b8862e;
-  --p-on-accent: #1f1a1c;
-  --p-ink: #2a2326;
-  --p-muted: #5e5257;
-  --p-title-dark: #e2b866;
-  --p-cta: #7a2638;
+  --p-neutral: #f5f1ea; /* light neutral band (sand) */
+  --p-tint: #eaf0f6; /* light tinted band (pale blue) */
+  --p-dark: #16243b; /* hero / footer (deep navy) */
+  --p-primary: #1f4e79; /* titles and links on light bands (navy) */
+  --p-deep: #2e3a4f; /* secondary dark band (slate) */
+  --p-mid: #a89f91; /* decorative mid tone (warm grey) */
+  --p-accent: #c2502e; /* buttons, dots, highlights (terracotta) */
+  --p-on-accent: #ffffff; /* text on the accent */
+  --p-ink: #1e2430; /* body text on light bands */
+  --p-muted: #4f5865; /* secondary text on light bands */
+  --p-title-dark: #f0a68c; /* large titles on the dark band (light terracotta) */
+  --p-cta: #c2502e; /* contact band */
   --p-cta-fg: #ffffff;
 }
 
@@ -186,8 +138,10 @@
   --color-link: var(--link);
   --color-card: var(--card);
   --color-line: var(--line);
-  /* Role colours (historic names from the first palette): warm = accent, spruce = primary,
-     stone = dark, cloud = neutral, skye = tint, earth = mid, dark-earth = deep, ink = on accent. */
+  /* Role colours. The class names come from the first palette and are kept as aliases:
+     warm = accent (terracotta), spruce = primary (navy), stone = dark (deep navy),
+     cloud = neutral (sand), skye = tint (pale blue), earth = mid (warm grey),
+     dark-earth = deep (slate), ink = text on the accent. */
   --color-warm: var(--p-accent);
   --color-spruce: var(--p-primary);
   --color-stone: var(--p-dark);
