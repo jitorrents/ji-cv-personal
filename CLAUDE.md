@@ -66,6 +66,7 @@ A single home page of full-width colored bands (layout inspired by stockagile.co
 - **Accessibility**: semantic landmarks, skip link, visible focus states, WCAG AA contrast in both themes, alt text, keyboard-usable controls with `aria-label`.
 - **SEO**: root `metadata` (title, description, canonical, Open Graph, Twitter card), a static OG image, `robots.txt`, `sitemap.xml`, and JSON-LD `Person` built from `resume.ts`.
 - **Performance**: Lighthouse ≥ 95 on mobile in all four categories. Server Components by default. Use `"use client"` only for interactive pieces (`ThemeToggle`, `NavLinks`, `MobileMenu`, `LanguageSwitch`, `PrintButton`, `Reveal`, `CountUp`).
+- **Analytics**: GoatCounter (cookieless, no consent banner), site code `goatcounterCode` in `src/lib/site.ts` (`jitorrents` → https://jitorrents.goatcounter.com). The script is added by `RootDocument` on production builds only. Don't add cookie-based trackers without a consent banner.
 - **Dependencies**: keep runtime dependencies to `next`, `react` and `react-dom`, and justify any new one. TypeScript stays on 6.x until typescript-eslint supports 7.
 - **Git**: make small commits and do not push unless asked.
 
