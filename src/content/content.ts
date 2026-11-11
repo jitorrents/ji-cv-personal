@@ -859,7 +859,24 @@ export const content: Content = {
         url: "https://www.linkedin.com/posts/jitorrents_theheartofprogress-mwc25-share-7300909549085974531-_Jg_",
         image: "/presence/mwc25.webp",
       },
-      // TODO(verify): "TGC", January 2025 — pending details (title, link, photo) from the user.
+      {
+        // TODO(verify): the user said January 2025; the organiser's LinkedIn post is from
+        // 24 October 2024 and thanks attendees, so October 2024 is used. Type set from the photo (panel).
+        type: "panel",
+        event: "The Game Changers Lab",
+        title: {
+          en: "The NextGen company, with Kyndryl",
+          es: "La empresa NextGen, de la mano de Kyndryl",
+        },
+        venue: "The Game Changers Lab",
+        date: "2024-10",
+        description: {
+          en: "An evening on how new technologies can help us make better decisions, and why leaders matter in a context increasingly shaped by algorithms.",
+          es: "Una velada sobre cómo las nuevas tecnologías pueden ayudarnos a tomar mejores decisiones y por qué el papel de los líderes es clave en un contexto cada vez más mediado por algoritmos.",
+        },
+        url: "https://www.linkedin.com/posts/la-empresa-nextgen-ha-llegado-de-la-mano-ugcPost-7255239947194875905-6BAb",
+        image: "/presence/tgc24.webp",
+      },
     ],
     skills: [
       {
