@@ -58,3 +58,13 @@ public/CNAME
 logos-inbox/
 # raw photos from the user (processed copies go to public/presence/)
 photos-inbox/
+
+# never commit loose images or PDFs from the repo root (originals, exports, screenshots);
+# the site's assets live in public/
+/*.jpg
+/*.jpeg
+/*.JPG
+/*.png
+/*.heic
+/*.webp
+/*.pdf

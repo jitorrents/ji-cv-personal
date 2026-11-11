@@ -48,7 +48,11 @@ export function Band({
             >
               {title}
             </h2>
-            {intro && <p className="mt-4 max-w-2xl text-lg text-pretty text-muted">{intro}</p>}
+            {intro && (
+              <p className="mt-4 max-w-2xl text-justify text-lg text-pretty hyphens-auto text-muted">
+                {intro}
+              </p>
+            )}
           </div>
           {kpis && kpis.length > 0 && (
             <dl className="flex shrink-0 flex-wrap gap-x-10 gap-y-4 lg:justify-end">

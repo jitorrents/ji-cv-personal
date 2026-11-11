@@ -11,6 +11,9 @@ import type { Content } from "./types";
  * - Lists (highlights, skills...) can be a list of pairs, or a pair of lists:
  *   highlights: [{ en: "...", es: "..." }, ...]  or  { en: ["...", "..."], es: ["...", "..."] }
  * - Dates: "YYYY-MM", or "YYYY" if the month is unknown. Experience goes newest first.
+ * - Experience achievements (optional, shown above the highlights with more weight):
+ *   achievements: [{ text: { en: "...", es: "..." }, metric: { value: "+40%", label: { en: "revenue", es: "ingresos" } } }]
+ *   `metric` is optional; without it the achievement shows a star.
  * - To add a language later, add it to locales in locale.ts and an entry next to en/es.
  *
  * `ui` = interface (menus, section titles, buttons, month names).
@@ -345,10 +348,6 @@ export const content: Content = {
       en: "Last updated",
       es: "Última actualización",
     },
-    sourceCode: {
-      en: "Source code",
-      es: "Código fuente",
-    },
     notFoundTitle: {
       en: "Page not found",
       es: "Página no encontrada",
@@ -495,6 +494,12 @@ export const content: Content = {
           en: "Lead the Data business in the Applications, Data & AI area, working closely with internal sales and technical teams.",
           es: "Lidero el negocio de Data en el área de Aplicaciones, Datos e IA, colaborando estrechamente con los equipos internos de ventas y técnicos.",
         },
+        // achievements: [
+        //   {
+        //     text: { en: "Grew the Data practice ...", es: "Hice crecer la práctica de Data ..." },
+        //     metric: { value: "+40%", label: { en: "revenue", es: "ingresos" } },
+        //   },
+        // ],
         highlights: [
           {
             en: "Define the growth strategy, portfolio, objectives and roadmap of Data services, around a clear and differentiated value proposition.",

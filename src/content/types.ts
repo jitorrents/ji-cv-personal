@@ -10,6 +10,13 @@ export interface Profile {
   username?: string;
 }
 
+/** A key result of a role, shown with more weight than the highlights (and above them). */
+export interface Achievement {
+  text: string;
+  /** Optional headline figure, e.g. { value: "+40%", label: "revenue" }. */
+  metric?: { value: string; label: string };
+}
+
 export interface Experience {
   company: string;
   companyUrl?: string;
@@ -24,6 +31,8 @@ export interface Experience {
   /** undefined = "Present" */
   end?: YearMonth;
   summary?: string;
+  /** Key results, rendered above the highlights with more visual weight (web and PDF). */
+  achievements?: Achievement[];
   highlights: string[];
   tech?: string[];
 }
@@ -239,7 +248,6 @@ export type Labels = {
   downloadPdf: string;
   lastUpdated: string;
   presenceLink: string;
-  sourceCode: string;
   notFoundTitle: string;
   notFoundBody: string;
   backHome: string;

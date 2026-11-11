@@ -3,6 +3,7 @@ import { getContent, type Locale } from "@/content/i18n";
 import { Reveal } from "@/components/ui/Reveal";
 import { kpis } from "@/lib/kpis";
 import { CertificationGrid } from "./CertificationGrid";
+import { CertifiedByStrip } from "./CertifiedByStrip";
 
 /** Rotating palette accents for the skill cards (warm red stays decorative). */
 const accents = ["bg-warm", "bg-spruce", "bg-earth", "bg-dark-earth", "bg-stone", "bg-warm"];
@@ -52,6 +53,7 @@ export function SkillsSection({ locale }: { locale: Locale }) {
       {r.certifications.length > 0 && (
         <div className="mt-16">
           <SubHeading>{t.skillsSection.certifications}</SubHeading>
+          <CertifiedByStrip locale={locale} />
           <CertificationGrid locale={locale} />
         </div>
       )}

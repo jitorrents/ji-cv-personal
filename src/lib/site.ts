@@ -6,8 +6,6 @@ export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:30
   "",
 );
 
-export const repoUrl = "https://github.com/jitorrents/ji-cv-personal";
-
 /**
  * GoatCounter site code for visit statistics (cookieless, no consent banner needed).
  * Empty = disabled. Set it to the code chosen at goatcounter.com, e.g. "jitorrents"

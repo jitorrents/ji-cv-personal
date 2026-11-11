@@ -15,7 +15,9 @@ export function CvPage({ locale }: { locale: Locale }) {
           <h1 className="mt-2 font-display text-4xl font-bold tracking-tight text-title sm:text-5xl">
             {page.title}
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-muted">{page.intro}</p>
+          <p className="mt-4 max-w-2xl text-justify text-lg hyphens-auto text-muted">
+            {page.intro}
+          </p>
           <div className="mt-8">
             <PrintButton label={t.downloadPdf} />
           </div>

@@ -9,7 +9,9 @@ export function AboutSection({ locale }: { locale: Locale }) {
   return (
     <Band id="about" tone="plain" eyebrow={s.eyebrow} title={s.title}>
       <Reveal>
-        <p className="text-base leading-relaxed text-pretty sm:text-lg">{r.basics.summary}</p>
+        <p className="text-justify text-base leading-relaxed text-pretty hyphens-auto sm:text-lg">
+          {r.basics.summary}
+        </p>
       </Reveal>
       <Reveal>
         <CareerPath locale={locale} />
