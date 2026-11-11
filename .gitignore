@@ -56,3 +56,5 @@ public/CNAME
 
 # raw logo files from the user (processed copies go to public/logos/)
 logos-inbox/
+# raw photos from the user (processed copies go to public/presence/)
+photos-inbox/

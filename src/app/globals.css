@@ -23,6 +23,7 @@
   --p-mid: #a89f91; /* decorative mid tone (warm grey) */
   --p-accent: #c2502e; /* buttons, dots, highlights (terracotta) */
   --p-on-accent: #ffffff; /* text on the accent */
+  --p-accent-ink: #a8431f; /* accent as small text on light bands (AA on white and sand) */
   --p-ink: #1e2430; /* body text on light bands */
   --p-muted: #4f5865; /* secondary text on light bands */
   --p-title-dark: #f0a68c; /* large titles on the dark band (light terracotta) */
@@ -109,6 +110,9 @@
   --muted: color-mix(in oklab, var(--p-neutral) 80%, var(--p-dark));
   --link: var(--p-tint);
 }
+[data-theme="dark"] {
+  --p-accent-ink: var(--p-title-dark);
+}
 [data-theme="dark"],
 [data-theme="dark"] .tone-plain {
   --band: color-mix(in oklab, var(--p-dark) 62%, #000);
@@ -143,6 +147,7 @@
      cloud = neutral (sand), skye = tint (pale blue), earth = mid (warm grey),
      dark-earth = deep (slate), ink = text on the accent. */
   --color-warm: var(--p-accent);
+  --color-warm-ink: var(--p-accent-ink);
   --color-spruce: var(--p-primary);
   --color-stone: var(--p-dark);
   --color-cloud: var(--p-neutral);

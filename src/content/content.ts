@@ -230,6 +230,10 @@ export const content: Content = {
         en: "Talk",
         es: "Charla",
       },
+      event: {
+        en: "Event",
+        es: "Evento",
+      },
       panel: {
         en: "Panel",
         es: "Mesa redonda",
@@ -320,6 +324,10 @@ export const content: Content = {
     downloadPdf: {
       en: "Download PDF",
       es: "Descargar PDF",
+    },
+    presenceLink: {
+      en: "View",
+      es: "Ver",
     },
     lastUpdated: {
       en: "Last updated",
@@ -779,9 +787,80 @@ export const content: Content = {
         },
       },
     ],
-    // Talks, panels, articles and press. Empty for now: the section shows a "coming soon" note.
-    // Item: { title: { en, es }, type: "talk" | "panel" | "article" | "interview" | "press" | "podcast" | "other", venue?, date?: "YYYY-MM", url? }
-    publicPresence: [],
+    // Talks, panels, events and press, newest first. Photos (16:9) go in public/presence/.
+    // Item: { type: "talk" | "panel" | "event" | "press" | "article" | "interview" | "podcast" | "other", event (tag), title, venue, date: "YYYY-MM", description?, url?, image? }
+    publicPresence: [
+      {
+        type: "panel",
+        event: "Fundación IMAGING",
+        title: {
+          en: "The Health Data Space: challenges and opportunities",
+          es: "El Espacio de Datos de Salud: retos y oportunidades",
+        },
+        venue: "Fundación Mapfre, Madrid",
+        date: "2026-03",
+        description: {
+          en: "Panelist in the round table on technological challenges and security.",
+          es: "Ponente en la mesa «Retos tecnológicos y seguridad».",
+        },
+        url: "https://www.linkedin.com/posts/jitorrents_es-un-verdadero-placer-poder-participar-share-7439616460634677248-zMXV",
+        image: "/presence/imaging26.webp",
+      },
+      {
+        type: "press",
+        event: "Byte TI",
+        title: {
+          en: "From Big Data to Smart Data (cover story)",
+          es: "Del Big Data al Smart Data (reportaje de portada)",
+        },
+        venue: "Byte TI nº 344",
+        date: "2026-01",
+        description: {
+          en: "Quoted on the technical, organisational and operational challenges of data platforms (p. 44).",
+          es: "Cita sobre los retos técnicos, organizativos y operativos de las plataformas de datos (p. 44).",
+        },
+        url: "https://revistabyte.es/wp-content/uploads/2026/01/Revista-Byte-TI-344.-Enero-2026.pdf",
+        image: "/presence/byte344.webp",
+      },
+      {
+        type: "event",
+        event: "Cloudera Evolve",
+        title: {
+          en: "Kyndryl at Cloudera Evolve Forum 2025",
+          es: "Kyndryl en Cloudera Evolve Forum 2025",
+        },
+        venue: "Cloudera Evolve Forum 2025",
+        date: "2025-11",
+        url: "https://www.linkedin.com/posts/jitorrents_ha-sido-un-aut%C3%A9ntico-placer-haber-podido-ugcPost-7392642311098355712-DfVO",
+        image: "/presence/cloudera25.webp",
+      },
+      {
+        type: "talk",
+        event: "SCEWC25",
+        title: {
+          en: "Data spaces and AI for a smarter city, with Madrid City Council",
+          es: "Espacios de datos e IA para una ciudad más inteligente, con el Ayuntamiento de Madrid",
+        },
+        venue: "Smart City Expo World Congress 2025",
+        date: "2025-11",
+        url: "https://www.linkedin.com/posts/jitorrents_scewc25-share-7391050312243032065-P1S_",
+        image: "/presence/smartcities25.webp",
+      },
+      {
+        type: "talk",
+        event: "MWC25",
+        title: "AI 360 in action: Transforming data and models with Google Cloud",
+        venue: {
+          en: "MWC25 Barcelona · Kyndryl & Google Cloud session",
+          es: "MWC25 Barcelona · sesión de Kyndryl y Google Cloud",
+        },
+        // The LinkedIn announcement is from February 2025; the sessions were on 4–5 March 2025.
+        date: "2025-03",
+        url: "https://www.linkedin.com/posts/jitorrents_theheartofprogress-mwc25-share-7300909549085974531-_Jg_",
+        image: "/presence/mwc25.webp",
+      },
+      // TODO(verify): "TGC", January 2025 — pending details (title, link, photo) from the user.
+    ],
     skills: [
       {
         category: "Data & AI",

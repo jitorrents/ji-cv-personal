@@ -95,12 +95,16 @@ export interface Collaboration {
 /** A talk, panel, article, interview or press mention. */
 export interface PublicPresenceItem {
   title: string;
-  type: "talk" | "panel" | "article" | "interview" | "press" | "podcast" | "other";
-  /** Event, publication or outlet. */
+  type: "talk" | "panel" | "event" | "article" | "interview" | "press" | "podcast" | "other";
+  /** Short event or outlet name shown as the card's tag ("MWC25", "Byte TI"). */
+  event?: string;
+  /** Full event / publication and place ("Fundación Mapfre, Madrid"). */
   venue?: string;
   date?: PartialDate;
   url?: string;
   description?: string;
+  /** Card photo, path under /public (16:9, e.g. "/presence/mwc25.webp"). */
+  image?: string;
 }
 
 export interface Resume {
@@ -203,6 +207,7 @@ export type Labels = {
   presenceTypes: {
     talk: string;
     panel: string;
+    event: string;
     article: string;
     interview: string;
     press: string;
@@ -230,6 +235,7 @@ export type Labels = {
   contactMe: string;
   downloadPdf: string;
   lastUpdated: string;
+  presenceLink: string;
   sourceCode: string;
   notFoundTitle: string;
   notFoundBody: string;
