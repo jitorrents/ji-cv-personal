@@ -10,7 +10,7 @@ export interface Profile {
   username?: string;
 }
 
-/** A key result of a role, shown with more weight than the highlights (and above them). */
+/** A key result of a role, listed just before its highlights (same bullet style). */
 export interface Achievement {
   text: string;
   /** Optional headline figure, e.g. { value: "+40%", label: "revenue" }. */

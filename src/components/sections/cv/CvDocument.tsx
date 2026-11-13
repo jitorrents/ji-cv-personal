@@ -1,8 +1,7 @@
 import { getContent, type Locale } from "@/content/i18n";
 import { formatRange, formatYearMonth } from "@/lib/dates";
-import { groupByCompany } from "@/lib/experience";
+import { bullets, groupByCompany } from "@/lib/experience";
 import { groupByIssuer } from "@/lib/certifications";
-import { Highlight } from "@/components/ui/Highlight";
 
 function CvSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -58,32 +57,10 @@ export function CvDocument({ locale }: { locale: Locale }) {
                         </span>
                       </p>
                       {job.summary && <p className="mt-0.5 text-sm text-pretty">{job.summary}</p>}
-                      {job.achievements && job.achievements.length > 0 && (
-                        <ul className="mt-1 space-y-0.5 text-sm font-semibold">
-                          {job.achievements.map((a) => (
-                            <li key={a.text} className="flex gap-1.5">
-                              <span aria-hidden="true" className="text-warm">
-                                ★
-                              </span>
-                              <span>
-                                {a.metric && (
-                                  <span className="text-link">
-                                    {a.metric.value} {a.metric.label}
-                                    {" · "}
-                                  </span>
-                                )}
-                                {a.text}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                      {job.highlights.length > 0 && (
+                      {bullets(job).length > 0 && (
                         <ul className="mt-1 list-disc space-y-0.5 pl-4 text-sm marker:text-warm">
-                          {job.highlights.map((h) => (
-                            <li key={h}>
-                              <Highlight text={h} />
-                            </li>
+                          {bullets(job).map((h) => (
+                            <li key={h}>{h}</li>
                           ))}
                         </ul>
                       )}

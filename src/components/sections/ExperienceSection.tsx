@@ -6,7 +6,7 @@ import { TagList } from "@/components/ui/Tag";
 import { formatDuration, formatRange, monthsBetween } from "@/lib/dates";
 import { groupByCompany } from "@/lib/experience";
 import { kpis } from "@/lib/kpis";
-import { Highlight } from "@/components/ui/Highlight";
+import { bullets } from "@/lib/experience";
 
 export function ExperienceSection({ locale }: { locale: Locale }) {
   const { t, r } = getContent(locale);
@@ -60,46 +60,15 @@ export function ExperienceSection({ locale }: { locale: Locale }) {
                         {job.employmentType ? ` · ${job.employmentType}` : ""}
                       </p>
                       {job.summary && <p className="mt-3 text-pretty">{job.summary}</p>}
-                      {job.achievements && job.achievements.length > 0 && (
-                        <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-                          {job.achievements.map((a) => (
-                            <li
-                              key={a.text}
-                              className="flex items-start gap-4 rounded-2xl border-l-4 border-warm bg-band p-4"
-                            >
-                              {a.metric ? (
-                                <span className="shrink-0">
-                                  <span className="block font-display text-2xl leading-none font-bold text-warm-ink tabular-nums">
-                                    {a.metric.value}
-                                  </span>
-                                  <span className="mt-1 block text-[0.7rem] font-semibold tracking-wider text-muted uppercase">
-                                    {a.metric.label}
-                                  </span>
-                                </span>
-                              ) : (
-                                <svg
-                                  aria-hidden="true"
-                                  viewBox="0 0 24 24"
-                                  className="mt-0.5 size-5 shrink-0 text-warm-ink"
-                                  fill="currentColor"
-                                >
-                                  <path d="m12 2 2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.3 5.8 20.9l1.6-7L2 9.2l7.1-.6L12 2Z" />
-                                </svg>
-                              )}
-                              <p className="font-semibold text-pretty">{a.text}</p>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                      {job.highlights.length > 0 && (
+                      {bullets(job).length > 0 && (
                         <ul className="mt-3 space-y-1.5">
-                          {job.highlights.map((h) => (
+                          {bullets(job).map((h) => (
                             <li key={h} className="flex gap-3 text-pretty">
                               <span
                                 aria-hidden="true"
                                 className="mt-2.5 h-0.5 w-3 shrink-0 rounded-full bg-spruce"
                               />
-                              <Highlight text={h} />
+                              {h}
                             </li>
                           ))}
                         </ul>
