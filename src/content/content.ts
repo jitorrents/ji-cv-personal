@@ -512,9 +512,7 @@ export const content: Content = {
           },
         ],
         // Shown only on localhost (`next dev`), never on the published site or in the CV.
-        todo: [
-          'PENDIENTE — logro de crecimiento de negocio (signings ×N / +X% y año fiscal). Pedir el dato real. Formularlo sin chocar con el "×4 ADAI" de Miguel: o es solo de Data y propio, o va como contribución.',
-        ],
+        todo: ["PENDIENTE — logro de crecimiento de negocio (signings ×N / +X% y año fiscal)."],
         highlights: [
           {
             en: "Strategy and offering: define the growth strategy, portfolio and roadmap of Data services, around a differentiated value proposition.",
