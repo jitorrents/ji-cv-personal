@@ -510,7 +510,8 @@ export const content: Content = {
               es: "Impulsé nuestra presencia de mercado en Datos junto a Google Cloud, firmando conjuntamente algunos de sus proyectos de Datos más relevantes.",
             },
           },
-          // TODO(text): business growth achievement pending (relative signings figure, to be confirmed)
+          // TODO(text): PENDIENTE — logro de crecimiento de negocio (signings ×N / +X% y año fiscal).
+          // Pedir el dato real. Formularlo sin chocar con el "×4 ADAI" de Miguel: o es solo de Data y propio, o va como contribución.
         ],
         highlights: [
           {
