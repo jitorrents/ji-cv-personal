@@ -487,6 +487,20 @@ export const content: Content = {
         company: "Kyndryl",
         companyUrl: "https://www.kyndryl.com",
         companyLogo: "/logos/kyndryl.webp",
+        sectors: [
+          {
+            en: "Banking",
+            es: "Banca",
+          },
+          {
+            en: "Insurance",
+            es: "Seguros",
+          },
+          {
+            en: "Public sector",
+            es: "Sector público",
+          },
+        ],
         role: "Head of Data – Applications, Data & AI, Kyndryl Consult",
         location: {
           en: "Barcelona, Spain",
@@ -532,17 +546,6 @@ export const content: Content = {
             es: "Dirección de equipos: dirijo el delivery de Datos con los equipos de Bases de Datos y Data Analytics, más de 30 profesionales entre DBAs, data engineers, analistas y arquitectos.",
           },
         ],
-        tech: [
-          "Google Cloud",
-          "Azure",
-          "Databricks",
-          "BigQuery",
-          {
-            en: "Data governance",
-            es: "Gobierno del dato",
-          },
-          "Data management",
-        ],
       },
       {
         company: "Kyndryl",
@@ -580,6 +583,16 @@ export const content: Content = {
       {
         company: "Mediacloud",
         companyLogo: "/logos/mediacloud.webp",
+        sectors: [
+          {
+            en: "Media & broadcasting",
+            es: "Audiovisual",
+          },
+          {
+            en: "Healthcare",
+            es: "Sanidad",
+          },
+        ],
         role: "Head of Data & Analytics",
         location: {
           en: "Barcelona, Spain",
@@ -609,14 +622,6 @@ export const content: Content = {
             es: "Responsable del sistema de ticketing de la compañía (Jira).",
           },
         ],
-        tech: [
-          "Microsoft Azure",
-          {
-            en: "Microsoft data platform",
-            es: "Plataforma de datos de Microsoft",
-          },
-          "Jira",
-        ],
       },
       {
         company: "Mediacloud",
@@ -642,6 +647,12 @@ export const content: Content = {
       {
         company: "SII Concatel",
         companyLogo: "/logos/sii-concatel.webp",
+        sectors: [
+          {
+            en: "Airlines",
+            es: "Aerolíneas",
+          },
+        ],
         role: {
           en: "Project Manager / Atlassian Consultant",
           es: "Project Manager / Consultor Atlassian",
@@ -666,11 +677,16 @@ export const content: Content = {
             es: "Asesoramiento en la implantación de metodologías Agile (Scrum, Kanban) con Jira.",
           },
         ],
-        tech: ["Jira", "Confluence", "Scrum", "Kanban"],
       },
       {
         company: "Indra",
         companyLogo: "/logos/indra.webp",
+        sectors: [
+          {
+            en: "Public sector",
+            es: "Sector público",
+          },
+        ],
         role: {
           en: "J2EE Architect",
           es: "Arquitecto J2EE",
@@ -691,11 +707,16 @@ export const content: Content = {
             es: "Análisis y arquitectura J2EE.",
           },
         ],
-        tech: ["J2EE"],
       },
       {
         company: "GFT",
         companyLogo: "/logos/gft.webp",
+        sectors: [
+          {
+            en: "Banking",
+            es: "Banca",
+          },
+        ],
         role: {
           en: "J2EE Analyst Programmer",
           es: "Analista-Programador J2EE",
@@ -716,11 +737,16 @@ export const content: Content = {
             es: "Análisis técnico, arquitectura, diseño y desarrollo de software.",
           },
         ],
-        tech: ["J2EE"],
       },
       {
         company: "Indra",
         companyLogo: "/logos/indra.webp",
+        sectors: [
+          {
+            en: "Public sector",
+            es: "Sector público",
+          },
+        ],
         role: {
           en: "J2EE Analyst Programmer",
           es: "Analista-Programador J2EE",
@@ -750,7 +776,6 @@ export const content: Content = {
             es: "G@udi (gestió automatitzada d'impostos) para la Generalitat de Catalunya, como programador: desarrollo de software y documentación técnica.",
           },
         ],
-        tech: ["J2EE"],
       },
       {
         company: "ACS Informáticos S.L.",
@@ -766,7 +791,6 @@ export const content: Content = {
             es: "Reparación de hardware, instalación de equipos y redes, y programación PHP.",
           },
         ],
-        tech: ["PHP"],
       },
     ],
     collaborations: [
@@ -939,6 +963,14 @@ export const content: Content = {
           es: "Negocio y liderazgo",
         },
         items: [
+          {
+            en: "Strategic vision",
+            es: "Visión estratégica",
+          },
+          {
+            en: "People management",
+            es: "Gestión de personas",
+          },
           {
             en: "Consultative selling",
             es: "Venta consultiva",

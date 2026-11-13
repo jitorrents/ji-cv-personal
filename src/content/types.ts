@@ -34,7 +34,8 @@ export interface Experience {
   /** Key results, listed right after the highlights (web and PDF). */
   achievements?: Achievement[];
   highlights: string[];
-  tech?: string[];
+  /** Company sectors, set on the first (newest) entry of each company; shown once per company card. */
+  sectors?: string[];
   /** Private reminders: shown on the Experience card only in `next dev`, never in builds or the CV. */
   todo?: string[];
 }

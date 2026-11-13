@@ -43,6 +43,7 @@ export function ExperienceSection({ locale }: { locale: Locale }) {
                     {formatDuration(monthsBetween(g.start, g.end), t.dates)}
                   </p>
                 </header>
+                <TagList items={g.sectors ?? []} className="mt-4" />
 
                 <ol className="mt-6 space-y-8 border-l-2 border-line pl-6">
                   {g.roles.map((job) => (
@@ -89,7 +90,6 @@ export function ExperienceSection({ locale }: { locale: Locale }) {
                           ))}
                         </ul>
                       )}
-                      <TagList items={job.tech ?? []} className="mt-4" />
                       {/* Private reminders: dev server only, stripped from production builds. */}
                       {process.env.NODE_ENV === "development" &&
                         job.todo?.map((note) => (

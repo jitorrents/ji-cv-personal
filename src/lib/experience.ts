@@ -5,6 +5,7 @@ export interface CompanyGroup {
   company: string;
   companyUrl?: string;
   companyLogo?: string;
+  sectors?: string[];
   start: YearMonth;
   end?: YearMonth;
   roles: Experience[];
@@ -17,12 +18,14 @@ export function groupByCompany(experience: Experience[]): CompanyGroup[] {
     const last = groups.at(-1);
     if (last && last.company === role.company) {
       last.roles.push(role);
+      last.sectors ??= role.sectors;
       if (role.start < last.start) last.start = role.start;
     } else {
       groups.push({
         company: role.company,
         companyUrl: role.companyUrl,
         companyLogo: role.companyLogo,
+        sectors: role.sectors,
         start: role.start,
         end: role.end,
         roles: [role],
