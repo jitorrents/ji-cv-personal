@@ -543,9 +543,13 @@ export const content: Content = {
               es: "Impulsé nuestra presencia de mercado en Datos junto a Google Cloud, firmando conjuntamente algunos de sus proyectos de Datos más relevantes.",
             },
           },
+          {
+            text: {
+              en: "As part of the ADAI leadership team: ×3 practice signings in two years (FY24–FY26), more than doubling ADAI's share of Kyndryl's business, in line with its push into consulting.",
+              es: "Como parte del equipo de dirección de ADAI: ×3 en signings de la práctica en dos años (FY24–FY26), duplicando con creces el peso de ADAI en el negocio de Kyndryl, en línea con su apuesta por la consultoría.",
+            },
+          },
         ],
-        // Shown only on localhost (`next dev`), never on the published site or in the CV.
-        todo: ["PENDIENTE — logro de crecimiento de negocio (signings ×N / +X% y año fiscal)."],
         highlights: [
           {
             en: "Strategy and offering: define the growth strategy, portfolio and roadmap of Data services, around a differentiated value proposition.",
