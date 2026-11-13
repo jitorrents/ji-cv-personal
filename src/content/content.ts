@@ -482,8 +482,8 @@ export const content: Content = {
           es: "Gestión de personas",
         },
         {
-          en: "Data governance",
-          es: "Gobierno de datos",
+          en: "Business development",
+          es: "Desarrollo de negocio",
         },
         {
           en: "Technology consulting",

@@ -13,7 +13,7 @@ export function AboutSection({ locale }: { locale: Locale }) {
         <p className="text-justify text-base leading-relaxed text-pretty hyphens-auto sm:text-lg">
           {r.basics.summary}
         </p>
-        <TagList items={r.basics.topSkills ?? []} className="mt-6" />
+        <TagList items={r.basics.topSkills ?? []} variant="brand" className="mt-6" />
       </Reveal>
       <Reveal>
         <CareerPath locale={locale} />
