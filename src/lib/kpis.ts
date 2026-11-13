@@ -1,6 +1,6 @@
 import type { Labels } from "@/content/types";
 import type { Resume } from "@/content/types";
-import { companyCount, yearsOfExperience } from "./experience";
+import { sectorCount, yearsLeadingTeams, yearsOfExperience } from "./experience";
 
 /** A headline figure shown in a section header, always computed from the CV data. */
 export interface Kpi {
@@ -18,8 +18,8 @@ export function kpis(t: Labels, r: Resume) {
   return {
     experience: (): Kpi[] => [
       { value: yearsOfExperience(r.experience), suffix: "+", label: k.yearsInIt },
-      { value: companyCount(r.experience), label: k.companies },
-      { value: r.experience.length, label: k.roles },
+      { value: yearsLeadingTeams(r.experience), suffix: "+", label: k.yearsLeadingTeams },
+      { value: sectorCount(r.experience), label: k.sectors },
     ],
     teaching: (): Kpi[] => {
       const c = r.collaborations ?? [];

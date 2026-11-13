@@ -30,6 +30,8 @@ export interface Experience {
   start: YearMonth;
   /** undefined = "Present" */
   end?: YearMonth;
+  /** Role with people management; the earliest one starts the "years leading teams" KPI. */
+  leadsTeam?: boolean;
   summary?: string;
   /** Key results, listed right after the highlights (web and PDF). */
   achievements?: Achievement[];
@@ -213,7 +215,8 @@ export type Labels = {
   };
   kpis: {
     yearsInIt: string;
-    companies: string;
+    yearsLeadingTeams: string;
+    sectors: string;
     roles: string;
     institutions: string;
     certifications: string;

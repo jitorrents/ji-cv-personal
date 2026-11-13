@@ -41,9 +41,14 @@ export function yearsOfExperience(experience: Experience[]): number {
   return first ? Math.floor(monthsBetween(first) / 12) : 0;
 }
 
-/** Number of different employers. */
-export function companyCount(experience: Experience[]): number {
-  return new Set(experience.map((e) => e.company)).size;
+/** Whole years since the earliest role flagged `leadsTeam` started. */
+export function yearsLeadingTeams(experience: Experience[]): number {
+  return yearsOfExperience(experience.filter((e) => e.leadsTeam));
+}
+
+/** Number of different sectors across all companies' sector tags. */
+export function sectorCount(experience: Experience[]): number {
+  return new Set(experience.flatMap((e) => e.sectors ?? [])).size;
 }
 
 /**

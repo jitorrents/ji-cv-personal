@@ -101,8 +101,8 @@ export const content: Content = {
           es: "Experiencia",
         },
         intro: {
-          en: "Over more than 20 years in IT I have gone from writing J2EE code for public administrations to leading the Data business at Kyndryl, with stops in Atlassian consulting, Business Intelligence management and service delivery along the way.",
-          es: "En más de 20 años en IT he pasado de programar en J2EE para la administración pública a liderar el negocio de Data en Kyndryl, pasando por la consultoría Atlassian, la dirección de Business Intelligence y la gestión de servicios.",
+          en: "My career has taken me from engineering to leading the Data business at Kyndryl: along the way I built a Data & Analytics department from scratch and have led teams and managed client and partner relationships.",
+          es: "Mi trayectoria va de la ingeniería a la dirección del negocio de Datos en Kyndryl: por el camino creé desde cero un departamento de Data & Analytics y he dirigido equipos y gestionado clientes y alianzas.",
         },
       },
       teaching: {
@@ -129,8 +129,8 @@ export const content: Content = {
           es: "Aptitudes y Certificaciones",
         },
         intro: {
-          en: "My work sits where data strategy, delivery and business meet. These are the skills I use every day, backed by certifications from Microsoft, AWS, Google Cloud, Cloudera, Databricks and Atlassian.",
-          es: "Mi trabajo está donde se encuentran la estrategia de datos, la ejecución y el negocio. Estas son las aptitudes que uso a diario, respaldadas por certificaciones de Microsoft, AWS, Google Cloud, Cloudera, Databricks y Atlassian.",
+          en: "My work sits where data strategy, business and delivery meet. These are the skills I use every day.",
+          es: "Mi trabajo está donde se encuentran la estrategia de datos, el negocio y la ejecución. Estas son las aptitudes que uso a diario.",
         },
       },
       education: {
@@ -206,9 +206,13 @@ export const content: Content = {
         en: "years in IT",
         es: "años en IT",
       },
-      companies: {
-        en: "companies",
-        es: "empresas",
+      yearsLeadingTeams: {
+        en: "years leading teams",
+        es: "años liderando equipos",
+      },
+      sectors: {
+        en: "main sectors",
+        es: "sectores principales",
       },
       roles: "roles",
       institutions: {
@@ -529,6 +533,7 @@ export const content: Content = {
           es: "Barcelona, España",
         },
         start: "2025-01",
+        leadsTeam: true,
         summary: {
           en: "Lead the Data business in the Applications, Data & AI area, working closely with sales and technical teams.",
           es: "Lidero el negocio de Datos del área de Aplicaciones, Datos e IA, en estrecha colaboración con los equipos de ventas y técnicos.",
@@ -621,6 +626,7 @@ export const content: Content = {
           es: "Barcelona, España",
         },
         start: "2018-12",
+        leadsTeam: true,
         end: "2022-02",
         summary: {
           en: "Led the Data & Analytics department.",
@@ -658,6 +664,7 @@ export const content: Content = {
           es: "Barcelona, España",
         },
         start: "2017-04",
+        leadsTeam: true,
         end: "2018-12",
         summary: {
           en: "Led the BI & Analytics area, managing the team and the delivery of its projects and services.",
@@ -838,8 +845,8 @@ export const content: Content = {
           en: "Barcelona, Spain",
           es: "Barcelona, España",
         },
-        // TODO(verify): only in the old CV (12/2020 – Present); not on LinkedIn. Still active?
         start: "2020-12",
+        end: "2022-12",
         description: {
           en: "Classes in the Big Data Master on data management in cloud environments.",
           es: "Clases en el Máster en Big Data sobre gestión de datos en entornos cloud.",
