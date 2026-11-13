@@ -157,8 +157,8 @@ export const content: Content = {
           es: "Presencia pública",
         },
         intro: {
-          en: "Beyond my day-to-day role as Head of Data at Kyndryl, I take part in the industry conversation around data spaces, AI and data platforms: at events such as MWC and Smart City Expo World Congress, in panel discussions and in the trade press. Here is a selection of the talks, articles and conversations I have been part of.",
-          es: "Más allá de mi día a día como Head of Data en Kyndryl, participo en la conversación del sector sobre espacios de datos, IA y plataformas de datos: en eventos como el MWC o el Smart City Expo World Congress, en mesas redondas y en la prensa especializada. Esta es una selección de las charlas, artículos y conversaciones en las que he participado.",
+          en: "Being out in the market is part of the job: I share what we learn with clients and partners at industry forums, in panel discussions and in the trade press. Here is a selection.",
+          es: "Para mí, estar en el mercado es parte del trabajo: comparto lo que aprendemos con clientes y partners en foros del sector, mesas redondas y prensa especializada. Esta es una selección.",
         },
         empty: {
           en: "Coming soon.",
