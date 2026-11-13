@@ -562,6 +562,7 @@ export const content: Content = {
               en: "Built Next Data Foundations, our Data portfolio across five pillars: strategy, platform & architecture, democratisation, operations & observability, and governance.",
               es: "Construí Next Data Foundations, nuestro portfolio de Datos en cinco pilares: estrategia, plataforma y arquitectura, democratización, operaciones y observabilidad, y gobierno.",
             },
+            url: "https://lnkd.in/p/eKXefH_9",
           },
         ],
         highlights: [

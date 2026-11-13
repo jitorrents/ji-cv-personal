@@ -45,11 +45,13 @@ export function companyCount(experience: Experience[]): number {
 
 /**
  * A role's bullet points: highlights first, then achievements, as one plain list.
- * An achievement's optional metric is written in front of its text ("+40% revenue · …").
+ * An achievement's optional metric is written in front of its text ("+40% revenue · …"),
+ * and its optional url is kept for a "View →" link after it.
  */
-export function bullets(role: Experience): string[] {
-  const achievements = (role.achievements ?? []).map((a) =>
-    a.metric ? `${a.metric.value} ${a.metric.label} · ${a.text}` : a.text,
-  );
-  return [...role.highlights, ...achievements];
+export function bullets(role: Experience): { text: string; url?: string }[] {
+  const achievements = (role.achievements ?? []).map((a) => ({
+    text: a.metric ? `${a.metric.value} ${a.metric.label} · ${a.text}` : a.text,
+    url: a.url,
+  }));
+  return [...role.highlights.map((text) => ({ text })), ...achievements];
 }

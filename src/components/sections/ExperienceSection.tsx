@@ -63,12 +63,28 @@ export function ExperienceSection({ locale }: { locale: Locale }) {
                       {bullets(job).length > 0 && (
                         <ul className="mt-3 space-y-1.5">
                           {bullets(job).map((h) => (
-                            <li key={h} className="flex gap-3 text-pretty">
+                            <li key={h.text} className="flex gap-3 text-pretty">
                               <span
                                 aria-hidden="true"
                                 className="mt-2.5 h-0.5 w-3 shrink-0 rounded-full bg-spruce"
                               />
-                              {h}
+                              <span>
+                                {h.text}
+                                {h.url && (
+                                  <>
+                                    {" "}
+                                    <a
+                                      href={h.url}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="font-semibold whitespace-nowrap text-link underline-offset-4 hover:underline"
+                                    >
+                                      {t.presenceLink}
+                                      <span aria-hidden="true"> →</span>
+                                    </a>
+                                  </>
+                                )}
+                              </span>
                             </li>
                           ))}
                         </ul>

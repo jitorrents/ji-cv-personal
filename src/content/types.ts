@@ -15,6 +15,8 @@ export interface Achievement {
   text: string;
   /** Optional headline figure, e.g. { value: "+40%", label: "revenue" }. */
   metric?: { value: string; label: string };
+  /** Optional link to more detail (post, article), shown as "View →" after the text. */
+  url?: string;
 }
 
 export interface Experience {

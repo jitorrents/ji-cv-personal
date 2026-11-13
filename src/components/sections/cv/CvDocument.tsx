@@ -60,7 +60,23 @@ export function CvDocument({ locale }: { locale: Locale }) {
                       {bullets(job).length > 0 && (
                         <ul className="mt-1 list-disc space-y-0.5 pl-4 text-sm marker:text-warm">
                           {bullets(job).map((h) => (
-                            <li key={h}>{h}</li>
+                            <li key={h.text}>
+                              {h.text}
+                              {h.url && (
+                                <>
+                                  {" "}
+                                  <a
+                                    href={h.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="font-semibold whitespace-nowrap text-link"
+                                  >
+                                    {t.presenceLink}
+                                    <span aria-hidden="true"> →</span>
+                                  </a>
+                                </>
+                              )}
+                            </li>
                           ))}
                         </ul>
                       )}
