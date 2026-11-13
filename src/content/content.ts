@@ -520,8 +520,12 @@ export const content: Content = {
             es: "Estrategia y oferta: defino la estrategia de crecimiento, el portfolio y el roadmap de los servicios de Data, con una propuesta de valor diferenciada.",
           },
           {
-            en: "Business with clients and partners: identify and qualify opportunities with sales, design the solutions and lead the proposals, backed by our technology alliances.",
-            es: "Negocio con clientes y partners: identifico y cualifico oportunidades junto a ventas, diseño las soluciones y lidero las propuestas, apoyándome en nuestras alianzas tecnológicas.",
+            en: "Clients and partners: build trusted relationships with clients, partners and providers, leading the consultative selling of Data solutions.",
+            es: "Clientes y partners: construyo relaciones de confianza con clientes, partners y proveedores, liderando la venta consultiva de soluciones de Datos.",
+          },
+          {
+            en: "Business development: identify and qualify opportunities with sales, design the solutions and lead the proposals, backed by our technology alliances.",
+            es: "Desarrollo de negocio: identifico y cualifico oportunidades junto a ventas, diseño las soluciones y lidero las propuestas, apoyándome en nuestras alianzas tecnológicas.",
           },
           {
             en: "Team leadership: lead Data delivery across the Database and Data Analytics teams — 30+ professionals spanning DBAs, data engineers, analysts and architects.",
