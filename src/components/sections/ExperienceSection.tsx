@@ -6,6 +6,7 @@ import { TagList } from "@/components/ui/Tag";
 import { formatDuration, formatRange, monthsBetween } from "@/lib/dates";
 import { groupByCompany } from "@/lib/experience";
 import { kpis } from "@/lib/kpis";
+import { Highlight } from "@/components/ui/Highlight";
 
 export function ExperienceSection({ locale }: { locale: Locale }) {
   const { t, r } = getContent(locale);
@@ -98,7 +99,7 @@ export function ExperienceSection({ locale }: { locale: Locale }) {
                                 aria-hidden="true"
                                 className="mt-2.5 h-0.5 w-3 shrink-0 rounded-full bg-spruce"
                               />
-                              {h}
+                              <Highlight text={h} />
                             </li>
                           ))}
                         </ul>

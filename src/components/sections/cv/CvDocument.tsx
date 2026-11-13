@@ -2,6 +2,7 @@ import { getContent, type Locale } from "@/content/i18n";
 import { formatRange, formatYearMonth } from "@/lib/dates";
 import { groupByCompany } from "@/lib/experience";
 import { groupByIssuer } from "@/lib/certifications";
+import { Highlight } from "@/components/ui/Highlight";
 
 function CvSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -80,7 +81,9 @@ export function CvDocument({ locale }: { locale: Locale }) {
                       {job.highlights.length > 0 && (
                         <ul className="mt-1 list-disc space-y-0.5 pl-4 text-sm marker:text-warm">
                           {job.highlights.map((h) => (
-                            <li key={h}>{h}</li>
+                            <li key={h}>
+                              <Highlight text={h} />
+                            </li>
                           ))}
                         </ul>
                       )}
