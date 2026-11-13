@@ -510,8 +510,10 @@ export const content: Content = {
               es: "Impulsé nuestra presencia de mercado en Datos junto a Google Cloud, firmando conjuntamente algunos de sus proyectos de Datos más relevantes.",
             },
           },
-          // TODO(text): PENDIENTE — logro de crecimiento de negocio (signings ×N / +X% y año fiscal).
-          // Pedir el dato real. Formularlo sin chocar con el "×4 ADAI" de Miguel: o es solo de Data y propio, o va como contribución.
+        ],
+        // Shown only on localhost (`next dev`), never on the published site or in the CV.
+        todo: [
+          'PENDIENTE — logro de crecimiento de negocio (signings ×N / +X% y año fiscal). Pedir el dato real. Formularlo sin chocar con el "×4 ADAI" de Miguel: o es solo de Data y propio, o va como contribución.',
         ],
         highlights: [
           {

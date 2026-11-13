@@ -74,6 +74,16 @@ export function ExperienceSection({ locale }: { locale: Locale }) {
                         </ul>
                       )}
                       <TagList items={job.tech ?? []} className="mt-4" />
+                      {/* Private reminders: dev server only, stripped from production builds. */}
+                      {process.env.NODE_ENV === "development" &&
+                        job.todo?.map((note) => (
+                          <p
+                            key={note}
+                            className="mt-4 rounded-lg border-2 border-dashed border-warm p-3 text-sm text-pretty"
+                          >
+                            <strong>TODO:</strong> {note}
+                          </p>
+                        ))}
                     </li>
                   ))}
                 </ol>

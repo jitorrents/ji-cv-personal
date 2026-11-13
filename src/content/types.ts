@@ -29,10 +29,12 @@ export interface Experience {
   /** undefined = "Present" */
   end?: YearMonth;
   summary?: string;
-  /** Key results, rendered above the highlights with more visual weight (web and PDF). */
+  /** Key results, listed right after the highlights (web and PDF). */
   achievements?: Achievement[];
   highlights: string[];
   tech?: string[];
+  /** Private reminders: shown on the Experience card only in `next dev`, never in builds or the CV. */
+  todo?: string[];
 }
 
 export interface Education {
