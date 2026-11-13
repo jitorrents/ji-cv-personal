@@ -461,8 +461,8 @@ export const content: Content = {
         es: "Head of Data – Applications, Data & AI en Kyndryl Consult",
       },
       tagline: {
-        en: "Leading the teams, alliances and offerings that make enterprise data ready for AI.",
-        es: "Lidero los equipos, alianzas y propuestas que preparan los datos de las empresas para la IA.",
+        en: "Bridging business and technology to turn data into value with AI.",
+        es: "Conecto negocio y tecnología para que los datos generen valor con IA.",
       },
       summary: {
         en: "Computer science engineer with a Master in Project Management and a long career in IT and consulting. I started in software development as a programmer, analyst and architect, then moved into project and service management, business development and team leadership. Today I am Head of Data in Kyndryl's Applications, Data & AI area, where I combine management, commercial and technical skills to grow the business, backed by deep knowledge of data from a strategic, governance and technology perspective.",
