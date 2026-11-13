@@ -503,6 +503,7 @@ export const content: Content = {
               en: "Led the winning proposals for two leading Spanish banks to modernise their data platforms.",
               es: "Lideré las propuestas ganadoras de dos de las principales entidades bancarias españolas para modernizar sus plataformas de datos.",
             },
+            url: "https://www.bankinter.com/blog/noticias-bankinter/bankinter-google-cloud-summit-madrid",
           },
           {
             text: {
