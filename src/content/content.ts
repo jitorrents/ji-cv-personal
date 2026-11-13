@@ -660,8 +660,8 @@ export const content: Content = {
         company: "Indra",
         companyLogo: "/logos/indra.webp",
         role: {
-          en: "J2EE Analyst",
-          es: "Analista J2EE",
+          en: "J2EE Architect",
+          es: "Arquitecto J2EE",
         },
         location: {
           en: "Barcelona, Spain",

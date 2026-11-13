@@ -27,6 +27,14 @@ export function CareerPath({ locale }: { locale: Locale }) {
                   className="absolute top-[7px] left-4 h-0.5 w-full bg-line"
                 />
               )}
+              {/* Open-ended tail on the current role (lg+): dashed accent line from its dot to
+                  the container's right edge (right-0 = outer edge of the li, past its pr-4). */}
+              {current && i === steps.length - 1 && (
+                <span
+                  aria-hidden="true"
+                  className="absolute top-[7px] right-0 left-4 hidden h-0.5 bg-[repeating-linear-gradient(to_right,var(--color-warm)_0_8px,transparent_8px_14px)] lg:block"
+                />
+              )}
               <span
                 aria-hidden="true"
                 className={`relative block size-4 rounded-full ring-4 ring-band ${current ? "bg-warm" : "bg-spruce"}`}
