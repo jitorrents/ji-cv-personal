@@ -77,7 +77,7 @@ export function ExperienceSection({ locale }: { locale: Locale }) {
                                       href={h.url}
                                       target="_blank"
                                       rel="noopener noreferrer"
-                                      className="font-semibold whitespace-nowrap text-link underline-offset-4 hover:underline"
+                                      className="font-semibold whitespace-nowrap text-warm-ink underline-offset-4 hover:underline"
                                     >
                                       {t.presenceLink}
                                       <span aria-hidden="true"> →</span>

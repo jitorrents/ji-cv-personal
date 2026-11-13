@@ -69,7 +69,7 @@ export function CvDocument({ locale }: { locale: Locale }) {
                                     href={h.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="font-semibold whitespace-nowrap text-link"
+                                    className="font-semibold whitespace-nowrap text-warm-ink"
                                   >
                                     {t.presenceLink}
                                     <span aria-hidden="true"> →</span>
