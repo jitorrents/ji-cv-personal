@@ -214,11 +214,6 @@ export const content: Content = {
         en: "main sectors",
         es: "sectores principales",
       },
-      roles: "roles",
-      institutions: {
-        en: "institutions",
-        es: "instituciones",
-      },
       certifications: {
         en: "certifications",
         es: "certificaciones",
@@ -238,10 +233,6 @@ export const content: Content = {
       languages: {
         en: "languages",
         es: "idiomas",
-      },
-      items: {
-        en: "appearances",
-        es: "apariciones",
       },
     },
     presenceTypes: {

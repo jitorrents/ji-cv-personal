@@ -4,7 +4,6 @@ import { Reveal } from "@/components/ui/Reveal";
 import { buttonClass } from "@/components/ui/button";
 import { getContent, type Locale } from "@/content/i18n";
 import { formatYearMonth } from "@/lib/dates";
-import { kpis } from "@/lib/kpis";
 import { asset } from "@/lib/site";
 
 /**
@@ -19,14 +18,7 @@ export function PublicPresenceSection({ locale }: { locale: Locale }) {
     (b.date ?? "").localeCompare(a.date ?? ""),
   );
   return (
-    <Band
-      id="presence"
-      tone="plain"
-      eyebrow={s.eyebrow}
-      title={s.title}
-      intro={s.intro}
-      kpis={kpis(t, r).presence()}
-    >
+    <Band id="presence" tone="plain" eyebrow={s.eyebrow} title={s.title} intro={s.intro}>
       {items.length === 0 ? (
         <Reveal>
           <div className="flex items-center gap-4 rounded-3xl border-2 border-dashed border-line p-8 text-muted">

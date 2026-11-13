@@ -2,21 +2,13 @@ import { Band } from "@/components/ui/Band";
 import { getContent, type Locale } from "@/content/i18n";
 import { Reveal } from "@/components/ui/Reveal";
 import { formatRange } from "@/lib/dates";
-import { kpis } from "@/lib/kpis";
 
 export function TeachingSection({ locale }: { locale: Locale }) {
   const { t, r } = getContent(locale);
   if (!r.collaborations?.length) return null;
   const s = t.sections.teaching;
   return (
-    <Band
-      id="teaching"
-      tone="cloud"
-      eyebrow={s.eyebrow}
-      title={s.title}
-      intro={s.intro}
-      kpis={kpis(t, r).teaching()}
-    >
+    <Band id="teaching" tone="cloud" eyebrow={s.eyebrow} title={s.title} intro={s.intro}>
       <ul className="grid gap-5 md:grid-cols-3">
         {r.collaborations.map((c, i) => (
           <li key={`${c.organization}-${c.role}`}>

@@ -21,13 +21,6 @@ export function kpis(t: Labels, r: Resume) {
       { value: yearsLeadingTeams(r.experience), suffix: "+", label: k.yearsLeadingTeams },
       { value: sectorCount(r.experience), label: k.sectors },
     ],
-    teaching: (): Kpi[] => {
-      const c = r.collaborations ?? [];
-      return [
-        { value: c.length, label: k.roles },
-        { value: distinct(c.map((x) => x.organization)), label: k.institutions },
-      ];
-    },
     skills: (): Kpi[] => [
       { value: r.certifications.length, label: k.certifications },
       { value: distinct(r.certifications.map((c) => c.issuer)), label: k.issuers },
@@ -37,9 +30,5 @@ export function kpis(t: Labels, r: Resume) {
       { value: r.education.length, label: k.degrees },
       { value: r.languages.length, label: k.languages },
     ],
-    presence: (): Kpi[] => {
-      const n = r.publicPresence?.length ?? 0;
-      return n ? [{ value: n, label: k.items }] : [];
-    },
   };
 }

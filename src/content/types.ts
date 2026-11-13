@@ -217,14 +217,11 @@ export type Labels = {
     yearsInIt: string;
     yearsLeadingTeams: string;
     sectors: string;
-    roles: string;
-    institutions: string;
     certifications: string;
     issuers: string;
     skillAreas: string;
     degrees: string;
     languages: string;
-    items: string;
   };
   presenceTypes: {
     talk: string;
