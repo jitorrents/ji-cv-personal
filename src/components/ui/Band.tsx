@@ -35,8 +35,8 @@ export function Band({
       className={`tone-${tone} bg-band text-fg ${className}`}
     >
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
-        <Reveal className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <div>
+        <Reveal className="flex flex-col gap-8 xl:flex-row xl:items-center xl:gap-12">
+          <div className="xl:shrink-0">
             {eyebrow && (
               <p className="text-sm font-semibold tracking-[0.2em] text-muted uppercase">
                 {eyebrow}
@@ -55,9 +55,15 @@ export function Band({
             )}
           </div>
           {kpis && kpis.length > 0 && (
-            <dl className="flex shrink-0 flex-wrap gap-x-10 gap-y-4 lg:justify-end">
+            // Equal-width columns filling the space right of the text from xl (full width when
+            // stacked below it); long labels wrap inside their column instead of widening it,
+            // and numbers stay top-aligned (justify-end on the reversed column).
+            <dl
+              className="grid flex-1 gap-x-6"
+              style={{ gridTemplateColumns: `repeat(${kpis.length}, minmax(0, 1fr))` }}
+            >
               {kpis.map((kpi) => (
-                <div key={kpi.label} className="flex flex-col-reverse">
+                <div key={kpi.label} className="flex min-w-0 flex-col-reverse justify-end">
                   <dt className="text-xs font-semibold tracking-wider text-muted uppercase">
                     {kpi.label}
                   </dt>
