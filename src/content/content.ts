@@ -515,8 +515,8 @@ export const content: Content = {
             es: "Banca",
           },
           {
-            en: "Insurance",
-            es: "Seguros",
+            en: "Healthcare",
+            es: "Sanidad",
           },
           {
             en: "Public sector",
@@ -623,25 +623,29 @@ export const content: Content = {
         start: "2018-12",
         end: "2022-02",
         summary: {
-          en: "Led the BI & Analytics department.",
-          es: "Responsable del departamento de BI & Analytics.",
+          en: "Led the Data & Analytics department.",
+          es: "Dirigí el departamento de Data & Analytics.",
         },
+        achievements: [
+          {
+            text: {
+              en: "Built the Data & Analytics department from scratch.",
+              es: "Creé el departamento de Data & Analytics desde cero.",
+            },
+          },
+        ],
         highlights: [
           {
-            en: "Managed and led the data engineering team.",
-            es: "Gestión y liderazgo del equipo de data engineers.",
+            en: "Team leadership: led a team of 8 data professionals.",
+            es: "Dirección de equipo: dirigí un equipo de 8 profesionales de datos.",
           },
           {
-            en: "Ran project management for the department's projects and service management for its main customers.",
-            es: "Project management de los proyectos del departamento y service management de los principales clientes.",
-          },
-          {
-            en: "Handled department management: budget, operations and providers.",
+            en: "Department management: budget, operations and providers.",
             es: "Gestión del departamento: presupuesto, operaciones y proveedores.",
           },
           {
-            en: "Owned the company's Jira ticketing system.",
-            es: "Responsable del sistema de ticketing de la compañía (Jira).",
+            en: "Delivery: project management for the department's projects and service management for its main customers, including the team that ran the company's Jira platform.",
+            es: "Delivery: gestión de los proyectos del departamento y del servicio a sus principales clientes, incluido el equipo que operaba la plataforma Jira de la compañía.",
           },
         ],
       },
@@ -656,15 +660,10 @@ export const content: Content = {
         start: "2017-04",
         end: "2018-12",
         summary: {
-          en: "Led the BI & Analytics area.",
-          es: "Responsable del área de BI & Analytics.",
+          en: "Led the BI & Analytics area, managing the team and the delivery of its projects and services.",
+          es: "Dirigí el área de BI & Analytics, gestionando el equipo y la entrega de sus proyectos y servicios.",
         },
-        highlights: [
-          {
-            en: "Managed the team, and ran service and project management for the department's customers and projects.",
-            es: "Gestión del equipo, service management y project management de los clientes y proyectos del departamento.",
-          },
-        ],
+        highlights: [],
       },
       {
         company: "SII Concatel",
@@ -687,16 +686,12 @@ export const content: Content = {
         end: "2017-04",
         highlights: [
           {
-            en: "Managed and delivered Atlassian suite implementation projects for several customers, as project manager and consultant.",
-            es: "Gestión y ejecución de proyectos de implantación de la suite Atlassian en varios clientes, como project manager y consultor.",
+            en: "Led Atlassian suite implementation projects as project manager and consultant, mainly for a leading airline.",
+            es: "Lideré proyectos de implantación de la suite Atlassian como project manager y consultor, principalmente para una aerolínea líder.",
           },
           {
-            en: "Planned, controlled and tracked projects alongside specialist Atlassian consulting.",
-            es: "Planificación, control y seguimiento de proyectos, junto con la consultoría especializada en Atlassian.",
-          },
-          {
-            en: "Advised customers on adopting Agile methods (Scrum, Kanban) with Jira.",
-            es: "Asesoramiento en la implantación de metodologías Agile (Scrum, Kanban) con Jira.",
+            en: "Advised clients on adopting Agile methods (Scrum, Kanban).",
+            es: "Asesoré a clientes en la adopción de metodologías Agile (Scrum, Kanban).",
           },
         ],
       },
