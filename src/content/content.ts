@@ -468,6 +468,28 @@ export const content: Content = {
         en: "I lead the Data business in Kyndryl's Applications, Data & AI area: I shape our value proposition and take it to market with our technology alliances, help clients modernise their data platforms and lead the teams that make it happen. I came up through engineering — I started out designing and writing software, then moved into project and service management, business development and team leadership. That grounding lets me speak the same language with a C-level executive and with an architect. I believe in empowered teams and in developing people, and I keep an active market presence as a speaker at industry forums and events.",
         es: "Lidero el negocio de Datos en el área de Aplicaciones, Datos e IA de Kyndryl: defino nuestra propuesta de valor y la llevo al mercado junto a nuestras alianzas tecnológicas, acompaño a los clientes en la modernización de sus plataformas de datos y dirijo los equipos que lo hacen posible. Llegué aquí desde la ingeniería: empecé diseñando y programando software y fui pasando a la gestión de proyectos y servicios, el desarrollo de negocio y la dirección de equipos. Esa base me permite hablar el mismo idioma con un C-level y con un arquitecto. Creo en los equipos con autonomía y en el desarrollo de las personas, y mantengo una presencia activa en el mercado como ponente en foros y eventos del sector.",
       },
+      topSkills: [
+        {
+          en: "Strategic vision",
+          es: "Visión estratégica",
+        },
+        {
+          en: "Data strategy",
+          es: "Estrategia de datos",
+        },
+        {
+          en: "People management",
+          es: "Gestión de personas",
+        },
+        {
+          en: "Data governance",
+          es: "Gobierno de datos",
+        },
+        {
+          en: "Technology consulting",
+          es: "Consultoría tecnológica",
+        },
+      ],
       location: {
         en: "Barcelona, Spain",
         es: "Barcelona, España",
@@ -963,14 +985,6 @@ export const content: Content = {
           es: "Negocio y liderazgo",
         },
         items: [
-          {
-            en: "Strategic vision",
-            es: "Visión estratégica",
-          },
-          {
-            en: "People management",
-            es: "Gestión de personas",
-          },
           {
             en: "Consultative selling",
             es: "Venta consultiva",

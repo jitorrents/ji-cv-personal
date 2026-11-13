@@ -126,6 +126,8 @@ export interface Resume {
     /** One-line positioning statement, shown under the headline (hero and CV). */
     tagline?: string;
     summary: string;
+    /** General profile tags, shown under the summary in About (not in the CV). */
+    topSkills?: string[];
     /** City, country only. */
     location: string;
     profiles: Profile[];

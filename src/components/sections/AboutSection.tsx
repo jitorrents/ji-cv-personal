@@ -1,6 +1,7 @@
 import { Band } from "@/components/ui/Band";
 import { getContent, type Locale } from "@/content/i18n";
 import { Reveal } from "@/components/ui/Reveal";
+import { TagList } from "@/components/ui/Tag";
 import { CareerPath } from "./CareerPath";
 
 export function AboutSection({ locale }: { locale: Locale }) {
@@ -12,6 +13,7 @@ export function AboutSection({ locale }: { locale: Locale }) {
         <p className="text-justify text-base leading-relaxed text-pretty hyphens-auto sm:text-lg">
           {r.basics.summary}
         </p>
+        <TagList items={r.basics.topSkills ?? []} className="mt-6" />
       </Reveal>
       <Reveal>
         <CareerPath locale={locale} />
