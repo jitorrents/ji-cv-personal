@@ -11,7 +11,7 @@ import type { Content } from "./types";
  * - Lists (highlights, skills...) can be a list of pairs, or a pair of lists:
  *   highlights: [{ en: "...", es: "..." }, ...]  or  { en: ["...", "..."], es: ["...", "..."] }
  * - Dates: "YYYY-MM", or "YYYY" if the month is unknown. Experience goes newest first.
- * - Experience achievements (optional, listed as bullets just before the highlights, same style):
+ * - Experience achievements (optional, listed as bullets right after the highlights, same style):
  *   achievements: [{ text: { en: "...", es: "..." }, metric: { value: "+40%", label: { en: "revenue", es: "ingresos" } } }]
  *   `metric` is optional; when set it is written before the text ("+40% revenue · ...").
  * - To add a language later, add it to locales in locale.ts and an entry next to en/es.
