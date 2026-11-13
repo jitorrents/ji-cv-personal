@@ -494,35 +494,36 @@ export const content: Content = {
         },
         start: "2025-01",
         summary: {
-          en: "Lead the Data business in the Applications, Data & AI area, working closely with internal sales and technical teams.",
-          es: "Lidero el negocio de Data en el área de Aplicaciones, Datos e IA, colaborando estrechamente con los equipos internos de ventas y técnicos.",
+          en: "Lead the Data business in the Applications, Data & AI area, working closely with sales and technical teams.",
+          es: "Lidero el negocio de Datos del área de Aplicaciones, Datos e IA, en estrecha colaboración con los equipos de ventas y técnicos.",
         },
-        // achievements: [
-        //   {
-        //     text: { en: "Grew the Data practice ...", es: "Hice crecer la práctica de Data ..." },
-        //     metric: { value: "+40%", label: { en: "revenue", es: "ingresos" } },
-        //   },
-        // ],
+        achievements: [
+          {
+            text: {
+              en: "Led the winning proposals for two leading Spanish banks to modernise their data platforms.",
+              es: "Lideré las propuestas ganadoras de dos de las principales entidades bancarias españolas para modernizar sus plataformas de datos.",
+            },
+          },
+          {
+            text: {
+              en: "Grew our market presence in Data alongside Google Cloud, jointly signing some of Google's most relevant Data projects.",
+              es: "Impulsé nuestra presencia de mercado en Datos junto a Google Cloud, firmando conjuntamente algunos de sus proyectos de Datos más relevantes.",
+            },
+          },
+          // TODO(text): business growth achievement pending (relative signings figure, to be confirmed)
+        ],
         highlights: [
           {
-            en: "Define the growth strategy, portfolio, objectives and roadmap of Data services, around a clear and differentiated value proposition.",
-            es: "Defino la estrategia de crecimiento, el portfolio, los objetivos y el roadmap de los servicios de Data, alineados con una propuesta de valor clara y diferenciadora.",
+            en: "Strategy and offering: define the growth strategy, portfolio and roadmap of Data services, around a differentiated value proposition.",
+            es: "Estrategia y oferta: defino la estrategia de crecimiento, el portfolio y el roadmap de los servicios de Data, con una propuesta de valor diferenciada.",
           },
           {
-            en: "Lead customer and partner engagement, building trust-based relationships and consultative selling of data solutions.",
-            es: "Lidero el engagement con clientes y partners, con relaciones basadas en la confianza y en la venta consultiva de soluciones alrededor del dato.",
+            en: "Business with clients and partners: identify and qualify opportunities with sales, design the solutions and lead the proposals, backed by our technology alliances.",
+            es: "Negocio con clientes y partners: identifico y cualifico oportunidades junto a ventas, diseño las soluciones y lidero las propuestas, apoyándome en nuestras alianzas tecnológicas.",
           },
           {
-            en: "Generate business opportunities: identify needs and design innovative solutions and high-impact proposals.",
-            es: "Genero oportunidades de negocio: identificación de necesidades, diseño de soluciones innovadoras y propuestas de alto impacto.",
-          },
-          {
-            en: "Work with the sales team to detect and qualify opportunities.",
-            es: "Trabajo junto al equipo de ventas para detectar y cualificar oportunidades.",
-          },
-          {
-            en: "Manage strategic relationships with key customers, providers and partners.",
-            es: "Gestiono relaciones estratégicas con clientes, proveedores y partners clave.",
+            en: "Team leadership: lead Data delivery across the Database and Data Analytics teams — 30+ professionals spanning DBAs, data engineers, analysts and architects.",
+            es: "Dirección de equipos: dirijo el delivery de Datos con los equipos de Bases de Datos y Data Analytics, más de 30 profesionales entre DBAs, data engineers, analistas y arquitectos.",
           },
         ],
         tech: [
@@ -554,14 +555,18 @@ export const content: Content = {
           en: "Advisory & Implementation Services for Spain and Portugal, specialised in Data & AI.",
           es: "Servicios de Advisory & Implementation para España y Portugal, con especialización en Data & AI.",
         },
+        achievements: [
+          {
+            text: {
+              en: "Built Next Data Foundations, our Data portfolio across five pillars: strategy, platform & architecture, democratisation, operations & observability, and governance.",
+              es: "Construí Next Data Foundations, nuestro portfolio de Datos en cinco pilares: estrategia, plataforma y arquitectura, democratización, operaciones y observabilidad, y gobierno.",
+            },
+          },
+        ],
         highlights: [
           {
-            en: "Built the value proposition for the Data area.",
-            es: "Construí la propuesta de valor del área de Data.",
-          },
-          {
-            en: "Led customer engagement and consultative selling.",
-            es: "Lideré el engagement con clientes y la venta consultiva.",
+            en: "Business with clients and partners: led consultative selling and the design of Data solutions and proposals for clients in Spain and Portugal.",
+            es: "Negocio con clientes y partners: lideré la venta consultiva y el diseño de soluciones y propuestas de Datos para clientes de España y Portugal.",
           },
         ],
       },
