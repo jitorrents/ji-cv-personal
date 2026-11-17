@@ -1,18 +1,17 @@
-import Image from "next/image";
 import { RichText } from "@/components/ui/RichText";
-import { getContent, localePath, type Locale } from "@/content/i18n";
+import { getContent, type Locale } from "@/content/i18n";
 import { issuerSummary } from "@/lib/certifications";
 import { formatYearMonth, formatYearRange } from "@/lib/dates";
 import { achievements, splitCareer } from "@/lib/experience";
 import { languagesByLevel } from "@/lib/languages";
-import { asset, siteUrl } from "@/lib/site";
 import { CompactRow } from "./CompactRow";
+import { ContactList } from "./ContactList";
 import { KeyAchievements } from "./KeyAchievements";
 import { SectionHeading } from "./SectionHeading";
+import { SheetIdentity } from "./SheetIdentity";
 import { SidebarSection } from "./SidebarSection";
 import { SkillPills } from "./SkillPills";
 
-const bare = (url: string) => url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
 const lowerFirst = (s: string, locale: Locale) =>
   s.charAt(0).toLocaleLowerCase(locale) + s.slice(1);
 
@@ -25,10 +24,8 @@ const lowerFirst = (s: string, locale: Locale) =>
  */
 export function OnePager({ locale }: { locale: Locale }) {
   const { t, r } = getContent(locale);
-  const { name, headline, tagline, summary, topSkills, location, profiles, photo } = r.basics;
+  const { name, summary, topSkills } = r.basics;
   const { main, earlier } = splitCareer(r.experience);
-  const linkedin = profiles.find((p) => p.network === "LinkedIn");
-  const site = `${siteUrl}${localePath(locale, "/")}`;
   const presence = [...(r.publicPresence ?? [])].sort((a, b) =>
     (b.date ?? "").localeCompare(a.date ?? ""),
   );
@@ -46,27 +43,7 @@ export function OnePager({ locale }: { locale: Locale }) {
       className="one-pager-sheet tone-plain sheet-light grid h-[297mm] w-[210mm] shrink-0 grid-cols-[67mm_minmax(0,1fr)] overflow-hidden bg-band text-[8.2pt] leading-[1.32] text-fg shadow-xl ring-1 ring-line print:shadow-none print:ring-0"
     >
       <aside className="flex flex-col gap-[5.5mm] bg-cloud px-[7.5mm] pt-[12mm] pb-[8mm]">
-        <div>
-          {photo && (
-            <Image
-              src={asset(photo)}
-              alt=""
-              width={320}
-              height={320}
-              sizes="35mm"
-              className="aspect-square w-[35mm] object-cover"
-            />
-          )}
-          <h1 className="mt-[5mm] font-display text-[17pt] leading-[1.1] font-bold text-title">
-            {name}
-          </h1>
-          <p className="mt-[1.8mm] text-[7.8pt] text-muted">{headline}</p>
-          {tagline && (
-            <p className="mt-[3mm] border-l-[0.9mm] border-warm pl-[2.4mm] text-[7.8pt] leading-[1.3] font-bold text-title">
-              {tagline}
-            </p>
-          )}
-        </div>
+        <SheetIdentity basics={r.basics} />
 
         <SidebarSection title={t.cvHeadings.profile}>
           <p className="text-[7.5pt] leading-[1.3]">
@@ -101,17 +78,7 @@ export function OnePager({ locale }: { locale: Locale }) {
         </SidebarSection>
 
         <SidebarSection title={t.nav.contact}>
-          <ul className="space-y-[0.8mm] text-[7.3pt]">
-            <li>{location}</li>
-            {linkedin && (
-              <li>
-                <a href={linkedin.url}>{bare(linkedin.url)}</a>
-              </li>
-            )}
-            <li>
-              <a href={site}>{bare(site)}</a>
-            </li>
-          </ul>
+          <ContactList basics={r.basics} locale={locale} />
         </SidebarSection>
       </aside>
 

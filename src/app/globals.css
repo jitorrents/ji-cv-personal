@@ -246,8 +246,12 @@ body {
   color-scheme: light;
 }
 
-/* The one-pager prints edge to edge on its own named page (no margins). */
+/* The A4 sheets print edge to edge on their own named pages (no margins). */
 @page one-pager {
+  size: A4;
+  margin: 0;
+}
+@page cv {
   size: A4;
   margin: 0;
 }
@@ -284,6 +288,21 @@ body {
   }
   .one-pager-sheet {
     page: one-pager;
+  }
+  .cv-sheet {
+    page: cv;
+  }
+  /* /cv/ runs over two pages: the sand sidebar strip is painted on the page background so it
+     reaches the bottom of the last page too, and each column repeats its padding per page. */
+  html:has(.cv-sheet) {
+    background: linear-gradient(to right, var(--p-neutral) 67mm, var(--p-white) 67mm);
+  }
+  .cv-page {
+    background: transparent !important;
+  }
+  .cv-col {
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
   }
   .reveal {
     opacity: 1 !important;

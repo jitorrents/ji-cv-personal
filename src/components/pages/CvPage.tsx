@@ -8,7 +8,7 @@ export function CvPage({ locale }: { locale: Locale }) {
   const { t } = getContent(locale);
   const page = t.cvPage;
   return (
-    <div className="tone-cloud bg-band text-fg print:bg-white">
+    <div className="cv-page tone-cloud bg-band text-fg print:bg-white">
       <div className="mx-auto max-w-6xl px-4 pb-20 sm:px-6 print:p-0">
         <header className="no-print animate-rise py-14 sm:py-20">
           <p className="text-sm font-semibold tracking-[0.2em] text-muted uppercase">
@@ -27,7 +27,12 @@ export function CvPage({ locale }: { locale: Locale }) {
             </Link>
           </div>
         </header>
-        <CvDocument locale={locale} />
+        {/* The sheet keeps its A4 width; narrow screens scroll it sideways, not the page. */}
+        <div className="-mx-4 overflow-x-auto px-4 pb-4 sm:mx-0 sm:px-0 print:m-0 print:overflow-visible print:p-0">
+          <div className="mx-auto w-fit print:mx-0">
+            <CvDocument locale={locale} />
+          </div>
+        </div>
       </div>
     </div>
   );
