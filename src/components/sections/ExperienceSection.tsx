@@ -117,8 +117,9 @@ export function ExperienceSection({ locale }: { locale: Locale }) {
                   ))}
                 </ol>
                 {achievements(g).length > 0 && (
-                  <>
-                    <h4 className="mt-8 text-xs font-semibold tracking-[0.2em] text-muted uppercase">
+                  // Company results stand out on a faint accent tint (no border or shadow).
+                  <div className="mt-8 rounded-2xl bg-warm/10 p-5 sm:p-6">
+                    <h4 className="text-xs font-bold tracking-[0.2em] text-warm-ink uppercase">
                       {t.keyAchievements}
                     </h4>
                     <BulletList
@@ -127,7 +128,7 @@ export function ExperienceSection({ locale }: { locale: Locale }) {
                       marker="bg-warm"
                       className="mt-3"
                     />
-                  </>
+                  </div>
                 )}
               </article>
             </Reveal>
