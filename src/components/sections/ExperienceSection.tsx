@@ -6,7 +6,48 @@ import { TagList } from "@/components/ui/Tag";
 import { formatDuration, formatRange, monthsBetween } from "@/lib/dates";
 import { groupByCompany } from "@/lib/experience";
 import { kpis } from "@/lib/kpis";
-import { bullets } from "@/lib/experience";
+import { achievements, highlights, type Bullet } from "@/lib/experience";
+
+/** A role's bullets: a short dash marker (navy by default) and an optional "View →" link. */
+function BulletList({
+  items,
+  linkLabel,
+  marker = "bg-spruce",
+  className = "mt-3",
+}: {
+  items: Bullet[];
+  linkLabel: string;
+  marker?: string;
+  className?: string;
+}) {
+  if (!items.length) return null;
+  return (
+    <ul className={`space-y-1.5 ${className}`}>
+      {items.map((h) => (
+        <li key={h.text} className="flex gap-3 text-pretty">
+          <span aria-hidden="true" className={`mt-2.5 h-0.5 w-3 shrink-0 rounded-full ${marker}`} />
+          <span>
+            {h.text}
+            {h.url && (
+              <>
+                {" "}
+                <a
+                  href={h.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold whitespace-nowrap text-warm-ink underline-offset-4 hover:underline"
+                >
+                  {linkLabel}
+                  <span aria-hidden="true"> →</span>
+                </a>
+              </>
+            )}
+          </span>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 export function ExperienceSection({ locale }: { locale: Locale }) {
   const { t, r } = getContent(locale);
@@ -61,34 +102,19 @@ export function ExperienceSection({ locale }: { locale: Locale }) {
                         {job.employmentType ? ` · ${job.employmentType}` : ""}
                       </p>
                       {job.summary && <p className="mt-3 text-pretty">{job.summary}</p>}
-                      {bullets(job).length > 0 && (
-                        <ul className="mt-3 space-y-1.5">
-                          {bullets(job).map((h) => (
-                            <li key={h.text} className="flex gap-3 text-pretty">
-                              <span
-                                aria-hidden="true"
-                                className="mt-2.5 h-0.5 w-3 shrink-0 rounded-full bg-spruce"
-                              />
-                              <span>
-                                {h.text}
-                                {h.url && (
-                                  <>
-                                    {" "}
-                                    <a
-                                      href={h.url}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="font-semibold whitespace-nowrap text-warm-ink underline-offset-4 hover:underline"
-                                    >
-                                      {t.presenceLink}
-                                      <span aria-hidden="true"> →</span>
-                                    </a>
-                                  </>
-                                )}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
+                      <BulletList items={highlights(job)} linkLabel={t.presenceLink} />
+                      {achievements(job).length > 0 && (
+                        <>
+                          <h5 className="mt-5 text-xs font-semibold tracking-[0.2em] text-muted uppercase">
+                            {t.keyAchievements}
+                          </h5>
+                          <BulletList
+                            items={achievements(job)}
+                            linkLabel={t.presenceLink}
+                            marker="bg-warm"
+                            className="mt-2"
+                          />
+                        </>
                       )}
                       {/* Private reminders: dev server only, stripped from production builds. */}
                       {process.env.NODE_ENV === "development" &&

@@ -1,7 +1,35 @@
 import { getContent, type Locale } from "@/content/i18n";
 import { formatRange, formatYearMonth } from "@/lib/dates";
-import { bullets, groupByCompany } from "@/lib/experience";
+import { achievements, groupByCompany, highlights, type Bullet } from "@/lib/experience";
 import { groupByIssuer } from "@/lib/certifications";
+
+/** Compact bullet list for the A4 CV, with an optional "View →" link per item. */
+function CvBullets({ items, linkLabel }: { items: Bullet[]; linkLabel: string }) {
+  if (!items.length) return null;
+  return (
+    <ul className="mt-1 list-disc space-y-0.5 pl-4 text-sm marker:text-warm">
+      {items.map((h) => (
+        <li key={h.text}>
+          {h.text}
+          {h.url && (
+            <>
+              {" "}
+              <a
+                href={h.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold whitespace-nowrap text-warm-ink"
+              >
+                {linkLabel}
+                <span aria-hidden="true"> →</span>
+              </a>
+            </>
+          )}
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 function CvSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -57,28 +85,14 @@ export function CvDocument({ locale }: { locale: Locale }) {
                         </span>
                       </p>
                       {job.summary && <p className="mt-0.5 text-sm text-pretty">{job.summary}</p>}
-                      {bullets(job).length > 0 && (
-                        <ul className="mt-1 list-disc space-y-0.5 pl-4 text-sm marker:text-warm">
-                          {bullets(job).map((h) => (
-                            <li key={h.text}>
-                              {h.text}
-                              {h.url && (
-                                <>
-                                  {" "}
-                                  <a
-                                    href={h.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="font-semibold whitespace-nowrap text-warm-ink"
-                                  >
-                                    {t.presenceLink}
-                                    <span aria-hidden="true"> →</span>
-                                  </a>
-                                </>
-                              )}
-                            </li>
-                          ))}
-                        </ul>
+                      <CvBullets items={highlights(job)} linkLabel={t.presenceLink} />
+                      {achievements(job).length > 0 && (
+                        <>
+                          <h4 className="mt-1 text-[0.65rem] font-bold tracking-[0.15em] text-muted uppercase">
+                            {t.keyAchievements}
+                          </h4>
+                          <CvBullets items={achievements(job)} linkLabel={t.presenceLink} />
+                        </>
                       )}
                     </div>
                   ))}

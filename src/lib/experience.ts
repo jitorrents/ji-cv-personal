@@ -51,15 +51,24 @@ export function sectorCount(experience: Experience[]): number {
   return new Set(experience.flatMap((e) => e.sectors ?? [])).size;
 }
 
+/** One bullet of a role: its text and an optional link shown as "View →" after it. */
+export interface Bullet {
+  text: string;
+  url?: string;
+}
+
+/** A role's highlights as bullets. */
+export function highlights(role: Experience): Bullet[] {
+  return role.highlights.map((text) => ({ text }));
+}
+
 /**
- * A role's bullet points: highlights first, then achievements, as one plain list.
- * An achievement's optional metric is written in front of its text ("+40% revenue · …"),
- * and its optional url is kept for a "View →" link after it.
+ * A role's achievements as bullets (listed under "Key achievements"). An optional metric is
+ * written in front of the text ("+40% revenue · …"); an optional url becomes a "View →" link.
  */
-export function bullets(role: Experience): { text: string; url?: string }[] {
-  const achievements = (role.achievements ?? []).map((a) => ({
+export function achievements(role: Experience): Bullet[] {
+  return (role.achievements ?? []).map((a) => ({
     text: a.metric ? `${a.metric.value} ${a.metric.label} · ${a.text}` : a.text,
     url: a.url,
   }));
-  return [...role.highlights.map((text) => ({ text })), ...achievements];
 }
