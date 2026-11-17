@@ -350,6 +350,14 @@ export const content: Content = {
       en: "One-pager",
       es: "Resumen en una página",
     },
+    downloadFullCv: {
+      en: "Download full CV",
+      es: "Descargar CV completo",
+    },
+    downloadOnePager: {
+      en: "Download one-pager",
+      es: "Descargar resumen en una página",
+    },
     earlierCareer: {
       en: "Earlier career",
       es: "Trayectoria anterior",

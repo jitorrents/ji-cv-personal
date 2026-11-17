@@ -246,6 +246,11 @@ body {
   color-scheme: light;
 }
 
+/* Alternative print content (the one-pager inside /cv/): hidden unless a button asks for it. */
+.print-alt {
+  display: none;
+}
+
 /* The A4 sheets print edge to edge on their own named pages (no margins). */
 @page one-pager {
   size: A4;
@@ -294,7 +299,14 @@ body {
   }
   /* /cv/ runs over two pages: the sand sidebar strip is painted on the page background so it
      reaches the bottom of the last page too, and each column repeats its padding per page. */
-  html:has(.cv-sheet) {
+  /* Hide the full CV's wrapper too: an empty box before the one-pager would open a blank page. */
+  html[data-print="one-pager"] .cv-sheet-wrap {
+    display: none !important;
+  }
+  html[data-print="one-pager"] .print-alt {
+    display: block !important;
+  }
+  html:has(.cv-sheet):not([data-print="one-pager"]) {
     background: linear-gradient(to right, var(--p-neutral) 67mm, var(--p-white) 67mm);
   }
   .cv-page {

@@ -1,8 +1,7 @@
 import { CvDocument } from "@/components/sections/cv/CvDocument";
 import { PrintButton } from "@/components/ui/PrintButton";
-import Link from "next/link";
-import { buttonClass } from "@/components/ui/button";
-import { getContent, localePath, type Locale } from "@/content/i18n";
+import { OnePager } from "@/components/sections/cv/OnePager";
+import { getContent, type Locale } from "@/content/i18n";
 
 export function CvPage({ locale }: { locale: Locale }) {
   const { t } = getContent(locale);
@@ -21,17 +20,19 @@ export function CvPage({ locale }: { locale: Locale }) {
             {page.intro}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <PrintButton label={t.downloadPdf} />
-            <Link href={localePath(locale, "/one-pager/")} className={buttonClass.outline}>
-              {t.onePager}
-            </Link>
+            <PrintButton label={t.downloadFullCv} />
+            <PrintButton label={t.downloadOnePager} target="one-pager" variant="outline" />
           </div>
         </header>
         {/* The sheet keeps its A4 width; narrow screens scroll it sideways, not the page. */}
-        <div className="-mx-4 overflow-x-auto px-4 pb-4 sm:mx-0 sm:px-0 print:m-0 print:overflow-visible print:p-0">
+        <div className="cv-sheet-wrap -mx-4 overflow-x-auto px-4 pb-4 sm:mx-0 sm:px-0 print:m-0 print:overflow-visible print:p-0">
           <div className="mx-auto w-fit print:mx-0">
             <CvDocument locale={locale} />
           </div>
+        </div>
+        {/* Printed instead of the full CV by "Download one-pager"; never shown on screen. */}
+        <div className="print-alt">
+          <OnePager locale={locale} />
         </div>
       </div>
     </div>

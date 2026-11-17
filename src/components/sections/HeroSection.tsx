@@ -91,9 +91,6 @@ export function HeroSection({ locale }: { locale: Locale }) {
             <Link href={localePath(locale, "/cv/")} className={buttonClass.primary}>
               {t.viewCv}
             </Link>
-            <Link href={localePath(locale, "/one-pager/")} className={buttonClass.outline}>
-              {t.onePager}
-            </Link>
             <Link href={localePath(locale, "/#contact")} className={buttonClass.outline}>
               {t.contactMe}
             </Link>

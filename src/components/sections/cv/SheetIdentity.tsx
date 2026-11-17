@@ -14,6 +14,7 @@ export function SheetIdentity({ basics }: { basics: Resume["basics"] }) {
           width={320}
           height={320}
           sizes="35mm"
+          loading="eager"
           className="aspect-square w-[35mm] object-cover"
         />
       )}

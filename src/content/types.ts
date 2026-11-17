@@ -263,8 +263,11 @@ export type Labels = {
   presenceLink: string;
   /** Subtitle of a company's achievements list (web and CV). */
   keyAchievements: string;
-  /** One-page CV: page title and button label. */
+  /** One-page CV: page title. */
   onePager: string;
+  /** /cv/ buttons: print the full CV or the one-pager. */
+  downloadFullCv: string;
+  downloadOnePager: string;
   /** One-pager block for roles before the cut-off year. */
   earlierCareer: string;
   notFoundTitle: string;
