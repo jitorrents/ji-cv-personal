@@ -44,6 +44,8 @@ export interface Experience {
 
 export interface Education {
   institution: string;
+  /** Short institution name for compact layouts (one-pager), e.g. "UPC". */
+  shortName?: string;
   degree: string;
   field?: string;
   start?: PartialDate;
@@ -257,6 +259,10 @@ export type Labels = {
   presenceLink: string;
   /** Subtitle of a company's achievements list (web and CV). */
   keyAchievements: string;
+  /** One-page CV: page title and button label. */
+  onePager: string;
+  /** One-pager block for roles before the cut-off year. */
+  earlierCareer: string;
   notFoundTitle: string;
   notFoundBody: string;
   backHome: string;

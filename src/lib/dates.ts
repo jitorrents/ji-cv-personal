@@ -46,3 +46,8 @@ export function formatRange(
     ? `${range} · ${formatDuration(monthsBetween(start as YearMonth, end as YearMonth | undefined), d)}`
     : range;
 }
+
+/** "2022 – 2025" / "2022 – Present": years only, for compact layouts (one-pager). */
+export function formatYearRange(start: PartialDate, end: PartialDate | undefined, d: DateLabels) {
+  return `${parse(start).year} – ${end ? parse(end).year : d.present}`;
+}

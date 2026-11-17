@@ -23,7 +23,8 @@
   --p-mid: #a89f91; /* decorative mid tone (warm grey) */
   --p-accent: #c2502e; /* buttons, dots, highlights (terracotta) */
   --p-on-accent: #ffffff; /* text on the accent */
-  --p-accent-ink: #a8431f; /* accent as small text on light bands (AA on white and sand) */
+  --p-accent-ink-light: #a8431f; /* accent as small text on light bands (AA on white and sand) */
+  --p-accent-ink: var(--p-accent-ink-light); /* switched to --p-title-dark in dark mode */
   --p-ink: #1e2430; /* body text on light bands */
   --p-muted: #4f5865; /* secondary text on light bands */
   --p-title-dark: #f0a68c; /* large titles on the dark band (light terracotta) */
@@ -231,6 +232,26 @@ body {
   }
 }
 
+/* A4 sheets that stay light in dark mode too (the one-pager "paper"): the light plain tone. */
+:root .sheet-light,
+[data-theme] .sheet-light {
+  --band: var(--p-white);
+  --fg: var(--p-ink);
+  --muted: var(--p-muted);
+  --title: var(--p-primary);
+  --link: var(--p-primary);
+  --card: var(--p-neutral);
+  --line: color-mix(in oklab, var(--p-ink) 14%, var(--p-white));
+  --p-accent-ink: var(--p-accent-ink-light);
+  color-scheme: light;
+}
+
+/* The one-pager prints edge to edge on its own named page (no margins). */
+@page one-pager {
+  size: A4;
+  margin: 0;
+}
+
 /* Print: A4, every band white with dark text, no site chrome. */
 @page {
   size: A4;
@@ -260,6 +281,9 @@ body {
   }
   .no-print {
     display: none !important;
+  }
+  .one-pager-sheet {
+    page: one-pager;
   }
   .reveal {
     opacity: 1 !important;

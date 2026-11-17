@@ -16,6 +16,7 @@ import type { Content } from "./types";
  *   "Key achievements" subtitle (no subtitle when the company has none):
  *   achievements: [{ text: { en: "...", es: "..." }, metric: { value: "+40%", label: { en: "revenue", es: "ingresos" } } }]
  *   `metric` is optional; when set it is written before the text ("+40% revenue · ...").
+ * - **text** in a profile summary or an achievement is shown in bold navy (web, /cv/, /one-pager/).
  * - To add a language later, add it to locales in locale.ts and an entry next to en/es.
  *
  * `ui` = interface (menus, section titles, buttons, month names).
@@ -345,6 +346,14 @@ export const content: Content = {
       en: "Key achievements",
       es: "Logros clave",
     },
+    onePager: {
+      en: "One-pager",
+      es: "Resumen en una página",
+    },
+    earlierCareer: {
+      en: "Earlier career",
+      es: "Trayectoria anterior",
+    },
     lastUpdated: {
       en: "Last updated",
       es: "Última actualización",
@@ -466,8 +475,8 @@ export const content: Content = {
         es: "Conecto negocio y tecnología para que los datos generen valor con IA.",
       },
       summary: {
-        en: "As Head of Data in Kyndryl's Applications, Data & AI area, I lead the Data business: shaping our value proposition, taking it to market with our technology alliances, helping clients modernise their data platforms and leading the teams that make it happen. My career began in engineering, designing and writing software, and moved into project and service management, business development and team leadership. That grounding lets me speak the same language with a C-level executive and with an architect. Empowered teams and people development are at the heart of how I lead, along with an active market presence as a speaker at industry forums and events.",
-        es: "Lidero el negocio de Datos en el área de Aplicaciones, Datos e IA de Kyndryl: defino nuestra propuesta de valor y la llevo al mercado junto a nuestras alianzas tecnológicas, acompaño a los clientes en la modernización de sus plataformas de datos y dirijo los equipos que lo hacen posible. Llegué aquí desde la ingeniería: empecé diseñando y programando software y fui pasando a la gestión de proyectos y servicios, el desarrollo de negocio y la dirección de equipos. Esa base me permite hablar el mismo idioma con un C-level y con un arquitecto. Creo en los equipos con autonomía y en el desarrollo de las personas, y mantengo una presencia activa en el mercado como ponente en foros y eventos del sector.",
+        en: "As Head of Data in Kyndryl's Applications, Data & AI area, I lead the **Data business**: shaping our **value proposition**, taking it to market with our **technology alliances**, helping clients **modernise their data platforms** and **leading the teams** that make it happen. My career began in **engineering**, designing and writing software, and moved into project and service management, business development and team leadership. That grounding lets me speak the same language with a **C-level executive and with an architect**. **Empowered teams** and people development are at the heart of how I lead, along with an active market presence as a **speaker** at industry forums and events.",
+        es: "Lidero el **negocio de Datos** en el área de Aplicaciones, Datos e IA de Kyndryl: defino nuestra **propuesta de valor** y la llevo al mercado junto a nuestras **alianzas tecnológicas**, acompaño a los clientes en la **modernización de sus plataformas de datos** y **dirijo los equipos** que lo hacen posible. Llegué aquí desde la **ingeniería**: empecé diseñando y programando software y fui pasando a la gestión de proyectos y servicios, el desarrollo de negocio y la dirección de equipos. Esa base me permite hablar el mismo idioma con un **C-level y con un arquitecto**. Creo en los **equipos con autonomía** y en el desarrollo de las personas, y mantengo una presencia activa en el mercado como **ponente** en foros y eventos del sector.",
       },
       topSkills: [
         {
@@ -532,41 +541,41 @@ export const content: Content = {
         start: "2025-01",
         leadsTeam: true,
         summary: {
-          en: "Lead the Data business in the Applications, Data & AI area, working closely with sales and technical teams.",
-          es: "Lidero el negocio de Datos del área de Aplicaciones, Datos e IA, en estrecha colaboración con los equipos de ventas y técnicos.",
+          en: "Lead the Data business (offering, go-to-market with our alliances and business development) and its Database and Data Analytics teams.",
+          es: "Lidero el negocio de Datos (oferta, go-to-market con nuestras alianzas y desarrollo de negocio) y sus equipos de Bases de Datos y Data Analytics.",
         },
         achievements: [
           {
             text: {
-              en: "Led multiple Data wins across banking, healthcare and the public sector, including the winning proposals for two leading Spanish banks to modernise their data platforms.",
-              es: "Lideré múltiples deals de Datos ganados en banca, sanidad y sector público, entre ellos las propuestas ganadoras de dos de las principales entidades bancarias españolas para modernizar sus plataformas de datos.",
+              en: "Led **multiple Data wins** across banking, healthcare and the public sector, including the winning proposals for **two leading Spanish banks** to modernise their data platforms.",
+              es: "Lideré **múltiples deals de Datos** ganados en banca, sanidad y sector público, entre ellos las propuestas ganadoras de **dos de las principales entidades bancarias españolas** para modernizar sus plataformas de datos.",
             },
             url: "https://www.bankinter.com/blog/noticias-bankinter/bankinter-google-cloud-summit-madrid",
           },
           {
             text: {
-              en: "As part of the ADAI leadership team: ×3 total practice signings in two years (FY24–FY26).",
-              es: "Como parte del equipo de dirección de ADAI: ×3 en signings totales de la práctica en dos años (FY24–FY26).",
+              en: "As part of the ADAI leadership team: **×3 total practice signings in two years** (FY24–FY26).",
+              es: "Como parte del equipo de dirección de ADAI: **×3 en signings totales de la práctica** en dos años (FY24–FY26).",
             },
           },
           {
             text: {
-              en: "Grew our Data presence alongside Google Cloud: 4 jointly signed projects, among Google's most relevant Data deals in banking and healthcare.",
-              es: "Impulsé nuestra presencia en Datos junto a Google Cloud: 4 proyectos firmados conjuntamente, entre los más relevantes de Google en Datos en banca y sanidad.",
+              en: "Grew our Data presence alongside Google Cloud: **4 jointly signed projects**, among Google's most relevant Data deals in banking and healthcare.",
+              es: "Impulsé nuestra presencia en Datos junto a Google Cloud: **4 proyectos firmados conjuntamente**, entre los más relevantes de Google en Datos en banca y sanidad.",
             },
             url: "https://lnkd.in/p/d2tPPkGB",
           },
           {
             text: {
-              en: "Built Next Data Foundations, the Data offering of the ADAI portfolio across five pillars (strategy, platform & architecture, democratisation, operations & observability, and governance), and the basis of Kyndryl's market presence in Data.",
-              es: "Construí Next Data Foundations, la oferta de Datos del portfolio de ADAI en cinco pilares (estrategia, plataforma y arquitectura, democratización, operaciones y observabilidad, y gobierno), base de la presencia de Kyndryl en el mercado de Datos.",
+              en: "Built **Next Data Foundations**, the Data offering of the ADAI portfolio across five pillars (strategy, platform & architecture, democratisation, operations & observability, and governance), and the basis of Kyndryl's **market presence in Data**.",
+              es: "Construí **Next Data Foundations**, la oferta de Datos del portfolio de ADAI en cinco pilares (estrategia, plataforma y arquitectura, democratización, operaciones y observabilidad, y gobierno), base de la **presencia de Kyndryl en el mercado de Datos**.",
             },
             url: "https://lnkd.in/p/eKXefH_9",
           },
           {
             text: {
-              en: "Took over leadership of the Data Delivery Team (Data Analytics & Database) in February 2026 and have since grown the combined team by 39%.",
-              es: "Asumí el liderazgo del equipo de Data Delivery (Data Analytics y Bases de Datos) en febrero de 2026 y desde entonces he hecho crecer un 39% el equipo conjunto.",
+              en: "Took over leadership of the Data Delivery Team (Data Analytics & Database) in February 2026 and have since grown the combined team by **39%**.",
+              es: "Asumí el liderazgo del equipo de Data Delivery (Data Analytics y Bases de Datos) en febrero de 2026 y desde entonces he hecho crecer un **39%** el equipo conjunto.",
             },
           },
         ],
@@ -603,8 +612,8 @@ export const content: Content = {
         start: "2022-02",
         end: "2025-01",
         summary: {
-          en: "Advisory & Implementation Services for Spain and Portugal, specialised in Data & AI.",
-          es: "Servicios de Advisory & Implementation para España y Portugal, con especialización en Data & AI.",
+          en: "Advisory & Implementation Services for Spain and Portugal: consultative selling and design of Data solutions and proposals.",
+          es: "Servicios de Advisory & Implementation para España y Portugal: venta consultiva y diseño de soluciones y propuestas de Datos.",
         },
         highlights: [
           {
@@ -635,14 +644,14 @@ export const content: Content = {
         leadsTeam: true,
         end: "2022-02",
         summary: {
-          en: "Led the Data & Analytics department.",
-          es: "Dirigí el departamento de Data & Analytics.",
+          en: "Led the department: team, budget, operations, providers and delivery for its main clients in media and healthcare.",
+          es: "Dirigí el departamento: equipo, presupuesto, operaciones, proveedores y delivery para sus principales clientes de audiovisual y sanidad.",
         },
         achievements: [
           {
             text: {
-              en: "Built the Data & Analytics department from scratch, growing it to a team of 8 data professionals.",
-              es: "Creé desde cero el departamento de Data & Analytics, hasta un equipo de 8 profesionales de datos.",
+              en: "Built the Data & Analytics department **from scratch**, growing it to a **team of 8** data professionals.",
+              es: "Creé **desde cero** el departamento de Data & Analytics, hasta un **equipo de 8** profesionales de datos.",
             },
           },
         ],
@@ -1079,6 +1088,7 @@ export const content: Content = {
     education: [
       {
         institution: "Universitat Oberta de Catalunya (UOC)",
+        shortName: "UOC",
         degree: {
           en: "Postgraduate degree",
           es: "Posgrado",
@@ -1093,6 +1103,7 @@ export const content: Content = {
       },
       {
         institution: "La Salle Barcelona, Universitat Ramon Llull (URL)",
+        shortName: "La Salle (URL)",
         degree: {
           en: "Master in Project Management (MPM)",
           es: "Máster en Project Management (MPM)",
@@ -1104,6 +1115,7 @@ export const content: Content = {
       {
         institution:
           "Facultat d'Informàtica de Barcelona (FIB), Universitat Politècnica de Catalunya",
+        shortName: "UPC",
         degree: {
           en: "Computer Science Engineering",
           es: "Ingeniería Informática",
@@ -1115,6 +1127,7 @@ export const content: Content = {
       {
         institution:
           "Facultat d'Informàtica de Barcelona (FIB), Universitat Politècnica de Catalunya",
+        shortName: "UPC",
         // TODO(verify): English name for "Ingeniería Técnica en Informática de Gestión".
         degree: {
           en: "Technical Engineering in Business Information Systems",

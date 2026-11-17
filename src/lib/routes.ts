@@ -40,4 +40,6 @@ export function navTree(ids: SectionId[]): NavItem[] {
 }
 
 /** Every page in every language, for the sitemap. */
-export const pages = locales.flatMap((l) => ["/", "/cv/"].map((p) => localePath(l, p)));
+export const pages = locales.flatMap((l) =>
+  ["/", "/cv/", "/one-pager/"].map((p) => localePath(l, p)),
+);

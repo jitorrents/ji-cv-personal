@@ -1,6 +1,8 @@
 import { CvDocument } from "@/components/sections/cv/CvDocument";
 import { PrintButton } from "@/components/ui/PrintButton";
-import { getContent, type Locale } from "@/content/i18n";
+import Link from "next/link";
+import { buttonClass } from "@/components/ui/button";
+import { getContent, localePath, type Locale } from "@/content/i18n";
 
 export function CvPage({ locale }: { locale: Locale }) {
   const { t } = getContent(locale);
@@ -18,8 +20,11 @@ export function CvPage({ locale }: { locale: Locale }) {
           <p className="mt-4 max-w-2xl text-justify text-lg hyphens-auto text-muted">
             {page.intro}
           </p>
-          <div className="mt-8">
+          <div className="mt-8 flex flex-wrap gap-3">
             <PrintButton label={t.downloadPdf} />
+            <Link href={localePath(locale, "/one-pager/")} className={buttonClass.outline}>
+              {t.onePager}
+            </Link>
           </div>
         </header>
         <CvDocument locale={locale} />

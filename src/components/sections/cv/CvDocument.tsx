@@ -1,3 +1,4 @@
+import { RichText } from "@/components/ui/RichText";
 import { getContent, type Locale } from "@/content/i18n";
 import { formatRange, formatYearMonth } from "@/lib/dates";
 import { achievements, groupByCompany, highlights, type Bullet } from "@/lib/experience";
@@ -10,7 +11,7 @@ function CvBullets({ items, linkLabel }: { items: Bullet[]; linkLabel: string })
     <ul className="mt-1 list-disc space-y-0.5 pl-4 text-sm marker:text-warm">
       {items.map((h) => (
         <li key={h.text}>
-          {h.text}
+          <RichText text={h.text} />
           {h.url && (
             <>
               {" "}
@@ -68,7 +69,9 @@ export function CvDocument({ locale }: { locale: Locale }) {
       <div className="mt-6 grid gap-x-10 md:grid-cols-[1fr_15rem] print:mt-4 print:grid-cols-[1fr_52mm] print:gap-x-8">
         <div>
           <CvSection title={t.cvHeadings.profile}>
-            <p className="text-pretty">{summary}</p>
+            <p className="text-pretty">
+              <RichText text={summary} />
+            </p>
           </CvSection>
 
           <CvSection title={t.cvHeadings.experience}>

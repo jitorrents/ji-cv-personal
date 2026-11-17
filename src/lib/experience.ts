@@ -76,3 +76,26 @@ export function achievements(group: CompanyGroup): Bullet[] {
     url: a.url,
   }));
 }
+
+/** Roles that started before this year go to the one-pager's compact "Earlier career" block. */
+export const EARLIER_CAREER_BEFORE = 2017;
+
+const startYear = (e: Experience) => Number(e.start.slice(0, 4));
+
+/**
+ * One-pager split: companies with a role started in or after EARLIER_CAREER_BEFORE get a full
+ * block; the roles of every other company are listed one per row as "earlier career".
+ */
+export function splitCareer(experience: Experience[]): {
+  main: CompanyGroup[];
+  earlier: { role: Experience; sectors: string[] }[];
+} {
+  const groups = groupByCompany(experience);
+  const isMain = (g: CompanyGroup) => g.roles.some((r) => startYear(r) >= EARLIER_CAREER_BEFORE);
+  return {
+    main: groups.filter(isMain),
+    earlier: groups
+      .filter((g) => !isMain(g))
+      .flatMap((g) => g.roles.map((role) => ({ role, sectors: g.sectors ?? [] }))),
+  };
+}

@@ -6,10 +6,13 @@ import { siteUrl } from "./site";
 const abs = (locale: Locale, path: string) => `${siteUrl}${localePath(locale, path)}`;
 
 /** Page metadata with canonical URL and hreflang alternates for every language. */
-export function pageMetadata(locale: Locale, path: "/" | "/cv/"): Metadata {
+export function pageMetadata(locale: Locale, path: "/" | "/cv/" | "/one-pager/"): Metadata {
   const { t, r } = getContent(locale);
   const { name, headline } = r.basics;
-  const title = path === "/" ? `${name} — ${headline}` : `${t.cvPage.title} · ${name}`;
+  const title =
+    path === "/"
+      ? `${name} — ${headline}`
+      : `${path === "/cv/" ? t.cvPage.title : t.onePager} · ${name}`;
   const url = abs(locale, path);
   return {
     metadataBase: new URL(`${siteUrl}/`),

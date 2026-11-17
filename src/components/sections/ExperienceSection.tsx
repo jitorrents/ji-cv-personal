@@ -2,6 +2,7 @@ import { Band } from "@/components/ui/Band";
 import { getContent, type Locale } from "@/content/i18n";
 import { CompanyLogo } from "@/components/ui/CompanyLogo";
 import { Reveal } from "@/components/ui/Reveal";
+import { RichText } from "@/components/ui/RichText";
 import { TagList } from "@/components/ui/Tag";
 import { formatDuration, formatRange, monthsBetween } from "@/lib/dates";
 import { groupByCompany } from "@/lib/experience";
@@ -27,7 +28,7 @@ function BulletList({
         <li key={h.text} className="flex gap-3 text-pretty">
           <span aria-hidden="true" className={`mt-2.5 h-0.5 w-3 shrink-0 rounded-full ${marker}`} />
           <span>
-            {h.text}
+            <RichText text={h.text} />
             {h.url && (
               <>
                 {" "}
