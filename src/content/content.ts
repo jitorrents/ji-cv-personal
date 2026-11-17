@@ -11,8 +11,9 @@ import type { Content } from "./types";
  * - Lists (highlights, skills...) can be a list of pairs, or a pair of lists:
  *   highlights: [{ en: "...", es: "..." }, ...]  or  { en: ["...", "..."], es: ["...", "..."] }
  * - Dates: "YYYY-MM", or "YYYY" if the month is unknown. Experience goes newest first.
- * - Experience achievements (optional, shown after the highlights in their own list under a
- *   "Key achievements" subtitle; roles without achievements show no subtitle):
+ * - Experience achievements (optional) belong to the company, like `sectors`: set them only on the
+ *   first (newest) entry of each company. They are shown once, after all its roles, under a
+ *   "Key achievements" subtitle (no subtitle when the company has none):
  *   achievements: [{ text: { en: "...", es: "..." }, metric: { value: "+40%", label: { en: "revenue", es: "ingresos" } } }]
  *   `metric` is optional; when set it is written before the text ("+40% revenue · ...").
  * - To add a language later, add it to locales in locale.ts and an entry next to en/es.
@@ -554,6 +555,13 @@ export const content: Content = {
               es: "Como parte del equipo de dirección de ADAI: ×3 en signings de la práctica en dos años (FY24–FY26), duplicando con creces el peso de ADAI en el negocio de Kyndryl, en línea con su apuesta por la consultoría.",
             },
           },
+          {
+            text: {
+              en: "Built Next Data Foundations, our Data portfolio across five pillars: strategy, platform & architecture, democratisation, operations & observability, and governance.",
+              es: "Construí Next Data Foundations, nuestro portfolio de Datos en cinco pilares: estrategia, plataforma y arquitectura, democratización, operaciones y observabilidad, y gobierno.",
+            },
+            url: "https://lnkd.in/p/eKXefH_9",
+          },
         ],
         highlights: [
           {
@@ -591,15 +599,6 @@ export const content: Content = {
           en: "Advisory & Implementation Services for Spain and Portugal, specialised in Data & AI.",
           es: "Servicios de Advisory & Implementation para España y Portugal, con especialización en Data & AI.",
         },
-        achievements: [
-          {
-            text: {
-              en: "Built Next Data Foundations, our Data portfolio across five pillars: strategy, platform & architecture, democratisation, operations & observability, and governance.",
-              es: "Construí Next Data Foundations, nuestro portfolio de Datos en cinco pilares: estrategia, plataforma y arquitectura, democratización, operaciones y observabilidad, y gobierno.",
-            },
-            url: "https://lnkd.in/p/eKXefH_9",
-          },
-        ],
         highlights: [
           {
             en: "Business with clients and partners: led consultative selling and the design of Data solutions and proposals for clients in Spain and Portugal.",

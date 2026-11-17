@@ -103,19 +103,6 @@ export function ExperienceSection({ locale }: { locale: Locale }) {
                       </p>
                       {job.summary && <p className="mt-3 text-pretty">{job.summary}</p>}
                       <BulletList items={highlights(job)} linkLabel={t.presenceLink} />
-                      {achievements(job).length > 0 && (
-                        <>
-                          <h5 className="mt-5 text-xs font-semibold tracking-[0.2em] text-muted uppercase">
-                            {t.keyAchievements}
-                          </h5>
-                          <BulletList
-                            items={achievements(job)}
-                            linkLabel={t.presenceLink}
-                            marker="bg-warm"
-                            className="mt-2"
-                          />
-                        </>
-                      )}
                       {/* Private reminders: dev server only, stripped from production builds. */}
                       {process.env.NODE_ENV === "development" &&
                         job.todo?.map((note) => (
@@ -129,6 +116,19 @@ export function ExperienceSection({ locale }: { locale: Locale }) {
                     </li>
                   ))}
                 </ol>
+                {achievements(g).length > 0 && (
+                  <>
+                    <h4 className="mt-8 text-xs font-semibold tracking-[0.2em] text-muted uppercase">
+                      {t.keyAchievements}
+                    </h4>
+                    <BulletList
+                      items={achievements(g)}
+                      linkLabel={t.presenceLink}
+                      marker="bg-warm"
+                      className="mt-3"
+                    />
+                  </>
+                )}
               </article>
             </Reveal>
           </li>

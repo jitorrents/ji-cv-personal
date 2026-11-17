@@ -86,16 +86,16 @@ export function CvDocument({ locale }: { locale: Locale }) {
                       </p>
                       {job.summary && <p className="mt-0.5 text-sm text-pretty">{job.summary}</p>}
                       <CvBullets items={highlights(job)} linkLabel={t.presenceLink} />
-                      {achievements(job).length > 0 && (
-                        <>
-                          <h4 className="mt-1 text-[0.65rem] font-bold tracking-[0.15em] text-muted uppercase">
-                            {t.keyAchievements}
-                          </h4>
-                          <CvBullets items={achievements(job)} linkLabel={t.presenceLink} />
-                        </>
-                      )}
                     </div>
                   ))}
+                  {achievements(g).length > 0 && (
+                    <>
+                      <h4 className="mt-1.5 text-[0.65rem] font-bold tracking-[0.15em] text-muted uppercase">
+                        {t.keyAchievements}
+                      </h4>
+                      <CvBullets items={achievements(g)} linkLabel={t.presenceLink} />
+                    </>
+                  )}
                 </article>
               ))}
             </div>

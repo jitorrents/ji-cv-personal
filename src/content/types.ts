@@ -10,7 +10,7 @@ export interface Profile {
   username?: string;
 }
 
-/** A key result of a role, listed under "Key achievements" after its highlights (web and CV). */
+/** A key result at a company, listed under "Key achievements" after its roles (web and CV). */
 export interface Achievement {
   text: string;
   /** Optional headline figure, e.g. { value: "+40%", label: "revenue" }. */
@@ -33,7 +33,7 @@ export interface Experience {
   /** Role with people management; the earliest one starts the "years leading teams" KPI. */
   leadsTeam?: boolean;
   summary?: string;
-  /** Key results, in their own "Key achievements" list after the highlights (web and PDF). */
+  /** Company achievements, set on the first (newest) entry of each company; shown once per company card. */
   achievements?: Achievement[];
   highlights: string[];
   /** Company sectors, set on the first (newest) entry of each company; shown once per company card. */
@@ -255,7 +255,7 @@ export type Labels = {
   downloadPdf: string;
   lastUpdated: string;
   presenceLink: string;
-  /** Subtitle of a role's achievements list (web and CV). */
+  /** Subtitle of a company's achievements list (web and CV). */
   keyAchievements: string;
   notFoundTitle: string;
   notFoundBody: string;

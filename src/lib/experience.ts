@@ -1,4 +1,4 @@
-import type { Experience, YearMonth } from "@/content/types";
+import type { Achievement, Experience, YearMonth } from "@/content/types";
 import { monthsBetween } from "./dates";
 
 export interface CompanyGroup {
@@ -6,6 +6,7 @@ export interface CompanyGroup {
   companyUrl?: string;
   companyLogo?: string;
   sectors?: string[];
+  achievements?: Achievement[];
   start: YearMonth;
   end?: YearMonth;
   roles: Experience[];
@@ -19,6 +20,7 @@ export function groupByCompany(experience: Experience[]): CompanyGroup[] {
     if (last && last.company === role.company) {
       last.roles.push(role);
       last.sectors ??= role.sectors;
+      last.achievements ??= role.achievements;
       if (role.start < last.start) last.start = role.start;
     } else {
       groups.push({
@@ -26,6 +28,7 @@ export function groupByCompany(experience: Experience[]): CompanyGroup[] {
         companyUrl: role.companyUrl,
         companyLogo: role.companyLogo,
         sectors: role.sectors,
+        achievements: role.achievements,
         start: role.start,
         end: role.end,
         roles: [role],
@@ -63,11 +66,12 @@ export function highlights(role: Experience): Bullet[] {
 }
 
 /**
- * A role's achievements as bullets (listed under "Key achievements"). An optional metric is
- * written in front of the text ("+40% revenue · …"); an optional url becomes a "View →" link.
+ * A company's achievements as bullets (listed under "Key achievements" after its roles). An
+ * optional metric is written in front of the text ("+40% revenue · …"); an optional url
+ * becomes a "View →" link.
  */
-export function achievements(role: Experience): Bullet[] {
-  return (role.achievements ?? []).map((a) => ({
+export function achievements(group: CompanyGroup): Bullet[] {
+  return (group.achievements ?? []).map((a) => ({
     text: a.metric ? `${a.metric.value} ${a.metric.label} · ${a.text}` : a.text,
     url: a.url,
   }));
