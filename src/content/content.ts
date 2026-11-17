@@ -545,6 +545,12 @@ export const content: Content = {
           },
           {
             text: {
+              en: "Took over the Database tower in February 2026 and have since grown the combined Database and Data Analytics team by 39%.",
+              es: "Asumí la torre de Bases de Datos en febrero de 2026 y desde entonces he hecho crecer un 39% el equipo conjunto de Bases de Datos y Data Analytics.",
+            },
+          },
+          {
+            text: {
               en: "Grew our market presence in Data alongside Google Cloud, jointly signing some of Google's most relevant Data projects.",
               es: "Impulsé nuestra presencia de mercado en Datos junto a Google Cloud, firmando conjuntamente algunos de sus proyectos de Datos más relevantes.",
             },
