@@ -15,13 +15,14 @@ export function groupByIssuer(
 
 /**
  * One-line issuer summary: "Google Cloud · Microsoft (×5) · AWS…", in the order issuers first
- * appear. Certifications with `featured: false` (e.g. Cambridge) are left out; one with no
+ * appear. Certifications with `featured: false` (Cambridge) or `onePager: false` (Atlassian) are
+ * left out; one with no
  * issuer is named by the first word of its name ("ITIL® Foundation…" → "ITIL").
  */
 export function issuerSummary(certs: Certification[]): string {
   const counts = new Map<string, number>();
   for (const c of certs) {
-    if (c.featured === false) continue;
+    if (c.featured === false || c.onePager === false) continue;
     const key = c.issuer ?? c.name.split(/[\s®]/)[0] ?? c.name;
     counts.set(key, (counts.get(key) ?? 0) + 1);
   }

@@ -61,6 +61,8 @@ export interface Certification {
   date?: PartialDate;
   /** false = keep it out of the "Certified by" logo strip (still listed in the section). Default true. */
   featured?: boolean;
+  /** false = leave it out of the one-pager's one-line issuer summary. Default true. */
+  onePager?: boolean;
   url?: string;
 }
 
@@ -111,6 +113,8 @@ export interface Collaboration {
 /** A talk, panel, article, interview or press mention. */
 export interface PublicPresenceItem {
   title: string;
+  /** Shorter title for one-line rows (one-pager); falls back to `title`. */
+  shortTitle?: string;
   type: "talk" | "panel" | "event" | "article" | "interview" | "press" | "podcast" | "other";
   /** Short event or outlet name shown as the card's tag ("MWC25", "Byte TI"). */
   event?: string;

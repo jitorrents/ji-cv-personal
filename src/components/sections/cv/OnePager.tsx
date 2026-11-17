@@ -187,7 +187,7 @@ export function OnePager({ locale }: { locale: Locale }) {
                   {p.event && <span className="font-bold">{p.event}</span>}
                   <span className="text-muted">
                     {p.event ? " · " : ""}
-                    {t.presenceTypes[p.type]} · {p.title}
+                    {t.presenceTypes[p.type]} · {p.shortTitle ?? p.title}
                   </span>
                 </CompactRow>
               ))}

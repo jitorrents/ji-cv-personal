@@ -554,8 +554,8 @@ export const content: Content = {
           },
           {
             text: {
-              en: "As part of the ADAI leadership team: **×3 total practice signings in two years** (FY24–FY26).",
-              es: "Como parte del equipo de dirección de ADAI: **×3 en signings totales de la práctica** en dos años (FY24–FY26).",
+              en: "As part of the ADAI leadership team: **×3 total signings in two years** (FY24–FY26).",
+              es: "Como parte del equipo de dirección de ADAI: **×3 en signings totales en dos años** (FY24–FY26).",
             },
           },
           {
@@ -567,15 +567,15 @@ export const content: Content = {
           },
           {
             text: {
-              en: "Built **Next Data Foundations**, the Data offering of the ADAI portfolio across five pillars (strategy, platform & architecture, democratisation, operations & observability, and governance), and the basis of Kyndryl's **market presence in Data**.",
-              es: "Construí **Next Data Foundations**, la oferta de Datos del portfolio de ADAI en cinco pilares (estrategia, plataforma y arquitectura, democratización, operaciones y observabilidad, y gobierno), base de la **presencia de Kyndryl en el mercado de Datos**.",
+              en: "Built **Next Data Foundations**, the Data offering of the ADAI portfolio across five pillars, and the basis of Kyndryl's **market presence in Data**.",
+              es: "Construí **Next Data Foundations**, la oferta de Datos del portfolio de ADAI en cinco pilares, base de la **presencia de Kyndryl en el mercado de Datos**.",
             },
             url: "https://lnkd.in/p/eKXefH_9",
           },
           {
             text: {
-              en: "Took over leadership of the Data Delivery Team (Data Analytics & Database) in February 2026 and have since grown the combined team by **39%**.",
-              es: "Asumí el liderazgo del equipo de Data Delivery (Data Analytics y Bases de Datos) en febrero de 2026 y desde entonces he hecho crecer un **39%** el equipo conjunto.",
+              en: "Took over leadership of the Data Delivery Team (Data Analytics & Database) in Feb 2026 and grew the combined team by **39%**, to **30+ professionals**.",
+              es: "Asumí el liderazgo del equipo de Data Delivery (Data Analytics y Bases de Datos) en feb 2026 e hice crecer el equipo conjunto un **39%**, hasta **más de 30 profesionales**.",
             },
           },
         ],
@@ -891,6 +891,10 @@ export const content: Content = {
           en: "The Health Data Space: challenges and opportunities",
           es: "El Espacio de Datos de Salud: retos y oportunidades",
         },
+        shortTitle: {
+          en: "The Health Data Space",
+          es: "El Espacio de Datos de Salud",
+        },
         venue: "Fundación Mapfre, Madrid",
         date: "2026-03",
         description: {
@@ -906,6 +910,10 @@ export const content: Content = {
         title: {
           en: "From Big Data to Smart Data (cover story)",
           es: "Del Big Data al Smart Data (reportaje de portada)",
+        },
+        shortTitle: {
+          en: "From Big Data to Smart Data",
+          es: "Del Big Data al Smart Data",
         },
         venue: "Byte TI nº 344",
         date: "2026-01",
@@ -923,6 +931,7 @@ export const content: Content = {
           en: "Speaker at Cloudera EVOLVE Forum 2025",
           es: "Ponente en Cloudera EVOLVE Forum 2025",
         },
+        shortTitle: "Madrid",
         venue: "Cloudera EVOLVE Forum, Madrid",
         date: "2025-11",
         url: "https://www.linkedin.com/posts/jitorrents_ha-sido-un-aut%C3%A9ntico-placer-haber-podido-ugcPost-7392642311098355712-DfVO",
@@ -935,6 +944,10 @@ export const content: Content = {
           en: "Data spaces and AI for a smarter city, with Madrid City Council",
           es: "Espacios de datos e IA para una ciudad más inteligente, con el Ayuntamiento de Madrid",
         },
+        shortTitle: {
+          en: "Data spaces and AI for cities",
+          es: "Espacios de datos e IA para ciudades",
+        },
         venue: "Smart City Expo World Congress 2025",
         date: "2025-11",
         url: "https://www.linkedin.com/posts/jitorrents_scewc25-share-7391050312243032065-P1S_",
@@ -944,6 +957,7 @@ export const content: Content = {
         type: "talk",
         event: "MWC25",
         title: "AI 360 in action: Transforming data and models with Google Cloud",
+        shortTitle: "AI 360 with Google Cloud",
         venue: {
           en: "MWC25 Barcelona · Kyndryl & Google Cloud session",
           es: "MWC25 Barcelona · sesión de Kyndryl y Google Cloud",
@@ -961,6 +975,10 @@ export const content: Content = {
         title: {
           en: "The NextGen company, with Kyndryl",
           es: "La empresa NextGen, de la mano de Kyndryl",
+        },
+        shortTitle: {
+          en: "The NextGen company",
+          es: "La empresa NextGen",
         },
         venue: "The Game Changers Lab",
         date: "2024-10",
@@ -1192,10 +1210,12 @@ export const content: Content = {
       {
         name: "ACP-120 Atlassian Certified Jira Administrator for Cloud",
         issuer: "Atlassian",
+        onePager: false,
       },
       {
         name: "ACP-620 Atlassian Certified in Managing Jira Cloud Projects",
         issuer: "Atlassian",
+        onePager: false,
       },
       // TODO(verify): issuer not stated in either source.
       {
