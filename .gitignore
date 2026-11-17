@@ -68,3 +68,6 @@ photos-inbox/
 /*.heic
 /*.webp
 /*.pdf
+
+# visual design references (not published)
+design-ref/
