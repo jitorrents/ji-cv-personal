@@ -548,6 +548,7 @@ export const content: Content = {
               en: "Grew our market presence in Data alongside Google Cloud, jointly signing some of Google's most relevant Data projects.",
               es: "Impulsé nuestra presencia de mercado en Datos junto a Google Cloud, firmando conjuntamente algunos de sus proyectos de Datos más relevantes.",
             },
+            url: "https://lnkd.in/p/d2tPPkGB",
           },
           {
             text: {
