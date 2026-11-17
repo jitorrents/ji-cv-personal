@@ -538,36 +538,35 @@ export const content: Content = {
         achievements: [
           {
             text: {
-              en: "Led the winning proposals for two leading Spanish banks to modernise their data platforms.",
-              es: "Lideré las propuestas ganadoras de dos de las principales entidades bancarias españolas para modernizar sus plataformas de datos.",
-            },
-            url: "https://www.bankinter.com/blog/noticias-bankinter/bankinter-google-cloud-summit-madrid",
-          },
-          {
-            text: {
-              en: "Took over the Database tower in February 2026 and have since grown the combined Database and Data Analytics team by 39%.",
-              es: "Asumí la torre de Bases de Datos en febrero de 2026 y desde entonces he hecho crecer un 39% el equipo conjunto de Bases de Datos y Data Analytics.",
+              en: "Led multiple Data wins across banking, healthcare and the public sector, including the winning proposals for two leading Spanish banks to modernise their data platforms.",
+              es: "Lideré múltiples deals de Datos ganados en banca, sanidad y sector público, entre ellos las propuestas ganadoras de dos de las principales entidades bancarias españolas para modernizar sus plataformas de datos.",
             },
           },
           {
             text: {
-              en: "Grew our market presence in Data alongside Google Cloud, jointly signing some of Google's most relevant Data projects.",
-              es: "Impulsé nuestra presencia de mercado en Datos junto a Google Cloud, firmando conjuntamente algunos de sus proyectos de Datos más relevantes.",
+              en: "As part of the ADAI leadership team: ×3 total practice signings in two years (FY24–FY26).",
+              es: "Como parte del equipo de dirección de ADAI: ×3 en signings totales de la práctica en dos años (FY24–FY26).",
+            },
+          },
+          {
+            text: {
+              en: "Grew our Data presence alongside Google Cloud: 4 jointly signed projects, among Google's most relevant Data deals in banking and healthcare.",
+              es: "Impulsé nuestra presencia en Datos junto a Google Cloud: 4 proyectos firmados conjuntamente, entre los más relevantes de Google en Datos en banca y sanidad.",
             },
             url: "https://lnkd.in/p/d2tPPkGB",
           },
           {
             text: {
-              en: "As part of the ADAI leadership team: ×3 practice signings in two years (FY24–FY26), more than doubling ADAI's share of Kyndryl's business, in line with its push into consulting.",
-              es: "Como parte del equipo de dirección de ADAI: ×3 en signings de la práctica en dos años (FY24–FY26), duplicando con creces el peso de ADAI en el negocio de Kyndryl, en línea con su apuesta por la consultoría.",
+              en: "Built Next Data Foundations, the Data offering of the ADAI portfolio across five pillars (strategy, platform & architecture, democratisation, operations & observability, and governance), and the basis of Kyndryl's market presence in Data.",
+              es: "Construí Next Data Foundations, la oferta de Datos del portfolio de ADAI en cinco pilares (estrategia, plataforma y arquitectura, democratización, operaciones y observabilidad, y gobierno), base de la presencia de Kyndryl en el mercado de Datos.",
             },
+            url: "https://lnkd.in/p/eKXefH_9",
           },
           {
             text: {
-              en: "Built Next Data Foundations, our Data portfolio across five pillars: strategy, platform & architecture, democratisation, operations & observability, and governance.",
-              es: "Construí Next Data Foundations, nuestro portfolio de Datos en cinco pilares: estrategia, plataforma y arquitectura, democratización, operaciones y observabilidad, y gobierno.",
+              en: "Took over leadership of the Data Delivery Team (Data Analytics & Database) in February 2026 and have since grown the combined team by 39%.",
+              es: "Asumí el liderazgo del equipo de Data Delivery (Data Analytics y Bases de Datos) en febrero de 2026 y desde entonces he hecho crecer un 39% el equipo conjunto.",
             },
-            url: "https://lnkd.in/p/eKXefH_9",
           },
         ],
         highlights: [
@@ -641,8 +640,8 @@ export const content: Content = {
         achievements: [
           {
             text: {
-              en: "Built the Data & Analytics department from scratch.",
-              es: "Creé el departamento de Data & Analytics desde cero.",
+              en: "Built the Data & Analytics department from scratch, growing it to a team of 8 data professionals.",
+              es: "Creé desde cero el departamento de Data & Analytics, hasta un equipo de 8 profesionales de datos.",
             },
           },
         ],
