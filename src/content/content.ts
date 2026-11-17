@@ -575,8 +575,8 @@ export const content: Content = {
           },
           {
             text: {
-              en: "Built **Next Data Foundations**, the Data offering of the ADAI portfolio across five pillars, and the basis of Kyndryl's **market presence in Data**.",
-              es: "Construí **Next Data Foundations**, la oferta de Datos del portfolio de ADAI en cinco pilares, base de la **presencia de Kyndryl en el mercado de Datos**.",
+              en: "Built **Next Data Foundations**, the Data offering of the ADAI portfolio across five pillars (strategy, platform & architecture, democratisation, operations & observability, and governance), and took it to market as a speaker at industry events, building Kyndryl's **market presence in Data**.",
+              es: "Construí **Next Data Foundations**, la oferta de Datos del portfolio de ADAI en cinco pilares (estrategia, plataforma y arquitectura, democratización, operaciones y observabilidad, y gobierno), y la llevé al mercado como ponente en eventos del sector, impulsando la **presencia de Kyndryl en el mercado de Datos**.",
             },
             url: "https://lnkd.in/p/eKXefH_9",
           },
