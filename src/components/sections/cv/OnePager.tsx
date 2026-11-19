@@ -1,11 +1,11 @@
 import { getContent, type Locale } from "@/content/i18n";
 import { issuerSummary } from "@/lib/certifications";
 import { formatYearMonth, formatYearRange } from "@/lib/dates";
-import { achievements, splitCareer } from "@/lib/experience";
+import { splitCareer } from "@/lib/experience";
 import { languagesByLevel } from "@/lib/languages";
 import { CompactRow } from "./CompactRow";
 import { ContactList } from "./ContactList";
-import { KeyAchievements } from "./KeyAchievements";
+import { CompanyBlock, CompanyHeader } from "./CompanyBlock";
 import { SectionHeading } from "./SectionHeading";
 import { SheetIdentity } from "./SheetIdentity";
 import { SidebarSection } from "./SidebarSection";
@@ -79,46 +79,28 @@ export function OnePager({ locale }: { locale: Locale }) {
         </SidebarSection>
       </aside>
 
-      <div className="flex min-w-0 flex-col px-[10mm] pt-[11mm] pb-[7mm]">
+      <div className="flex min-w-0 flex-col px-[10mm] pt-[10mm] pb-[6mm]">
         <SummaryLead text={summary} />
 
-        <section className="mt-[5mm]">
+        <section className="mt-[4.5mm]">
           <SectionHeading>{t.cvHeadings.experience}</SectionHeading>
-          <div className="mt-[3.5mm]">
+          <div className="mt-[3mm]">
             {main.map((g) => (
-              <section
+              <CompanyBlock
                 key={`${g.company}-${g.start}`}
-                className="border-t border-line pt-[2.6mm] pb-[2.6mm] first:border-0 first:pt-0"
-              >
-                <CompactRow date={formatYearRange(g.start, g.end, t.dates)}>
-                  <span className="font-display text-[11.5pt] font-bold text-title">
-                    {g.company}
-                  </span>
-                </CompactRow>
-                {g.roles.map((job) => (
-                  <div key={`${job.role}-${job.start}`} className="mt-[1.6mm]">
-                    <CompactRow date={formatYearRange(job.start, job.end, t.dates)}>
-                      <span className="font-bold">{job.role}</span>
-                    </CompactRow>
-                    {job.summary && <p className="mt-[0.6mm] text-pretty">{job.summary}</p>}
-                  </div>
-                ))}
-                <KeyAchievements
-                  title={t.keyAchievements}
-                  items={achievements(g)}
-                  className="mt-[2.4mm]"
-                />
-              </section>
+                group={g}
+                t={t}
+                roleDates={(job) => formatYearRange(job.start, job.end, t.dates)}
+              />
             ))}
 
             {earlier.length > 0 && earlierStart && (
-              <section className="border-t border-line pt-[2.6mm]">
-                <CompactRow date={formatYearRange(earlierStart, earlierEnd, t.dates)}>
-                  <span className="font-display text-[11.5pt] font-bold text-title">
-                    {t.earlierCareer}
-                  </span>
-                </CompactRow>
-                <div className="mt-[1.6mm] space-y-[1mm]">
+              <section className="border-t border-line pt-[2mm]">
+                <CompanyHeader
+                  name={t.earlierCareer}
+                  dates={formatYearRange(earlierStart, earlierEnd, t.dates)}
+                />
+                <div className="mt-[1.4mm] space-y-[0.8mm]">
                   {earlier.map(({ role, sectors }) => (
                     <CompactRow
                       key={`${role.company}-${role.start}`}
@@ -139,9 +121,9 @@ export function OnePager({ locale }: { locale: Locale }) {
         </section>
 
         {presence.length > 0 && (
-          <section className="mt-[5mm]">
+          <section className="mt-[4.5mm]">
             <SectionHeading>{t.nav.presence}</SectionHeading>
-            <div className="mt-[3mm] space-y-[1mm]">
+            <div className="mt-[2.6mm] space-y-[0.8mm]">
               {presence.map((p) => (
                 <CompactRow
                   key={`${p.title}-${p.date}`}

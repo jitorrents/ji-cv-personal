@@ -1,16 +1,15 @@
 import { getContent, type Locale } from "@/content/i18n";
 import { groupByIssuer } from "@/lib/certifications";
 import { formatRange, formatYearMonth, formatYearRange } from "@/lib/dates";
-import { achievements, groupByCompany, highlights } from "@/lib/experience";
+import { groupByCompany } from "@/lib/experience";
 import { CompactRow } from "./CompactRow";
+import { CompanyBlock } from "./CompanyBlock";
 import { ContactList } from "./ContactList";
-import { KeyAchievements } from "./KeyAchievements";
 import { SectionHeading } from "./SectionHeading";
 import { SheetIdentity } from "./SheetIdentity";
 import { SidebarSection } from "./SidebarSection";
 import { SummaryLead } from "./SummaryLead";
 import { TopSkills } from "./TopSkills";
-import { SquareBullets } from "./SquareBullets";
 
 /**
  * The whole CV in the one-pager's visual language, for up to two A4 pages: a sand sidebar
@@ -104,35 +103,14 @@ export function CvDocument({ locale }: { locale: Locale }) {
           <SectionHeading>{t.cvHeadings.experience}</SectionHeading>
           <div className="mt-[3.5mm]">
             {groupByCompany(r.experience).map((g) => (
-              <section
+              <CompanyBlock
                 key={`${g.company}-${g.start}`}
-                className="break-inside-avoid border-t border-line pt-[2.6mm] pb-[2.6mm] first:border-0 first:pt-0"
-              >
-                <CompactRow date={formatYearRange(g.start, g.end, t.dates)}>
-                  <span className="font-display text-[11.5pt] font-bold text-title">
-                    {g.company}
-                  </span>
-                </CompactRow>
-                {g.roles.map((job) => (
-                  <div key={`${job.role}-${job.start}`} className="mt-[1.6mm]">
-                    <CompactRow date={formatRange(job.start, job.end, t.dates, false)}>
-                      <span className="font-bold">{job.role}</span>
-                    </CompactRow>
-                    {job.summary && <p className="mt-[0.6mm] text-pretty">{job.summary}</p>}
-                    <SquareBullets
-                      items={highlights(job)}
-                      linkLabel={t.presenceLink}
-                      className="mt-[1.2mm]"
-                    />
-                  </div>
-                ))}
-                <KeyAchievements
-                  title={t.keyAchievements}
-                  items={achievements(g)}
-                  linkLabel={t.presenceLink}
-                  className="mt-[2.4mm]"
-                />
-              </section>
+                group={g}
+                t={t}
+                roleDates={(job) => formatRange(job.start, job.end, t.dates, false)}
+                showHighlights
+                linkLabel={t.presenceLink}
+              />
             ))}
           </div>
         </section>
