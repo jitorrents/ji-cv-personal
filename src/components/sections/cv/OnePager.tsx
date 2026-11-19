@@ -1,4 +1,3 @@
-import { RichText } from "@/components/ui/RichText";
 import { getContent, type Locale } from "@/content/i18n";
 import { issuerSummary } from "@/lib/certifications";
 import { formatYearMonth, formatYearRange } from "@/lib/dates";
@@ -10,7 +9,8 @@ import { KeyAchievements } from "./KeyAchievements";
 import { SectionHeading } from "./SectionHeading";
 import { SheetIdentity } from "./SheetIdentity";
 import { SidebarSection } from "./SidebarSection";
-import { SkillPills } from "./SkillPills";
+import { SummaryLead } from "./SummaryLead";
+import { TopSkills } from "./TopSkills";
 
 const lowerFirst = (s: string, locale: Locale) =>
   s.charAt(0).toLocaleLowerCase(locale) + s.slice(1);
@@ -46,11 +46,7 @@ export function OnePager({ locale }: { locale: Locale }) {
       <aside className="flex flex-col gap-[5.5mm] bg-cloud px-[7.5mm] pt-[12mm] pb-[8mm]">
         <SheetIdentity basics={r.basics} />
 
-        {topSkills?.length ? (
-          <SidebarSection title={t.cvHeadings.topSkills}>
-            <SkillPills items={topSkills} layout="stack" />
-          </SidebarSection>
-        ) : null}
+        <TopSkills title={t.cvHeadings.topSkills} items={topSkills} />
 
         <SidebarSection title={t.cvHeadings.education}>
           <ul className="space-y-[1.2mm] text-[7.3pt]">
@@ -84,10 +80,7 @@ export function OnePager({ locale }: { locale: Locale }) {
       </aside>
 
       <div className="flex min-w-0 flex-col px-[10mm] pt-[11mm] pb-[7mm]">
-        {/* Profile summary as the lead paragraph of the page (no title). */}
-        <p className="text-pretty">
-          <RichText text={summary} />
-        </p>
+        <SummaryLead text={summary} />
 
         <section className="mt-[5mm]">
           <SectionHeading>{t.cvHeadings.experience}</SectionHeading>

@@ -1,4 +1,3 @@
-import { RichText } from "@/components/ui/RichText";
 import { getContent, type Locale } from "@/content/i18n";
 import { groupByIssuer } from "@/lib/certifications";
 import { formatRange, formatYearMonth, formatYearRange } from "@/lib/dates";
@@ -9,14 +8,15 @@ import { KeyAchievements } from "./KeyAchievements";
 import { SectionHeading } from "./SectionHeading";
 import { SheetIdentity } from "./SheetIdentity";
 import { SidebarSection } from "./SidebarSection";
-import { SkillPills } from "./SkillPills";
+import { SummaryLead } from "./SummaryLead";
+import { TopSkills } from "./TopSkills";
 import { SquareBullets } from "./SquareBullets";
 
 /**
  * The whole CV in the one-pager's visual language, for up to two A4 pages: a sand sidebar
- * (identity, profile, education, languages, contact, skills, certifications) and a main
- * column (top skills, every company and role with highlights and key achievements,
- * teaching, public presence). Blocks never split across pages (`break-inside-avoid`); on
+ * (identity, top skills as stacked white pills, education, languages, contact, skills,
+ * certifications) and a main column (profile summary as the lead paragraph, every company
+ * and role with highlights and key achievements, teaching, public presence). Blocks never split across pages (`break-inside-avoid`); on
  * paper the sidebar simply continues on page 2. Sizes in mm/pt so screen and print match.
  */
 export function CvDocument({ locale }: { locale: Locale }) {
@@ -34,11 +34,7 @@ export function CvDocument({ locale }: { locale: Locale }) {
       <aside className="cv-col flex flex-col gap-[5.5mm] bg-cloud px-[7.5mm] pt-[12mm] pb-[10mm]">
         <SheetIdentity basics={r.basics} />
 
-        <SidebarSection title={t.cvHeadings.profile} className="break-inside-avoid">
-          <p className="text-[7.5pt] leading-[1.3]">
-            <RichText text={summary} />
-          </p>
-        </SidebarSection>
+        <TopSkills title={t.cvHeadings.topSkills} items={topSkills} />
 
         <SidebarSection title={t.cvHeadings.education}>
           <ul className="space-y-[1.8mm] text-[7.3pt]">
@@ -102,9 +98,9 @@ export function CvDocument({ locale }: { locale: Locale }) {
       </aside>
 
       <div className="cv-col flex min-w-0 flex-col px-[10mm] pt-[12mm] pb-[10mm]">
-        <SkillPills items={topSkills ?? []} />
+        <SummaryLead text={summary} />
 
-        <section className="mt-[7mm]">
+        <section className="mt-[5mm]">
           <SectionHeading>{t.cvHeadings.experience}</SectionHeading>
           <div className="mt-[3.5mm]">
             {groupByCompany(r.experience).map((g) => (
