@@ -285,6 +285,10 @@ export const content: Content = {
       },
     },
     cvHeadings: {
+      topSkills: {
+        en: "Top skills",
+        es: "Aptitudes clave",
+      },
       profile: {
         en: "Profile",
         es: "Perfil",
@@ -479,8 +483,8 @@ export const content: Content = {
         es: "Head of Data – Applications, Data & AI en Kyndryl Consult",
       },
       tagline: {
-        en: "Bridging business and technology to turn data into value with AI.",
-        es: "Conecto negocio y tecnología para que los datos generen valor con IA.",
+        en: "I bridge business and technology to turn data into value.",
+        es: "Conecto negocio y tecnología para convertir los datos en valor.",
       },
       summary: {
         en: "As Head of Data in Kyndryl's Applications, Data & AI area, I lead the **Data business**: shaping our **value proposition**, taking it to market with our **technology alliances**, helping clients **modernise their data platforms** and **leading the teams** that make it happen. My career began in **engineering**, designing and writing software, and moved into project and service management, business development and team leadership. That grounding lets me speak the same language with a **C-level executive and with an architect**. **Empowered teams** and people development are at the heart of how I lead, along with an active market presence as a **speaker** at industry forums and events.",
@@ -555,15 +559,14 @@ export const content: Content = {
         achievements: [
           {
             text: {
-              en: "Led **multiple Data wins** across banking, healthcare and the public sector, including the winning proposals for **two leading Spanish banks** to modernise their data platforms.",
-              es: "Lideré **múltiples deals de Datos** ganados en banca, sanidad y sector público, entre ellos las propuestas ganadoras de **dos de las principales entidades bancarias españolas** para modernizar sus plataformas de datos.",
+              en: "As part of the ADAI leadership team: **×3 total signings in two years** (FY24–FY26).",
+              es: "Como parte del equipo de dirección de ADAI: **×3 en signings totales en dos años** (FY24–FY26).",
             },
-            url: "https://www.bankinter.com/blog/noticias-bankinter/bankinter-google-cloud-summit-madrid",
           },
           {
             text: {
-              en: "As part of the ADAI leadership team: **×3 total signings in two years** (FY24–FY26).",
-              es: "Como parte del equipo de dirección de ADAI: **×3 en signings totales en dos años** (FY24–FY26).",
+              en: "Led **multiple Data wins** across banking, healthcare and the public sector, including the winning proposals for **two leading Spanish banks** to modernise their data platforms.",
+              es: "Lideré **múltiples deals de Datos** ganados en banca, sanidad y sector público, entre ellos las propuestas ganadoras de **dos de las principales entidades bancarias españolas** para modernizar sus plataformas de datos.",
             },
           },
           {
@@ -936,10 +939,13 @@ export const content: Content = {
         type: "talk",
         event: "Cloudera Evolve",
         title: {
-          en: "Speaker at Cloudera EVOLVE Forum 2025",
-          es: "Ponente en Cloudera EVOLVE Forum 2025",
+          en: "Get data ready for AI, at Cloudera EVOLVE Forum 2025",
+          es: "Datos listos para la IA, en Cloudera EVOLVE Forum 2025",
         },
-        shortTitle: "Madrid",
+        shortTitle: {
+          en: "Get data ready for AI",
+          es: "Datos listos para la IA",
+        },
         venue: "Cloudera EVOLVE Forum, Madrid",
         date: "2025-11",
         url: "https://www.linkedin.com/posts/jitorrents_ha-sido-un-aut%C3%A9ntico-placer-haber-podido-ugcPost-7392642311098355712-DfVO",

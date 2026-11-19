@@ -17,8 +17,9 @@ const lowerFirst = (s: string, locale: Locale) =>
 
 /**
  * The CV on one A4 page (210 × 297 mm), built from content.ts: a sand sidebar (photo, name,
- * profile, education, certifications, languages, contact) and a main column (top skills,
- * recent companies with their key achievements, earlier career, public presence).
+ * tagline, top skills as stacked pills, education, certifications, languages, contact) and a
+ * main column (profile summary as the lead paragraph, recent companies with their key
+ * achievements, earlier career, public presence).
  * Sizes are in mm/pt so the screen card and the printed page match. The sheet always uses
  * the light palette (`sheet-light`), also in dark mode.
  */
@@ -45,11 +46,11 @@ export function OnePager({ locale }: { locale: Locale }) {
       <aside className="flex flex-col gap-[5.5mm] bg-cloud px-[7.5mm] pt-[12mm] pb-[8mm]">
         <SheetIdentity basics={r.basics} />
 
-        <SidebarSection title={t.cvHeadings.profile}>
-          <p className="text-[7.5pt] leading-[1.3]">
-            <RichText text={summary} />
-          </p>
-        </SidebarSection>
+        {topSkills?.length ? (
+          <SidebarSection title={t.cvHeadings.topSkills}>
+            <SkillPills items={topSkills} layout="stack" />
+          </SidebarSection>
+        ) : null}
 
         <SidebarSection title={t.cvHeadings.education}>
           <ul className="space-y-[1.2mm] text-[7.3pt]">
@@ -82,16 +83,19 @@ export function OnePager({ locale }: { locale: Locale }) {
         </SidebarSection>
       </aside>
 
-      <div className="flex min-w-0 flex-col px-[10mm] pt-[12mm] pb-[8mm]">
-        <SkillPills items={topSkills ?? []} />
+      <div className="flex min-w-0 flex-col px-[10mm] pt-[11mm] pb-[7mm]">
+        {/* Profile summary as the lead paragraph of the page (no title). */}
+        <p className="text-pretty">
+          <RichText text={summary} />
+        </p>
 
-        <section className="mt-[7mm]">
+        <section className="mt-[5mm]">
           <SectionHeading>{t.cvHeadings.experience}</SectionHeading>
-          <div className="mt-[4mm]">
+          <div className="mt-[3.5mm]">
             {main.map((g) => (
               <section
                 key={`${g.company}-${g.start}`}
-                className="border-t border-line pt-[3.2mm] pb-[3.2mm] first:border-0 first:pt-0"
+                className="border-t border-line pt-[2.6mm] pb-[2.6mm] first:border-0 first:pt-0"
               >
                 <CompactRow date={formatYearRange(g.start, g.end, t.dates)}>
                   <span className="font-display text-[11.5pt] font-bold text-title">
@@ -99,7 +103,7 @@ export function OnePager({ locale }: { locale: Locale }) {
                   </span>
                 </CompactRow>
                 {g.roles.map((job) => (
-                  <div key={`${job.role}-${job.start}`} className="mt-[2mm]">
+                  <div key={`${job.role}-${job.start}`} className="mt-[1.6mm]">
                     <CompactRow date={formatYearRange(job.start, job.end, t.dates)}>
                       <span className="font-bold">{job.role}</span>
                     </CompactRow>
@@ -109,13 +113,13 @@ export function OnePager({ locale }: { locale: Locale }) {
                 <KeyAchievements
                   title={t.keyAchievements}
                   items={achievements(g)}
-                  className="mt-[3mm]"
+                  className="mt-[2.4mm]"
                 />
               </section>
             ))}
 
             {earlier.length > 0 && earlierStart && (
-              <section className="border-t border-line pt-[3.2mm]">
+              <section className="border-t border-line pt-[2.6mm]">
                 <CompactRow date={formatYearRange(earlierStart, earlierEnd, t.dates)}>
                   <span className="font-display text-[11.5pt] font-bold text-title">
                     {t.earlierCareer}
@@ -142,9 +146,9 @@ export function OnePager({ locale }: { locale: Locale }) {
         </section>
 
         {presence.length > 0 && (
-          <section className="mt-[6mm]">
+          <section className="mt-[5mm]">
             <SectionHeading>{t.nav.presence}</SectionHeading>
-            <div className="mt-[3.5mm] space-y-[1mm]">
+            <div className="mt-[3mm] space-y-[1mm]">
               {presence.map((p) => (
                 <CompactRow
                   key={`${p.title}-${p.date}`}

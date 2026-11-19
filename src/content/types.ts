@@ -245,6 +245,8 @@ export type Labels = {
     fieldJoiner: string;
   };
   cvHeadings: {
+    /** One-pager sidebar block with basics.topSkills. */
+    topSkills: string;
     profile: string;
     experience: string;
     teaching: string;
