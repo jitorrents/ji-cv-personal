@@ -554,7 +554,7 @@ export const content: Content = {
         leadsTeam: true,
         summary: {
           en: "Lead the Data business (offering, go-to-market with our alliances and business development) and its Database and Data Analytics teams.",
-          es: "Lidero el negocio de Datos (oferta, go-to-market con nuestras alianzas y desarrollo de negocio) y sus equipos de Bases de Datos y Data Analytics.",
+          es: "Lidero el negocio de Datos (oferta, go-to-market con nuestras alianzas y desarrollo de negocio) y sus equipos de delivery de Data Analytics y Bases de Datos.",
         },
         achievements: [
           {
@@ -572,7 +572,7 @@ export const content: Content = {
           {
             text: {
               en: "Grew our Data presence alongside Google Cloud: **4 jointly signed projects**, among Google's most relevant Data deals in banking and healthcare.",
-              es: "Impulsé nuestra presencia en Datos junto a Google Cloud: **4 proyectos firmados conjuntamente**, entre los más relevantes de Google en Datos en banca y sanidad.",
+              es: "Hice crecer nuestra presencia en Datos de la mano de Google Cloud, con **4 proyectos firmados conjuntamente**, entre los más relevantes de Google en Datos en banca y sanidad.",
             },
             url: "https://lnkd.in/p/d2tPPkGB",
           },
@@ -586,7 +586,7 @@ export const content: Content = {
           {
             text: {
               en: "Took over leadership of the Data Delivery Team (Data Analytics & Database) in Feb 2026 and grew the combined team by **39%**, to **30+ professionals**.",
-              es: "Asumí el liderazgo del equipo de Data Delivery (Data Analytics y Bases de Datos) en feb 2026 e hice crecer el equipo conjunto un **39%**, hasta **más de 30 profesionales**.",
+              es: "Asumí el liderazgo del equipo de Delivery de Data (Data Analytics y Bases de Datos) en feb 2026 e hice crecer el equipo conjunto un **39%**, hasta **más de 30 profesionales**.",
             },
           },
         ],
