@@ -554,39 +554,39 @@ export const content: Content = {
         leadsTeam: true,
         summary: {
           en: "Lead the Data business (offering, go-to-market with our alliances and business development) and its Database and Data Analytics teams.",
-          es: "Lidero el negocio de Datos (oferta, go-to-market con nuestras alianzas y desarrollo de negocio) y sus equipos de delivery de Data Analytics y Bases de Datos.",
+          es: "Liderazgo del negocio de Datos (oferta, go-to-market con nuestras alianzas y desarrollo de negocio) y de sus equipos de delivery de Data Analytics y Bases de Datos.",
         },
         achievements: [
           {
             text: {
               en: "As part of the ADAI leadership team: **×3 total signings in two years** (FY24–FY26).",
-              es: "Como parte del equipo de dirección de ADAI: **×3 en signings totales en dos años** (FY24–FY26).",
+              es: "Como parte del equipo de dirección de ADAI: **×3 en signings totales de la práctica en dos años** (FY24–FY26).",
             },
           },
           {
             text: {
               en: "Led **multiple Data wins** across banking, healthcare and the public sector, including the winning proposals for **two leading Spanish banks** to modernise their data platforms.",
-              es: "Lideré **múltiples deals de Datos** ganados en banca, sanidad y sector público, entre ellos las propuestas ganadoras de **dos de las principales entidades bancarias españolas** para modernizar sus plataformas de datos.",
+              es: "Liderazgo de **múltiples deals de Datos** ganados en banca, sanidad y sector público, entre ellos las propuestas ganadoras de **dos de las principales entidades bancarias españolas** para modernizar sus plataformas de datos.",
             },
           },
           {
             text: {
               en: "Grew our Data presence alongside Google Cloud: **4 jointly signed projects**, among Google's most relevant Data deals in banking and healthcare.",
-              es: "Hice crecer nuestra presencia en Datos de la mano de Google Cloud, con **4 proyectos firmados conjuntamente**, entre los más relevantes de Google en Datos en banca y sanidad.",
+              es: "Crecimiento de la presencia de Kyndryl en Datos de la mano de Google Cloud, con **4 proyectos firmados conjuntamente**, entre los más relevantes de Google en Datos en banca y sanidad.",
             },
             url: "https://lnkd.in/p/d2tPPkGB",
           },
           {
             text: {
               en: "Built **Next Data Foundations**, the Data offering of the ADAI portfolio across five pillars (strategy, platform & architecture, democratisation, operations & observability, and governance), and took it to market as a speaker at industry events, building Kyndryl's **market presence in Data**.",
-              es: "Construí **Next Data Foundations**, la oferta de Datos del portfolio de ADAI en cinco pilares (estrategia, plataforma y arquitectura, democratización, operaciones y observabilidad, y gobierno), y la llevé al mercado como ponente en eventos del sector, impulsando la **presencia de Kyndryl en el mercado de Datos**.",
+              es: "Creación de **Next Data Foundations**, la oferta de Datos del portfolio de ADAI en cinco pilares (estrategia, plataforma y arquitectura, democratización, operaciones y observabilidad, y gobierno), y su lanzamiento al mercado como ponente en eventos del sector, impulsando la **presencia de Kyndryl en el mercado de Datos**.",
             },
             url: "https://lnkd.in/p/eKXefH_9",
           },
           {
             text: {
               en: "Took over leadership of the Data Delivery Team (Data Analytics & Database) in Feb 2026 and grew the combined team by **39%**, to **30+ professionals**.",
-              es: "Asumí el liderazgo del equipo de Delivery de Data (Data Analytics y Bases de Datos) en feb 2026 e hice crecer el equipo conjunto un **39%**, hasta **más de 30 profesionales**.",
+              es: "Liderazgo del equipo de Delivery de Data (Data Analytics y Bases de Datos) desde febrero de 2026, con un crecimiento del **39%**, hasta **más de 30 profesionales**.",
             },
           },
         ],
@@ -656,13 +656,13 @@ export const content: Content = {
         end: "2022-02",
         summary: {
           en: "Led the department: team, budget, operations, providers and delivery for its main clients in media and healthcare.",
-          es: "Dirigí el departamento: equipo, presupuesto, operaciones, proveedores y delivery para sus principales clientes de audiovisual y sanidad.",
+          es: "Dirección del departamento: equipo, presupuesto, operaciones, proveedores y delivery para sus principales clientes de audiovisual y sanidad.",
         },
         achievements: [
           {
             text: {
               en: "Built the Data & Analytics department **from scratch**, growing it to a **team of 8** data professionals.",
-              es: "Creé **desde cero** el departamento de Data & Analytics, hasta un **equipo de 8** profesionales de datos.",
+              es: "Creación **desde cero** del departamento de Data & Analytics, hasta un **equipo de 8** profesionales de datos.",
             },
           },
         ],
