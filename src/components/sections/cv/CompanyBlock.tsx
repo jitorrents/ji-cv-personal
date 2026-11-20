@@ -40,12 +40,12 @@ export function CompanyBlock({
   linkLabel?: string;
 }) {
   return (
-    <section className="break-inside-avoid border-t border-line pt-[2mm] pb-[2mm] first:border-0 first:pt-0">
+    <section className="break-inside-avoid border-t border-line pt-[1.6mm] pb-[1.6mm] first:border-0 first:pt-0">
       <CompanyHeader
         name={group.company}
         dates={formatYearRange(group.start, group.end, t.dates)}
       />
-      <div className="mt-[1.2mm] space-y-[1.3mm] border-l-[0.6mm] border-line pl-[4.4mm]">
+      <div className="mt-[1mm] space-y-[1.3mm] border-l-[0.6mm] border-line pl-[4.4mm]">
         {group.roles.map((job) => (
           <div key={`${job.role}-${job.start}`}>
             <div className="flex items-baseline justify-between gap-[3mm]">
@@ -65,7 +65,7 @@ export function CompanyBlock({
         title={t.keyAchievements}
         items={achievements(group)}
         linkLabel={linkLabel}
-        className="mt-[2mm]"
+        className="mt-[1.6mm]"
       />
     </section>
   );
