@@ -568,6 +568,7 @@ export const content: Content = {
               en: "Led **multiple Data wins** across banking, healthcare and the public sector, including the winning proposals for **two leading Spanish banks** to modernise their data platforms.",
               es: "Liderazgo de **múltiples deals de Datos** ganados en banca, sanidad y sector público, entre ellos las propuestas ganadoras de **dos de las principales entidades bancarias españolas** para modernizar sus plataformas de datos.",
             },
+            url: "https://www.bankinter.com/blog/noticias-bankinter/bankinter-google-cloud-summit-madrid",
           },
           {
             text: {
